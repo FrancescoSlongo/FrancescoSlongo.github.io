@@ -142,7 +142,7 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 .hero .now{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--margin)}
 .hero .now b{color:var(--accent);font-weight:500}
 .hero-photo{margin:0;flex:none;align-self:flex-start;width:clamp(190px,26vw,330px)}
-.hero-photo .hp-img{aspect-ratio:4/3;border:1px solid var(--hair);background:var(--paper-2) url("Website_picture.jpeg") center/cover no-repeat}
+.hero-photo .hp-img{aspect-ratio:4/3;border:1px solid var(--hair);background:var(--paper-2) url("Website_picture.jpg") center/cover no-repeat}
 .hero-photo figcaption{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--margin-soft);margin-top:.55rem;text-align:right}
 @media(min-width:780px){ .hero-head{flex-direction:row;align-items:center;gap:clamp(1.6rem,4vw,3.2rem)} .hero-intro{flex:1} .hero-photo{align-self:auto} }
 @media(min-width:1180px){ .hero{align-items:flex-start} .hero-center,.hero .toys{margin-left:calc(var(--rail) + clamp(36px,5vw,130px))} .hero .toys{margin-right:auto} }
@@ -291,7 +291,7 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 .cvdl{display:inline-flex;align-items:center;gap:.5rem;margin-top:2.2rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;color:var(--accent);border:1px solid var(--hair);padding:10px 15px;border-radius:2px;transition:border-color .25s,background .25s}
 .cvdl:hover,.cvdl:focus-visible{border-color:var(--accent)}
 
-/* ============================ ARTICLES (expandable) ============================ */
+/* ============================ ARTICLES ============================ */
 .refs{list-style:none;border-top:1px solid var(--hair)}
 details.ref{border-bottom:1px solid var(--hair)}
 details.ref summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:2.4rem 1fr auto;gap:.1rem 1rem;padding-block:1.5rem;align-items:center;transition:padding-left .3s ease}
@@ -634,7 +634,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
           <span class="rchev">+</span>
         </summary>
         <div class="ref-detail">
-          <figure class="ref-fig"><div class="ph">figure.jpg<small data-it="aggiungerò un'immagine">image coming later</small><img alt="" src="article1.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div></figure>
+          <figure class="ref-fig"><div class="ph">Articles/Article_1.png<img alt="" src="Articles/Article_1.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div></figure>
           <div class="ref-body">
             <p class="rabs" data-it="La codifica QUBO permette di campionare sistemi classici a molti corpi altrimenti proibitivi per il Monte Carlo tradizionale — in particolare fusi auto-assemblati di anelli polimerici rigidi su reticolo, dove densità elevata, rigidità di catena e vincoli topologici fanno divergere i tempi di autocorrelazione nello spazio reale.">The quadratic unconstrained binary optimization (QUBO) encoding makes it possible to sample classical many-body systems that are otherwise intractable for conventional Monte Carlo — specifically self-assembled melts of rigid lattice ring polymers, where high density, chain stiffness and topological constraints drive real-space autocorrelation times to diverge.</p>
             <p data-it="Il nostro schema quantum-inspired supera il problema e permette di campionare fusi di anelli su reticolo con curvatura e compattezza fissate, rivelando effetti topologici controintuitivi. Applicando lo stesso approccio al ricottore quantistico D-Wave si ottengono miglioramenti sostanziali di prestazioni e uno scaling vantaggioso del costo computazionale con la dimensione del sistema. <a href='https://doi.org/10.1126/sciadv.adi0204' target='_blank' rel='noopener'>DOI: 10.1126/sciadv.adi0204 ↗</a>">Our quantum-inspired encoding overcomes this problem and enables sampling melts of lattice rings with fixed curvature and compactness, unveiling counterintuitive topological effects. Tackling the same problems with the D-Wave quantum annealer leads to substantial performance improvements and advantageous scaling of sampling cost with the size of the self-assembled ring melts. <a href="https://doi.org/10.1126/sciadv.adi0204" target="_blank" rel="noopener">DOI: 10.1126/sciadv.adi0204 ↗</a></p>
@@ -648,7 +648,21 @@ details.ref[open] .rchev{transform:rotate(45deg)}
           <span class="rchev">+</span>
         </summary>
         <div class="ref-detail">
-          <figure class="ref-fig"><div class="ph">figure.jpg<small data-it="aggiungerò un'immagine">image coming later</small><img alt="" src="article2.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div></figure>
+          <figure class="ref-fig"><div class="ph">Articles/Article_2.png<img alt="" src="Articles/Article_2.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div></figure>
+          <div class="ref-body">
+            <p class="rabs" data-it="Un metodo generale per calcolare medie canoniche di modelli fisici campionati tramite ottimizzazione binaria quadratica non vincolata (QUBO), quantistica o classica, a partire da uno schema di histogram reweighting applicabile a campionamenti QUBO ristretti a intervalli specifici di un parametro d'ordine (es. l'energia).">A general method for computing canonical averages of physical models sampled via quantum or classical quadratic unconstrained binary optimization (QUBO), built on a histogram-reweighting scheme applicable to QUBO-based sampling restricted to specific intervals of an order parameter such as physical energy.</p>
+            <p data-it="Lo schema recupera accuratamente la densità degli stati, permettendo di calcolare valori di aspettazione nell'ensemble coniugato (es. a temperatura fissata) — utile per sistemi altrimenti intrattabili con metodi di campionamento nello spazio reale. Applicato a fusi space-filling di anelli polimerici su reticolo mappati in forma QUBO, il metodo rivela che la probabilità di concatenazione degli anelli è non monotona con la rigidità di curvatura. <a href='https://doi.org/10.1103/PhysRevResearch.7.023116' target='_blank' rel='noopener'>DOI: 10.1103/PhysRevResearch.7.023116 ↗</a>">The scheme accurately recovers the density of states, in turn allowing expectation values to be computed in the conjugate ensemble — e.g. at fixed temperature — for systems otherwise intractable with real-space sampling. Applied to space-filling melts of lattice ring polymers mapped in QUBO form, the method reveals that the ring catenation probability is nonmonotonic with bending rigidity. <a href="https://doi.org/10.1103/PhysRevResearch.7.023116" target="_blank" rel="noopener">DOI: 10.1103/PhysRevResearch.7.023116 ↗</a></p>
+          </div>
+        </div>
+      </details>
+      <details class="ref">
+        <summary>
+          <span class="rnum">[3]</span>
+          <span class="rmid"><span class="rtitle" data-it="Monte Carlo per sistemi autoassemblanti rivela l'attorcigliamento in zuppe di polimeri giganti">Self-assembly Monte Carlo reveals localized entanglement in giant polymer melts</span><span class="rmeta">E. Fornasa, F. Slongo, C. Micheletti · Nature Communications · 2026 · 2025</span></span>
+          <span class="rchev">+</span>
+        </summary>
+        <div class="ref-detail">
+          <figure class="ref-fig"><div class="ph">Articles/Article_3.png<img alt="" src="Articles/Article_3.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div></figure>
           <div class="ref-body">
             <p class="rabs" data-it="Un metodo generale per calcolare medie canoniche di modelli fisici campionati tramite ottimizzazione binaria quadratica non vincolata (QUBO), quantistica o classica, a partire da uno schema di histogram reweighting applicabile a campionamenti QUBO ristretti a intervalli specifici di un parametro d'ordine (es. l'energia).">A general method for computing canonical averages of physical models sampled via quantum or classical quadratic unconstrained binary optimization (QUBO), built on a histogram-reweighting scheme applicable to QUBO-based sampling restricted to specific intervals of an order parameter such as physical energy.</p>
             <p data-it="Lo schema recupera accuratamente la densità degli stati, permettendo di calcolare valori di aspettazione nell'ensemble coniugato (es. a temperatura fissata) — utile per sistemi altrimenti intrattabili con metodi di campionamento nello spazio reale. Applicato a fusi space-filling di anelli polimerici su reticolo mappati in forma QUBO, il metodo rivela che la probabilità di concatenazione degli anelli è non monotona con la rigidità di curvatura. <a href='https://doi.org/10.1103/PhysRevResearch.7.023116' target='_blank' rel='noopener'>DOI: 10.1103/PhysRevResearch.7.023116 ↗</a>">The scheme accurately recovers the density of states, in turn allowing expectation values to be computed in the conjugate ensemble — e.g. at fixed temperature — for systems otherwise intractable with real-space sampling. Applied to space-filling melts of lattice ring polymers mapped in QUBO form, the method reveals that the ring catenation probability is nonmonotonic with bending rigidity. <a href="https://doi.org/10.1103/PhysRevResearch.7.023116" target="_blank" rel="noopener">DOI: 10.1103/PhysRevResearch.7.023116 ↗</a></p>
@@ -699,7 +713,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       <p class="eyebrow"><span class="idx">06</span> <span data-it="In aula">In the classroom</span></p>
       <h2 data-it="Insegnamento">Teaching</h2>
     </div>
-    <p class="lede reveal d1" data-it="Due anni a spiegare fisica e matematica agli adolescenti — e la conferma che se non sai spiegarlo con chiarezza, non l'hai capito.">Two years explaining physics and maths to teenagers — and the proof that if you can't explain it cleanly, you don't understand it.</p>
+    <p class="lede reveal d1" data-it="Materiale che ho creato durante l'insegnamento al liceo scientifico">Material that I developed while teaching at the high school.</p>
     <div class="reveal d2" id="teachWrap">
       <h3 class="pm-arch-h" data-it="Classi e materiale">Classes &amp; material</h3>
       <div class="tm-list" id="teachList"></div>
@@ -738,7 +752,6 @@ details.ref[open] .rchev{transform:rotate(45deg)}
         <span class="note" data-it="clicca per ingrandire">click to enlarge</span></p>
       <h2 data-it="Io, dietro le quinte">Me, behind the scenes</h2>
     </div>
-    <p class="lede reveal d1" data-it="Un frammento visivo di ciò che faccio — le più recenti al centro, le più vecchie verso il bordo.">A visual fragment of what I actually do — newest in the centre, older ones drifting toward the edge.</p>
     <div class="bts-wrap reveal d2">
       <div class="bts-spiral" id="btsSpiral"></div>
     </div>
@@ -1114,10 +1127,10 @@ details.ref[open] .rchev{transform:rotate(45deg)}
   /* ============================ NEWS ============================ */
   /* EDIT ME — newest first. date is "YYYY-MM"; provide en + it text. */
   const NEWS=[
-    { date:"2026-06", en:"New portfolio site goes live — physics toys and all.", it:"Online il nuovo sito portfolio — con tutti i giochini di fisica." },
-    { date:"2026-01", en:"Joined d-fine in Milan as a consultant (project d50).", it:"Entrato in d-fine a Milano come consulente (progetto d50)." },
-    { date:"2025-09", en:"Wrapped up two years teaching physics & maths in Belluno.", it:"Conclusi due anni di insegnamento di fisica e matematica a Belluno." },
-    { date:"2025-06", en:"Polymer-melt Monte Carlo dataset published on Zenodo.", it:"Dataset Monte Carlo dei fusi di polimeri pubblicato su Zenodo." }
+    { date:"2026-07", en:"New personal website goes live! 🎉.", it:"Il mio sito personale è online! 🎉." },
+    { date:"2026-06", en:"Joined d-fine in Milan as a consultant (project d50).", it:"Entrato in d-fine a Milano come consulente (progetto d50)." },
+    { date:"2025-10", en:"Started teaching physics & maths in Belluno.", it:"Iniziato un anno di insegnamento di fisica e matematica a Belluno." },
+    { date:"2025-09", en:"Finished my PhD after 4 years.", it:"Ho completato il mio PhD dopo 4 anni." }
   ];
   (function(){
     const full=document.getElementById("newsList"), hero=document.getElementById("heroNews");
@@ -1142,24 +1155,12 @@ details.ref[open] .rchev{transform:rotate(45deg)}
   /* EDIT ME — newest first. [0] is the current problem; the rest are the archive.
      Statements & solutions accept HTML (use <sup>,<sub>,<em>… or paste KaTeX later). */
   const PROBLEMS=[
-    { id:"2026-06", level:"★★☆",
+    { id:"2026-07", level:"★★☆",
       title_en:"The broken stick", title_it:"Il bastoncino spezzato",
       stmt_en:"<p>A stick is broken at two points chosen independently and uniformly along its length. What is the probability that the three resulting pieces can be arranged into a triangle?</p>",
       stmt_it:"<p>Un bastoncino viene spezzato in due punti scelti in modo indipendente e uniforme lungo la sua lunghezza. Qual è la probabilità che i tre pezzi possano formare un triangolo?</p>",
       sol_en:"<p><strong>1/4.</strong> Let the cut points be x, y ~ U(0,1). A triangle is possible iff no piece exceeds 1/2. Mapping the problem to the unit square, the three &ldquo;some piece &gt; ½&rdquo; regions are disjoint and together cover 3/4 of the area, leaving a probability of <strong>1/4</strong>.</p>",
-      sol_it:"<p><strong>1/4.</strong> Siano x, y ~ U(0,1) i punti di taglio. Il triangolo è possibile se e solo se nessun pezzo supera 1/2. Nel quadrato unitario le tre regioni &ldquo;un pezzo &gt; ½&rdquo; sono disgiunte e coprono 3/4 dell&rsquo;area: resta probabilità <strong>1/4</strong>.</p>" },
-    { id:"2026-05", level:"★☆☆",
-      title_en:"Expected maximum", title_it:"Massimo atteso",
-      stmt_en:"<p>Draw n independent Uniform(0,1) variables. What is the expected value of their maximum?</p>",
-      stmt_it:"<p>Si estraggono n variabili indipendenti Uniform(0,1). Qual è il valore atteso del loro massimo?</p>",
-      sol_en:"<p><strong>n/(n+1).</strong> Since P(max ≤ t) = t<sup>n</sup>, the density is n·t<sup>n−1</sup>, so E[max] = ∫₀¹ t · n·t<sup>n−1</sup> dt = n/(n+1).</p>",
-      sol_it:"<p><strong>n/(n+1).</strong> Poiché P(max ≤ t) = t<sup>n</sup>, la densità è n·t<sup>n−1</sup>, quindi E[max] = ∫₀¹ t · n·t<sup>n−1</sup> dt = n/(n+1).</p>" },
-    { id:"2026-04", level:"★★☆",
-      title_en:"The coupon collector", title_it:"Il collezionista di figurine",
-      stmt_en:"<p>Each box contains one of n equally likely coupons. On average, how many boxes must you open to collect all n?</p>",
-      stmt_it:"<p>Ogni scatola contiene una di n figurine equiprobabili. In media, quante scatole bisogna aprire per averle tutte n?</p>",
-      sol_en:"<p><strong>n·H<sub>n</sub> ≈ n·ln n.</strong> The wait for the k-th new coupon is geometric with success (n−k+1)/n and mean n/(n−k+1); summing over k gives n(1 + 1/2 + … + 1/n) = n·H<sub>n</sub>.</p>",
-      sol_it:"<p><strong>n·H<sub>n</sub> ≈ n·ln n.</strong> L&rsquo;attesa per la k-esima figurina nuova è geometrica con successo (n−k+1)/n e media n/(n−k+1); sommando su k si ottiene n(1 + 1/2 + … + 1/n) = n·H<sub>n</sub>.</p>" }
+      sol_it:"<p><strong>1/4.</strong> Siano x, y ~ U(0,1) i punti di taglio. Il triangolo è possibile se e solo se nessun pezzo supera 1/2. Nel quadrato unitario le tre regioni &ldquo;un pezzo &gt; ½&rdquo; sono disgiunte e coprono 3/4 dell&rsquo;area: resta probabilità <strong>1/4</strong>.</p>" }
   ];
   (function(){
     const cur=document.getElementById("pmCurrent"), arch=document.getElementById("pmArchive"); if(!cur) return;
