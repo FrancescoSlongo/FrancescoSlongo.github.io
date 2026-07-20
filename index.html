@@ -1286,8 +1286,9 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       const el=document.createElement("button"); el.type="button"; el.className=cls;
       el.setAttribute("aria-label",(lang==="it"?p.cap_it:p.cap_en)||"photo");
       const ph=document.createElement("div"); ph.className="ph"; const s=document.createElement("span"); s.textContent="photo"; ph.appendChild(s);
-      const img=document.createElement("img"); img.alt=""; img.src=p.src; img.style.display="none";
+      const img=document.createElement("img"); img.alt=""; img.style.display="none";
       img.onload=()=>{img.style.display="block";}; img.onerror=()=>{img.style.display="none";};
+      img.src=p.src;
       el.append(ph,img); el.addEventListener("click",()=>openLB(p)); return el;
     }
     function layoutSpiral(){
