@@ -1269,7 +1269,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
   })();
 
   /* ============================ BEHIND THE SCENES ============================ */
-  /* Photos load from Extra_pictures/: 1.png (oldest) .. N.png (newest).
+  /* Photos load from Extra_pictures/: 1.jpg (oldest) .. N.jpg (newest).
      Captions come from Extra_pictures/captions_en.txt and captions_it.txt (one caption per line, same order). */
   (function(){
     const spiral=document.getElementById("btsSpiral"); if(!spiral) return;
@@ -1321,7 +1321,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       if(!en){ render(); return; }
       const e=en.map(s=>s.replace(/\s+$/,"")); while(e.length && !e[e.length-1]) e.pop();
       const list=[];
-      for(let i=0;i<e.length;i++){ list.push({ src:"Extra_pictures/"+(i+1)+".png", cap_en:e[i]||"", cap_it:(it&&it[i]!=null?it[i].replace(/\s+$/,""):"")||e[i]||"" }); }
+      for(let i=0;i<e.length;i++){ list.push({ src:"Extra_pictures/"+(i+1)+".jpg", cap_en:e[i]||"", cap_it:(it&&it[i]!=null?it[i].replace(/\s+$/,""):"")||e[i]||"" }); }
       PHOTOS=list.reverse();          // newest (highest number) first → spiral centre
       render();
     })();
