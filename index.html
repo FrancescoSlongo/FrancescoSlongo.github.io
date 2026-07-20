@@ -1295,16 +1295,17 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       spiral.querySelectorAll(".bts-item").forEach(n=>n.remove());
       const W=spiral.clientWidth||800;
       const centerSize=0.34;
-      const outerSize=0.18;
+      const outerSize=0.2;
       for(let i=0;i<SPIRAL_N;i++){
         const p=PHOTOS[i]; let xf,yf,sf;
         if(i===0){
           xf=0.5; yf=0.5; sf=centerSize;
         } else {
           const idx=i-1;
-          const ang=(idx+1)*GOLDEN;
-          const r=0.08 + 0.095*Math.sqrt(idx+1);
-          const sizeFactor=Math.max(0.12, 0.76 - idx*0.03);
+          const skip=idx>=1 && idx%3===0 ? 0.12 : 0;
+          const ang=(idx+1+Math.floor(idx/3))*GOLDEN;
+          const r=0.08 + 0.11*Math.sqrt(idx+1) + skip;
+          const sizeFactor=Math.max(0.22, 0.84 - idx*0.024);
           sf=outerSize*sizeFactor;
           xf=0.5 + r*Math.cos(ang);
           yf=0.5 + r*Math.sin(ang);
