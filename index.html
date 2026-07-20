@@ -221,8 +221,8 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 
 /* ============================ BEHIND THE SCENES ============================ */
 .bts-wrap{display:flex;justify-content:center;margin-top:1.6rem}
-.bts-spiral{position:relative;width:min(820px,92vw);aspect-ratio:1/1;max-height:820px}
-.bts-item{position:absolute;border:1px solid var(--hair);border-radius:2px;overflow:hidden;cursor:pointer;background:var(--paper-2);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;box-shadow:0 1px 3px rgba(22,24,29,.08)}
+.bts-spiral{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;align-items:start;width:min(900px,92vw)}
+.bts-item{position:relative;aspect-ratio:1/1;border:1px solid var(--hair);border-radius:2px;overflow:hidden;cursor:pointer;background:var(--paper-2);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;box-shadow:0 1px 3px rgba(22,24,29,.08)}
 .bts-item:hover{border-color:var(--accent);transform:scale(1.045);z-index:50!important;box-shadow:0 6px 18px rgba(22,24,29,.18)}
 .bts-item:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .bts-item .ph{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent 0,transparent 8px,var(--grid) 8px,var(--grid) 9px);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--margin)}
@@ -543,8 +543,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <section class="section" id="about">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">01</span> <span data-it="Il filo conduttore">The through-line</span>
-        <span class="note">⟨R²⟩ ∝ N</span></p>
+      <p class="eyebrow"><span class="idx">01</span> <span data-it="Il filo conduttore">The through-line</span></p>
       <h2 data-it="Chi sono">About</h2>
     </div>
     <div class="about-grid">
@@ -581,8 +580,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <section class="section" id="cv">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">03</span> <span data-it="Istruzione e lavori">Education &amp; jobs</span>
-        <span class="note">t →</span></p>
+      <p class="eyebrow"><span class="idx">03</span> <span data-it="Istruzione e lavori">Education &amp; jobs</span></p>
       <h2>CV</h2>
     </div>
     <div class="traj">
@@ -621,8 +619,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <section class="section" id="articles">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">04</span> <span data-it="Pubblicazioni">Publications</span>
-        <span class="note" data-it="articoli e preprint">papers &amp; preprints</span></p>
+      <p class="eyebrow"><span class="idx">04</span> <span data-it="Pubblicazioni">Publications</span></p>
       <h2 data-it="Articoli">Articles</h2>
     </div>
     <div class="refs reveal d1">
@@ -739,8 +736,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <section class="section" id="hobbies">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">08</span> <span data-it="Fuori orario">Off the clock</span>
-        <span class="note" data-it="curiosità">curiosities</span></p>
+      <p class="eyebrow"><span class="idx">08</span> <span data-it="Fuori orario">Off the clock</span></p>
       <h2 data-it="Hobby">Hobbies</h2>
     </div>
     <p class="wip reveal d1" data-it="Lavori in corso — presto qui.">Work in progress — coming soon.</p>
@@ -1293,30 +1289,9 @@ details.ref[open] .rchev{transform:rotate(45deg)}
     }
     function layoutSpiral(){
       spiral.querySelectorAll(".bts-item").forEach(n=>n.remove());
-      const W=spiral.clientWidth||800;
-      const centerSize=0.34;
-      const outerSize=0.2;
       for(let i=0;i<SPIRAL_N;i++){
-        const p=PHOTOS[i]; let xf,yf,sf;
-        if(i===0){
-          xf=0.5; yf=0.5; sf=centerSize;
-        } else {
-          const idx=i-1;
-          const skip=idx>=1 && idx%3===0 ? 0.12 : 0;
-          const ang=(idx+1+Math.floor(idx/3))*GOLDEN;
-          const r=0.08 + 0.11*Math.sqrt(idx+1) + skip;
-          const sizeFactor=Math.max(0.22, 0.84 - idx*0.024);
-          sf=outerSize*sizeFactor;
-          xf=0.5 + r*Math.cos(ang);
-          yf=0.5 + r*Math.sin(ang);
-          const half=sf/2;
-          xf=Math.min(1-half,Math.max(half,xf));
-          yf=Math.min(1-half,Math.max(half,yf));
-        }
+        const p=PHOTOS[i];
         const el=thumb(p,"bts-item");
-        el.style.width=el.style.height=(sf*W)+"px";
-        el.style.left=(xf*W-sf*W/2)+"px"; el.style.top=(yf*W-sf*W/2)+"px";
-        el.style.zIndex=String(100-i);
         spiral.appendChild(el);
       }
     }
