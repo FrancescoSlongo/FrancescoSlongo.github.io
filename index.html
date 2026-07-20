@@ -1321,9 +1321,15 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       if(!en){ render(); return; }
       const e=en.map(s=>s.replace(/\s+$/,"")); while(e.length && !e[e.length-1]) e.pop();
       const list=[];
-      for(let i=0;i<e.length;i++){ list.push({ src:"Extra_pictures/"+(i+1)+".jpg", cap_en:e[i]||"", cap_it:(it&&it[i]!=null?it[i].replace(/\s+$/,""):"")||e[i]||"" }); }
-      PHOTOS=list.reverse();          // newest (highest number) first → spiral centre
-      render();
+    for(let i=0;i<e.length;i++){
+        list.push({
+            src:"Picture/"+(i+1)+".jpg",
+            cap_en:e[i]||"",
+            cap_it:(it&&it[i]!=null?it[i].replace(/\s+$/,""):"")||e[i]||""
+        });
+    }      
+    PHOTOS=list.reverse();          // newest (highest number) first → spiral centre
+    render();
     })();
     let rtid; addEventListener("resize",()=>{ clearTimeout(rtid); rtid=setTimeout(()=>{ if(PHOTOS.length) layoutSpiral(); },200); },{passive:true});
   })();
