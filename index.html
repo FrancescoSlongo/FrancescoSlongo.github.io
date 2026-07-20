@@ -1323,11 +1323,11 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       const list=[];
     for(let i=0;i<e.length;i++){
         list.push({
-            src:"Picture/"+(i+1)+".jpg",
+            src:"Extra_pictures/"+(i+1)+".jpg",
             cap_en:e[i]||"",
             cap_it:(it&&it[i]!=null?it[i].replace(/\s+$/,""):"")||e[i]||""
         });
-    }      
+    }
     PHOTOS=list.reverse();          // newest (highest number) first → spiral centre
     render();
     })();
