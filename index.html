@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- EDIT ME: title + description -->
-<title>Francesco — Physicist & Quantitative Consultant</title>
-<meta name="description" content="Francesco — physicist turned quantitative consultant. From polymer melts and quantum states to markets and risk.">
+<title>Francesco Slongo, Physicist & Quantitative Consultant</title>
+<meta name="description" content="Francesco Slongo, a physicist turned quantitative consultant. From polymer melts and quantum states to markets and risk.">
 <meta name="color-scheme" content="light dark">
 <meta name="author" content="Francesco Slongo">
 <meta name="theme-color" content="#e7eae3" media="(prefers-color-scheme: light)">
@@ -13,14 +13,14 @@
 <!-- EDIT ME: set your real domain and add a 1200×630 preview image named og-image.jpg -->
 <link rel="canonical" href="https://example.com/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Francesco — Physicist & Quantitative Consultant">
+<meta property="og:title" content="Francesco Slongo, Physicist & Quantitative Consultant">
 <meta property="og:description" content="Physicist turned quantitative consultant. From polymer melts and quantum states to markets and risk.">
 <meta property="og:url" content="https://example.com/">
 <meta property="og:image" content="https://example.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Francesco — Physicist & Quantitative Consultant">
+<meta name="twitter:title" content="Francesco Slongo, Physicist & Quantitative Consultant">
 <meta name="twitter:description" content="Physicist turned quantitative consultant. From polymer melts and quantum states to markets and risk.">
 <meta name="twitter:image" content="https://example.com/og-image.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%2316181d'/%3E%3Cpath d='M4 22 L9 11 L14 18 L19 7 L27 16' fill='none' stroke='%232438d6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -221,14 +221,16 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 
 /* ============================ BEHIND THE SCENES ============================ */
 .bts-wrap{display:flex;justify-content:center;margin-top:1.6rem}
-.bts-spiral{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;align-items:start;width:min(900px,92vw)}
-.bts-item{position:relative;aspect-ratio:1/1;border:1px solid var(--hair);border-radius:2px;overflow:hidden;cursor:pointer;background:var(--paper-2);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;box-shadow:0 1px 3px rgba(22,24,29,.08)}
-.bts-item:hover{border-color:var(--accent);transform:scale(1.045);z-index:50!important;box-shadow:0 6px 18px rgba(22,24,29,.18)}
-.bts-item:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.bts-item .ph{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent 0,transparent 8px,var(--grid) 8px,var(--grid) 9px);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--margin)}
-.bts-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.bts-item .bts-yr{position:absolute;left:0;bottom:0;font-family:var(--mono);font-size:.56rem;letter-spacing:.04em;color:#fff;background:rgba(20,20,24,.55);padding:2px 6px}
-.bts-item.center{z-index:9}
+.bts-chain{position:relative;width:min(620px,92vw);aspect-ratio:3/2}
+.bts-bonds{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1;pointer-events:none}
+.bts-bonds line{stroke:var(--ink);stroke-opacity:.4;stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke}
+html[data-theme="night"] .bts-bonds line{stroke:var(--accent);stroke-opacity:.45}
+.bts-bead{position:absolute;border-radius:50%;overflow:hidden;cursor:pointer;background:var(--paper-2);border:2px solid var(--paper);box-shadow:0 2px 8px rgba(22,24,29,.16);z-index:3;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.bts-bead:hover{transform:scale(1.09);z-index:30!important;border-color:var(--accent);box-shadow:0 6px 20px rgba(22,24,29,.24)}
+.bts-bead:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bts-bead.newest{border-color:var(--accent)}
+.bts-bead .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,transparent 0,transparent 7px,var(--grid) 7px,var(--grid) 8px);font-family:var(--mono);font-size:.52rem;letter-spacing:.05em;text-transform:uppercase;color:var(--margin)}
+.bts-bead img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 .bts-arch{margin-top:2.6rem}
 .bts-arch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;max-width:720px}
@@ -291,7 +293,7 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 .cvdl{display:inline-flex;align-items:center;gap:.5rem;margin-top:2.2rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;color:var(--accent);border:1px solid var(--hair);padding:10px 15px;border-radius:2px;transition:border-color .25s,background .25s}
 .cvdl:hover,.cvdl:focus-visible{border-color:var(--accent)}
 
-/* ============================ ARTICLES ============================ */
+/* ============================ ARTICLES (expandable) ============================ */
 .refs{list-style:none;border-top:1px solid var(--hair)}
 details.ref{border-bottom:1px solid var(--hair)}
 details.ref summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:2.4rem 1fr auto;gap:.1rem 1rem;padding-block:1.5rem;align-items:center;transition:padding-left .3s ease}
@@ -402,7 +404,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 @media print{
   :root,html,html[data-theme="night"]{--paper:#fff;--paper-2:#fff;--ink:#111;--ink-soft:#222;--margin:#555;--margin-soft:#777;--accent:#1a1a1a;--hair:#ccc;--grid:#eee}
   html,body{background:#fff!important}
-  .topbar,.toc,.rail,.bg-fil,.toys,.hero-news,.hero-index,.scrollcue,.cm-form,.js-theme,.js-lang,canvas,.bts-spiral,.lightbox{display:none!important}
+  .topbar,.toc,.rail,.bg-fil,.toys,.hero-news,.hero-index,.scrollcue,.cm-form,.js-theme,.js-lang,canvas,.bts-chain,.lightbox{display:none!important}
   .hero{min-height:auto!important;padding:0 0 1rem!important}
   .section{min-height:auto!important;height:auto!important;opacity:1!important;transform:none!important;padding:1rem 0!important;page-break-inside:avoid}
   html.sep .section:not(.active){opacity:1!important}
@@ -478,10 +480,10 @@ details.ref[open] .rchev{transform:rotate(45deg)}
   <div class="hero-center">
     <div class="hero-head">
     <div class="hero-intro">
-    <p class="eyebrow"><span class="idx">◦</span> Portfolio / 2026
+    <p class="eyebrow"><span class="idx">◦</span></p>
     <h1 class="display">Francesco<span class="sur">Slongo</span></h1>
-    <p class="thesis" data-it="Ciao! Sono Francesco, e sei giusto capitato sul mio sito web personale. :D Sono un fisico a cui piace risolvere problemi complessi combinando più metodi — matematica, programmazione e statistica. Qui puoi trovare informazioni su di me e sui progetti su cui sto lavorando. Se hai domande o vuoi collaborare, sentiti libero di contattarmi!">Hello! I'm Francesco, and you've just landed on my personal website. :D I'm a physicist who loves to solve complex problems by combining multiple methods, merging mathematics, programming, and statistics. Here you can find information about me and the projects I'm working on. If you have any questions or would like to collaborate, feel free to contact me!</p>
-    <p class="now" data-it="Attualmente — <b>Consulente</b> presso d-fine s.r.l. · Milano">Currently — <b>Consultant</b> at d-fine s.r.l. · Milan</p>
+    <p class="thesis" data-it="Ciao! Sono Francesco, e sei giusto capitato sul mio sito web personale. :D Sono un fisico a cui piace risolvere problemi complessi combinando più metodi: matematica, programmazione e statistica. Qui puoi trovare informazioni su di me e sui progetti su cui sto lavorando. Se hai domande o vuoi collaborare, sentiti libero di contattarmi!">Hello! I'm Francesco, and you've just landed on my personal website. :D I'm a physicist who loves to solve complex problems by combining multiple methods, merging mathematics, programming, and statistics. Here you can find information about me and the projects I'm working on. If you have any questions or would like to collaborate, feel free to contact me!</p>
+    <p class="now" data-it="Attualmente, <b>Consulente</b> presso d-fine s.r.l. · Milano">Currently, <b>Consultant</b> at d-fine s.r.l. · Milan</p>
     </div><!-- /hero-intro -->
     <figure class="hero-photo" role="img" aria-label="Francesco Slongo">
       <div class="hp-img"></div>
@@ -550,14 +552,14 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       <figure class="portrait reveal">
         <div class="portrait-frame">
           <span class="portrait-ph">Profile_picture.jpeg</span>
-          <img id="portrait" alt="Francesco Slongo — portrait" src="Profile_picture.jpeg" style="display:none"
+          <img id="portrait" alt="Portrait of Francesco Slongo" src="Profile_picture.jpeg" style="display:none"
                onload="this.style.display='block'" onerror="this.style.display='none'">
         </div>
         <figcaption data-it="Sci alpinismo sul Monte Avena, vicino a casa">Alpine skiing on Monte Avena, close to my hometown</figcaption>
       </figure>
       <div class="about-text reveal d1">
         <p class="lede" data-it="Francesco Slongo ha studiato fisica all'Università di Trento, trascorrendo il terzo anno all'estero con un Erasmus di 10 mesi all'Università di Oslo. Ha poi conseguito una laurea magistrale in fisica teorica nel programma congiunto Trento–SISSA, e successivamente un dottorato alla SISSA di Trieste, sotto la supervisione di Cristian Micheletti.">Francesco Slongo studied physics at the University of Trento, spending his third year abroad on a 10-month Erasmus exchange at the University of Oslo. He went on to a master's in theoretical physics in the joint Trento–SISSA programme, and then a PhD at SISSA in Trieste, under the supervision of Cristian Micheletti.</p>
-        <p data-it="La sua ricerca di dottorato si è concentrata sullo sviluppo di nuovi algoritmi per il campionamento di sistemi polimerici densi, notoriamente difficili da simulare con metodi convenzionali come il Monte Carlo. Queste tecniche combinavano strategie della meccanica statistica con idee prese in prestito dal calcolo quantistico. Parte della sua ricerca ha inoltre riguardato lo studio delle proprietà topologiche di questi sistemi — l'annodamento e la concatenazione di anelli polimerici, e le proprietà di equilibrio delle catene auto-assemblanti.">His doctoral research focused on developing new algorithms for sampling dense polymer systems, which are notoriously difficult to simulate with conventional methods such as Monte Carlo. These techniques drew both on strategies from statistical mechanics and on ideas borrowed from quantum computing. Part of his research also involved studying the topological properties of such systems — the knotting and linking of polymer rings, and the equilibrium properties of self-assembling chains.</p>
+        <p data-it="La sua ricerca di dottorato si è concentrata sullo sviluppo di nuovi algoritmi per il campionamento di sistemi polimerici densi, notoriamente difficili da simulare con metodi convenzionali come il Monte Carlo. Queste tecniche combinavano strategie della meccanica statistica con idee prese in prestito dal calcolo quantistico. Parte della sua ricerca ha inoltre riguardato lo studio delle proprietà topologiche di questi sistemi, in particolare l'annodamento e la concatenazione di anelli polimerici e le proprietà di equilibrio delle catene auto-assemblanti.">His doctoral research focused on developing new algorithms for sampling dense polymer systems, which are notoriously difficult to simulate with conventional methods such as Monte Carlo. These techniques drew both on strategies from statistical mechanics and on ideas borrowed from quantum computing. Part of his research also involved studying the topological properties of such systems, in particular the knotting and linking of polymer rings and the equilibrium properties of self-assembling chains.</p>
         <p data-it="Dopo il dottorato, Francesco ha trascorso un anno insegnando matematica e fisica a studenti delle superiori a Belluno, prima di entrare in d-fine a Milano come consulente, dove applica metodi Monte Carlo alla gestione del rischio finanziario.">After his PhD, Francesco spent a year teaching mathematics and physics to high-school students in Belluno, before joining d-fine in Milan as a consultant, where he now applies Monte Carlo methods to financial risk management.</p>
         <p data-it="Francesco ama affrontare problemi complessi da diverse angolazioni, combinando matematica, programmazione e statistica.">Francesco enjoys tackling complex problems from different angles, combining mathematics, programming, and statistics.</p>
       </div>
@@ -585,7 +587,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
     </div>
     <div class="traj">
       <article class="entry reveal">
-        <span class="yr" data-it="Giugno 2026 — oggi">June 2026 — now</span>
+        <span class="yr" data-it="Giugno 2026 → oggi">June 2026 → now</span>
         <div>
           <div class="org">d-fine</div>
           <div class="role" data-it="Consulente presso d-fine s.r.l. (Milano)">Consultant at d-fine s.r.l. (Milan)</div>
@@ -593,7 +595,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
         </div>
       </article>
       <article class="entry reveal">
-        <span class="yr" data-it="Novembre 2025 — Maggio 2026">November 2025 — May 2026</span>
+        <span class="yr" data-it="Novembre 2025 → Maggio 2026">November 2025 → May 2026</span>
         <div>
           <div class="org">I.I.S. «Galilei-Tiziano» (Belluno)</div>
           <div class="role" data-it="Docente di Fisica e Matematica">Physics &amp; Mathematics Teacher</div>
@@ -601,7 +603,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
         </div>
       </article>
       <article class="entry reveal">
-        <span class="yr" data-it="Ottobre 2021 — Ottobre 2025">October 2021 — October 2025</span>
+        <span class="yr" data-it="Ottobre 2021 → Ottobre 2025">October 2021 → October 2025</span>
         <div>
           <div class="org">SISSA (Trieste)</div>
           <div class="role" data-it="Dottorato in Fisica e Chimica dei Sistemi Biologici">PhD in Physics and Chemistry of Biological Systems</div>
@@ -632,7 +634,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
         <div class="ref-detail">
           <figure class="ref-fig"><div class="ph">Articles/Article_1.png<img alt="" src="Articles/Article_1.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div></figure>
           <div class="ref-body">
-            <p class="rabs" data-it="La codifica QUBO permette di campionare sistemi classici a molti corpi altrimenti proibitivi per il Monte Carlo tradizionale — in particolare fusi auto-assemblati di anelli polimerici rigidi su reticolo, dove densità elevata, rigidità di catena e vincoli topologici fanno divergere i tempi di autocorrelazione nello spazio reale.">The quadratic unconstrained binary optimization (QUBO) encoding makes it possible to sample classical many-body systems that are otherwise intractable for conventional Monte Carlo — specifically self-assembled melts of rigid lattice ring polymers, where high density, chain stiffness and topological constraints drive real-space autocorrelation times to diverge.</p>
+            <p class="rabs" data-it="La codifica QUBO permette di campionare sistemi classici a molti corpi altrimenti proibitivi per il Monte Carlo tradizionale, in particolare fusi auto-assemblati di anelli polimerici rigidi su reticolo, dove densità elevata, rigidità di catena e vincoli topologici fanno divergere i tempi di autocorrelazione nello spazio reale.">The quadratic unconstrained binary optimization (QUBO) encoding makes it possible to sample classical many-body systems that are otherwise intractable for conventional Monte Carlo, specifically self-assembled melts of rigid lattice ring polymers, where high density, chain stiffness and topological constraints drive real-space autocorrelation times to diverge.</p>
             <p data-it="Il nostro schema quantum-inspired supera il problema e permette di campionare fusi di anelli su reticolo con curvatura e compattezza fissate, rivelando effetti topologici controintuitivi. Applicando lo stesso approccio al ricottore quantistico D-Wave si ottengono miglioramenti sostanziali di prestazioni e uno scaling vantaggioso del costo computazionale con la dimensione del sistema. <a href='https://doi.org/10.1126/sciadv.adi0204' target='_blank' rel='noopener'>DOI: 10.1126/sciadv.adi0204 ↗</a>">Our quantum-inspired encoding overcomes this problem and enables sampling melts of lattice rings with fixed curvature and compactness, unveiling counterintuitive topological effects. Tackling the same problems with the D-Wave quantum annealer leads to substantial performance improvements and advantageous scaling of sampling cost with the size of the self-assembled ring melts. <a href="https://doi.org/10.1126/sciadv.adi0204" target="_blank" rel="noopener">DOI: 10.1126/sciadv.adi0204 ↗</a></p>
           </div>
         </div>
@@ -647,25 +649,21 @@ details.ref[open] .rchev{transform:rotate(45deg)}
           <figure class="ref-fig"><div class="ph">Articles/Article_2.png<img alt="" src="Articles/Article_2.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div></figure>
           <div class="ref-body">
             <p class="rabs" data-it="Un metodo generale per calcolare medie canoniche di modelli fisici campionati tramite ottimizzazione binaria quadratica non vincolata (QUBO), quantistica o classica, a partire da uno schema di histogram reweighting applicabile a campionamenti QUBO ristretti a intervalli specifici di un parametro d'ordine (es. l'energia).">A general method for computing canonical averages of physical models sampled via quantum or classical quadratic unconstrained binary optimization (QUBO), built on a histogram-reweighting scheme applicable to QUBO-based sampling restricted to specific intervals of an order parameter such as physical energy.</p>
-            <p data-it="Lo schema recupera accuratamente la densità degli stati, permettendo di calcolare valori di aspettazione nell'ensemble coniugato (es. a temperatura fissata) — utile per sistemi altrimenti intrattabili con metodi di campionamento nello spazio reale. Applicato a fusi space-filling di anelli polimerici su reticolo mappati in forma QUBO, il metodo rivela che la probabilità di concatenazione degli anelli è non monotona con la rigidità di curvatura. <a href='https://doi.org/10.1103/PhysRevResearch.7.023116' target='_blank' rel='noopener'>DOI: 10.1103/PhysRevResearch.7.023116 ↗</a>">The scheme accurately recovers the density of states, in turn allowing expectation values to be computed in the conjugate ensemble — e.g. at fixed temperature — for systems otherwise intractable with real-space sampling. Applied to space-filling melts of lattice ring polymers mapped in QUBO form, the method reveals that the ring catenation probability is nonmonotonic with bending rigidity. <a href="https://doi.org/10.1103/PhysRevResearch.7.023116" target="_blank" rel="noopener">DOI: 10.1103/PhysRevResearch.7.023116 ↗</a></p>
+            <p data-it="Lo schema recupera accuratamente la densità degli stati, permettendo di calcolare valori di aspettazione nell'ensemble coniugato (es. a temperatura fissata), utile per sistemi altrimenti intrattabili con metodi di campionamento nello spazio reale. Applicato a fusi space-filling di anelli polimerici su reticolo mappati in forma QUBO, il metodo rivela che la probabilità di concatenazione degli anelli è non monotona con la rigidità di curvatura. <a href='https://doi.org/10.1103/PhysRevResearch.7.023116' target='_blank' rel='noopener'>DOI: 10.1103/PhysRevResearch.7.023116 ↗</a>">The scheme accurately recovers the density of states, in turn allowing expectation values to be computed in the conjugate ensemble (e.g. at fixed temperature) for systems otherwise intractable with real-space sampling. Applied to space-filling melts of lattice ring polymers mapped in QUBO form, the method reveals that the ring catenation probability is nonmonotonic with bending rigidity. <a href="https://doi.org/10.1103/PhysRevResearch.7.023116" target="_blank" rel="noopener">DOI: 10.1103/PhysRevResearch.7.023116 ↗</a></p>
           </div>
         </div>
       </details>
       <details class="ref">
         <summary>
           <span class="rnum">[3]</span>
-          <span class="rmid"><span class="rtitle" data-it="Monte Carlo per sistemi autoassemblanti rivela gli attorcigliamenti in zuppe di polimeri giganti">Self-assembly Monte Carlo reveals localized entanglement in giant polymer melts</span><span class="rmeta">E. Fornasa, F. Slongo, C. Micheletti · Nature Communications · 2026</span></span>
+          <span class="rmid"><span class="rtitle" data-it="Il Monte Carlo di autoassemblaggio rivela intrecci localizzati nei fusi di polimeri giganti">Self-assembly Monte Carlo reveals localized entanglement in giant polymer melts</span><span class="rmeta">E. Fornasa, F. Slongo, C. Micheletti · Nature Communications · 2026</span></span>
           <span class="rchev">+</span>
         </summary>
         <div class="ref-detail">
           <figure class="ref-fig"><div class="ph">Articles/Article_3.png<img alt="" src="Articles/Article_3.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div></figure>
           <div class="ref-body">
-            <p class="rabs" data-it="Un metodo Monte Carlo per lo studio degli intrecciamenti topologici nei fusi polimerici, in grado di superare le limitazioni computazionali associate al campionamento all’equilibrio di catene polimeriche lunghe. L’approccio sfrutta un insieme di autoassemblaggio e mosse strettamente locali per propagare efficientemente riconnessioni dello scheletro polimerico su diverse scale, preservando il numero di catene lineari e ottenendo una crescita pressoché lineare del tempo di decorrelazione con la dimensione del sistema.">A Monte Carlo method for studying topological entanglements in polymer melts, overcoming the computational limitations associated with equilibrium sampling of long polymer chains. The approach exploits a self-assembly ensemble and strictly local moves to efficiently propagate backbone reconnections across scales while preserving the number of linear chains, achieving near-linear scaling of the decorrelation time with system size.</p>
-            <p data-it="Applicato a fusi polimerici reticolari completamente occupati, il metodo permette di portare all’equilibrio sistemi contenenti oltre un miliardo di monomeri e di accedere al regime universale dei fusi. La caratterizzazione degli intrecciamenti intra- e inter-catena mostra che essi sono determinati da nodi e legami localizzati piuttosto che da intrecciamenti globali estesi, con un integrale di Gauss tra catene vicine che cresce solamente come N
-1/4
-. <a href='https://www.nature.com/articles/s41467-026-74480-4' target='_blank' rel='noopener'>DOI: https://doi.org/10.1038/s41467-026-74480-4 ↗</a>">Applied to fully-packed lattice melts, the method enables the equilibration of systems containing more than one billion monomers and provides access to the universal melt regime. The characterization of intra- and inter-chain entanglements reveals that they arise from localized knots and links rather than global tangles, with the Gauss linking integral between neighboring chains growing only as N
-1/4
-. <a href="https://www.nature.com/articles/s41467-026-74480-4" target="_blank" rel="noopener">DOI: https://doi.org/10.1038/s41467-026-74480-4 ↗</a></p>
+            <p class="rabs" data-it="Un metodo Monte Carlo per lo studio degli intrecci topologici nei fusi polimerici, che supera le limitazioni computazionali del campionamento all'equilibrio di catene lunghe. L'approccio sfrutta un insieme di autoassemblaggio e mosse strettamente locali per propagare in modo efficiente le riconnessioni dello scheletro polimerico su diverse scale, preservando il numero di catene lineari e ottenendo una crescita quasi lineare del tempo di decorrelazione con la dimensione del sistema.">A Monte Carlo method for studying topological entanglements in polymer melts, overcoming the computational limitations associated with equilibrium sampling of long polymer chains. The approach exploits a self-assembly ensemble and strictly local moves to efficiently propagate backbone reconnections across scales while preserving the number of linear chains, achieving near-linear scaling of the decorrelation time with system size.</p>
+            <p data-it="Applicato a fusi reticolari completamente occupati, il metodo permette di equilibrare sistemi con oltre un miliardo di monomeri e di accedere al regime universale dei fusi. La caratterizzazione degli intrecci intra- e inter-catena mostra che nascono da nodi e concatenazioni localizzati piuttosto che da grovigli globali, con l'integrale di linking di Gauss tra catene vicine che cresce solo come N<sup>1/4</sup>. <a href='https://www.nature.com/articles/s41467-026-74480-4' target='_blank' rel='noopener'>DOI: 10.1038/s41467-026-74480-4 ↗</a>">Applied to fully-packed lattice melts, the method enables the equilibration of systems containing more than one billion monomers and provides access to the universal melt regime. The characterization of intra- and inter-chain entanglements reveals that they arise from localized knots and links rather than global tangles, with the Gauss linking integral between neighbouring chains growing only as N<sup>1/4</sup>. <a href="https://www.nature.com/articles/s41467-026-74480-4" target="_blank" rel="noopener">DOI: 10.1038/s41467-026-74480-4 ↗</a></p>
           </div>
         </div>
       </details>
@@ -696,7 +694,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       </article>
       <article class="topic">
         <h3 data-it="Metodi Monte Carlo">Monte Carlo methods</h3>
-        <p data-it="Campionare l'improbabile in modo efficiente — il cavallo di battaglia dietro gran parte dei miei risultati.">Sampling the improbable efficiently — the workhorse behind most of my results.</p>
+        <p data-it="Campionare l'improbabile in modo efficiente: il cavallo di battaglia dietro gran parte dei miei risultati.">Sampling the improbable efficiently: the workhorse behind most of my results.</p>
       </article>
       <article class="topic">
         <h3 data-it="Finanza quantitativa e processi stocastici">Quantitative finance &amp; stochastic processes</h3>
@@ -713,7 +711,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       <p class="eyebrow"><span class="idx">06</span> <span data-it="In aula">In the classroom</span></p>
       <h2 data-it="Insegnamento">Teaching</h2>
     </div>
-    <p class="lede reveal d1" data-it="Materiale che ho creato durante l'insegnamento al liceo scientifico">Material that I developed while teaching at the high school.</p>
+    <p class="lede reveal d1" data-it="Materiale che ho creato durante l'insegnamento al liceo scientifico.">Material that I developed while teaching at the high school.</p>
     <div class="reveal d2" id="teachWrap">
       <h3 class="pm-arch-h" data-it="Classi e materiale">Classes &amp; material</h3>
       <div class="tm-list" id="teachList"></div>
@@ -728,7 +726,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       <p class="eyebrow"><span class="idx">07</span> <span data-it="Cose che ho costruito">Things I've built</span></p>
       <h2 data-it="Progetti">Projects</h2>
     </div>
-    <p class="wip reveal d1" data-it="Lavori in corso — presto qui.">Work in progress — coming soon.</p>
+    <p class="wip reveal d1" data-it="Lavori in corso, presto qui.">Work in progress, coming soon.</p>
   </div>
 </section>
 
@@ -739,7 +737,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       <p class="eyebrow"><span class="idx">08</span> <span data-it="Fuori orario">Off the clock</span></p>
       <h2 data-it="Hobby">Hobbies</h2>
     </div>
-    <p class="wip reveal d1" data-it="Lavori in corso — presto qui.">Work in progress — coming soon.</p>
+    <p class="wip reveal d1" data-it="Lavori in corso, presto qui.">Work in progress, coming soon.</p>
   </div>
 </section>
 
@@ -747,12 +745,14 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <section class="section" id="scenes">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">09</span> <span data-it="Dietro le quinte">Behind the scenes</span>
-        <span class="note" data-it="clicca per ingrandire">click to enlarge</span></p>
+      <p class="eyebrow"><span class="idx">09</span> <span data-it="Dietro le quinte">Behind the scenes</span></p>
       <h2 data-it="Io, dietro le quinte">Me, behind the scenes</h2>
     </div>
+    <p class="lede reveal d1" data-it="Un frammento visivo di ciò che faccio: le più recenti al centro, le più vecchie verso il bordo.">A visual fragment of what I actually do: newest in the centre, older ones drifting toward the edge.</p>
     <div class="bts-wrap reveal d2">
-      <div class="bts-spiral" id="btsSpiral"></div>
+      <div class="bts-chain" id="btsChain">
+        <svg class="bts-bonds" id="btsBonds" aria-hidden="true" preserveAspectRatio="none"></svg>
+      </div>
     </div>
     <div class="bts-arch reveal d2" id="btsArchWrap" hidden>
       <h3 class="pm-arch-h" data-it="Archivio">Archive</h3>
@@ -777,8 +777,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <section class="section" id="comments">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">10</span> <span data-it="Bacheca">Guestbook</span>
-        <span class="note" data-it="anonimo">anonymous</span></p>
+      <p class="eyebrow"><span class="idx">10</span> <span data-it="Bacheca">Guestbook</span></p>
       <h2 data-it="Lascia un messaggio">Leave a note</h2>
     </div>
     <div class="reveal d1">
@@ -799,8 +798,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <section class="section contact" id="contact">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">11</span> <span data-it="Contatti">Get in touch</span>
-        <span class="note" data-it="la penna atterra qui">the pen lands here</span></p>
+      <p class="eyebrow"><span class="idx">11</span> <span data-it="Contatti">Get in touch</span></p>
       <h2 data-it="Parliamone">Let's talk</h2>
     </div>
     <p class="lede reveal d1" data-it="Disponibile a parlare di <em>problemi stimolanti e divertenti</em>.">Open to conversations about <em>challenging and fun problems</em>.</p>
@@ -815,7 +813,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
         <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.9 3.87 6 2.5 6S0 4.9 0 3.5 1.12 1 2.5 1s2.48 1.1 2.48 2.5zM.2 8h4.6v14H.2V8zm7.5 0h4.4v1.9h.1c.6-1.1 2.1-2.3 4.3-2.3 4.6 0 5.5 3 5.5 6.9V22h-4.6v-6.6c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5V22H7.7V8z"/></svg></span>
         <span class="lbl2">LinkedIn</span><span class="meta">linkedin.com/in/francesco-slongo-4b463a244 ↗</span></a>
     </div>
-    <p class="loc reveal" data-it="A Milano — 45.46°N, 9.19°E">Based in Milan — 45.46°N, 9.19°E</p>
+    <p class="loc reveal" data-it="A Milano · 45.46°N, 9.19°E">Based in Milan · 45.46°N, 9.19°E</p>
   </div>
 </section>
 
@@ -841,7 +839,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       <p class="eyebrow"><span class="idx">13</span> <span data-it="Trovato un bug?">Found a bug?</span></p>
       <h2 data-it="Segnala un bug">Report a bug</h2>
     </div>
-    <p class="lede reveal d1" data-it="Qualcosa non funziona o è storto? Dimmelo — mi aiuti a sistemarlo.">Something broken or out of place? Tell me — it helps me fix it.</p>
+    <p class="lede reveal d1" data-it="Qualcosa non funziona o è storto? Dimmelo: mi aiuti a sistemarlo.">Something broken or out of place? Tell me; it helps me fix it.</p>
     <div class="cm-form bug-form reveal d2">
       <textarea id="bugText" maxlength="1200" data-it-ph="Cosa non va? In quale sezione, e cosa ti aspettavi?" placeholder="What went wrong? Which section, and what did you expect?" aria-label="Describe the bug"></textarea>
       <div class="cm-row">
@@ -858,7 +856,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <footer class="foot">
   <div class="wrap">
     <span>© <span id="yr"></span> <span data-it="Francesco. Fatto a mano.">Francesco. Built by hand.</span></span>
-    <span data-it="Composto in Spectral e IBM Plex Mono · la linea nel margine è un cammino casuale — appropriato.">Set in Spectral &amp; IBM Plex Mono · the line down the margin is a random walk — fitting.</span>
+    <span data-it="Composto in Spectral e IBM Plex Mono · la linea nel margine è un cammino casuale, il che è appropriato.">Set in Spectral &amp; IBM Plex Mono · the line down the margin is a random walk, which feels fitting.</span>
   </div>
 </footer>
 
@@ -889,7 +887,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
   document.querySelectorAll(".js-theme").forEach(b=>b.addEventListener("click",()=>{ theme=theme==="night"?"day":"night"; store.set("fr.theme",theme); applyTheme(theme); }));
 
   /* ============================ LANGUAGE ============================ */
-  const TITLES={en:"Francesco — Physicist & Quantitative Consultant", it:"Francesco — Fisico e Consulente Quantitativo"};
+  const TITLES={en:"Francesco Slongo, Physicist & Quantitative Consultant", it:"Francesco Slongo, Fisico e Consulente Quantitativo"};
   const i18nEls=[...document.querySelectorAll("[data-it]")];
   i18nEls.forEach(el=>{ el._en=el.innerHTML; });
   const phEls=[...document.querySelectorAll("[data-it-ph]")];
@@ -905,7 +903,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
   document.querySelectorAll(".js-lang").forEach(b=>b.addEventListener("click",()=>{ lang=lang==="it"?"en":"it"; store.set("fr.lang",lang); applyLang(lang); window._newsRender&&window._newsRender(); window._pmRender&&window._pmRender(); window._btsRender&&window._btsRender(); window._teachRender&&window._teachRender(); window._cmRender&&window._cmRender(); }));
 
   /* =====================================================================
-     SIMULATION FACTORIES — each runs inside its own corner canvas.
+     SIMULATION FACTORIES: each runs inside its own corner canvas.
      g = { ctx, W, H, mouse, pal, reduce }
   ===================================================================== */
   function simPolymer(){
@@ -1124,9 +1122,9 @@ details.ref[open] .rchev{transform:rotate(45deg)}
     document.querySelectorAll("section[id]").forEach(s=>io.observe(s)); })();
 
   /* ============================ NEWS ============================ */
-  /* EDIT ME — newest first. date is "YYYY-MM"; provide en + it text. */
+  /* EDIT ME: newest first. date is "YYYY-MM"; provide en + it text. */
   const NEWS=[
-    { date:"2026-07", en:"New personal website goes live! 🎉.", it:"Il mio sito personale è online! 🎉." },
+    { date:"2026-07", en:"New personal website goes live! 🎉", it:"Il mio sito personale è online! 🎉" },
     { date:"2026-06", en:"Joined d-fine in Milan as a consultant (project d50).", it:"Entrato in d-fine a Milano come consulente (progetto d50)." },
     { date:"2025-10", en:"Started teaching physics & maths in Belluno.", it:"Iniziato un anno di insegnamento di fisica e matematica a Belluno." },
     { date:"2025-09", en:"Finished my PhD after 4 years.", it:"Ho completato il mio PhD dopo 4 anni." }
@@ -1151,7 +1149,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
   })();
 
   /* ============================ PROBLEM OF THE MONTH ============================ */
-  /* EDIT ME — newest first. [0] is the current problem; the rest are the archive.
+  /* EDIT ME: newest first. [0] is the current problem; the rest are the archive.
      Statements & solutions accept HTML (use <sup>,<sub>,<em>… or paste KaTeX later). */
   const PROBLEMS=[
     { id:"2026-07", level:"★★☆",
@@ -1227,20 +1225,20 @@ details.ref[open] .rchev{transform:rotate(45deg)}
     send.addEventListener("click",()=>{
       const body=(textEl.value||"").trim();
       const fromLine=(fromEl.value||"").trim()? ("from: "+fromEl.value.trim()+"\n\n") : "";
-      const ctx=["","— — — — —",
+      const ctx=["","-----",
         "page: "+location.href,
         "when: "+new Date().toISOString(),
         "viewport: "+window.innerWidth+"×"+window.innerHeight,
         "theme: "+(root.getAttribute("data-theme")||"day")+" · lang: "+(root.getAttribute("lang")||"en"),
         "ua: "+navigator.userAgent].join("\n");
-      const subject=lang==="it"?"Bug — sito portfolio":"Bug report — portfolio site";
+      const subject=lang==="it"?"Bug: sito portfolio":"Bug report: portfolio site";
       const mail="mailto:"+EMAIL+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(fromLine+(body||(lang==="it"?"(descrivi il bug)":"(describe the bug)"))+"\n"+ctx);
       window.location.href=mail;
     });
   })();
 
   /* ============================ TEACHING MATERIAL ============================ */
-  /* Loads a document list from Teaching/Class/list.txt — one per line: "filename" or "filename :: Title". */
+  /* Loads a document list from Teaching/Class/list.txt: one per line: "filename" or "filename :: Title". */
   (function(){
     const list=document.getElementById("teachList"); if(!list) return;
     const ext=n=>{ const m=/\.([a-z0-9]+)$/i.exec(n); return m?m[1].toUpperCase():""; };
@@ -1268,11 +1266,11 @@ details.ref[open] .rchev{transform:rotate(45deg)}
   /* Photos load from Extra_pictures/: 1.jpg (oldest) .. N.jpg (newest).
      Captions come from Extra_pictures/captions_en.txt and captions_it.txt (one caption per line, same order). */
   (function(){
-    const spiral=document.getElementById("btsSpiral"); if(!spiral) return;
+    const chain=document.getElementById("btsChain"); if(!chain) return;
+    const bonds=document.getElementById("btsBonds");
     const archWrap=document.getElementById("btsArchWrap"), archGrid=document.getElementById("btsArchive");
     const lb=document.getElementById("lightbox"), lbImg=document.getElementById("lbImg"), lbCap=document.getElementById("lbCap"), lbClose=document.getElementById("lbClose");
-    const GOLDEN=137.508*Math.PI/180;
-    let PHOTOS=[], SPIRAL_N=0, lastFocus=null;
+    let PHOTOS=[], CHAIN_N=0, lastFocus=null;
     function openLB(p){ lastFocus=document.activeElement; lbImg.style.display="none"; lbImg.src=p.src; const cap=(lang==="it"?p.cap_it:p.cap_en)||""; lbImg.alt=cap; lbCap.textContent=cap; lb.hidden=false; document.body.style.overflow="hidden"; lbClose.focus(); }
     function closeLB(){ lb.hidden=true; document.body.style.overflow=""; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
     lbClose.addEventListener("click",closeLB);
@@ -1282,26 +1280,40 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       const el=document.createElement("button"); el.type="button"; el.className=cls;
       el.setAttribute("aria-label",(lang==="it"?p.cap_it:p.cap_en)||"photo");
       const ph=document.createElement("div"); ph.className="ph"; const s=document.createElement("span"); s.textContent="photo"; ph.appendChild(s);
-      const img=document.createElement("img"); img.alt=""; img.style.display="none";
+      const img=document.createElement("img"); img.alt=""; img.src=p.src; img.style.display="none";
       img.onload=()=>{img.style.display="block";}; img.onerror=()=>{img.style.display="none";};
-      img.src=p.src;
       el.append(ph,img); el.addEventListener("click",()=>openLB(p)); return el;
     }
-    function layoutSpiral(){
-      spiral.querySelectorAll(".bts-item").forEach(n=>n.remove());
-      for(let i=0;i<SPIRAL_N;i++){
-        const p=PHOTOS[i];
-        const el=thumb(p,"bts-item");
-        spiral.appendChild(el);
+    /* lay the newest 10 photos out as a relaxed self-avoiding polymer chain, bonds drawn behind */
+    function layoutChain(){
+      chain.querySelectorAll(".bts-bead").forEach(n=>n.remove());
+      if(bonds) bonds.innerHTML="";
+      const N=CHAIN_N; if(!N) return;
+      const W=chain.clientWidth||600, H=chain.clientHeight||Math.round((chain.clientWidth||600)/1.5);
+      const base=Math.min(W,H)*(N<=4?0.15:N<=7?0.12:0.098);
+      const rad=[]; for(let i=0;i<N;i++) rad.push(i===0?base*1.25:base);
+      const pos=[]; let x=W*0.3,y=H*0.5,ang=Math.random()*6.283;
+      for(let i=0;i<N;i++){ pos.push([x,y]); const L=(rad[i]+(rad[i+1]||base))*1.25; ang+=(Math.random()-0.5)*1.7; x+=Math.cos(ang)*L; y+=Math.sin(ang)*L; }
+      const pad=4;
+      for(let it=0;it<240;it++){
+        for(let i=0;i<N-1;i++){ const L=(rad[i]+rad[i+1])*1.22,dx=pos[i+1][0]-pos[i][0],dy=pos[i+1][1]-pos[i][1],d=Math.hypot(dx,dy)||1,k=(d-L)/d*0.5; pos[i][0]+=dx*k;pos[i][1]+=dy*k;pos[i+1][0]-=dx*k;pos[i+1][1]-=dy*k; }
+        for(let i=0;i<N;i++)for(let j=i+2;j<N;j++){ const mn=(rad[i]+rad[j])*1.05,dx=pos[j][0]-pos[i][0],dy=pos[j][1]-pos[i][1],d=Math.hypot(dx,dy)||1; if(d<mn){ const k=(mn-d)/d*0.5; pos[i][0]-=dx*k;pos[i][1]-=dy*k;pos[j][0]+=dx*k;pos[j][1]+=dy*k; } }
+        for(let i=0;i<N;i++){ pos[i][0]=Math.max(rad[i]+pad,Math.min(W-rad[i]-pad,pos[i][0])); pos[i][1]=Math.max(rad[i]+pad,Math.min(H-rad[i]-pad,pos[i][1])); }
       }
+      if(bonds){ bonds.setAttribute("viewBox","0 0 "+W+" "+H); let dd="";
+        for(let i=0;i<N-1;i++) dd+='<line x1="'+pos[i][0].toFixed(1)+'" y1="'+pos[i][1].toFixed(1)+'" x2="'+pos[i+1][0].toFixed(1)+'" y2="'+pos[i+1][1].toFixed(1)+'"/>';
+        bonds.innerHTML=dd; }
+      for(let i=0;i<N;i++){ const R=rad[i], el=thumb(PHOTOS[i], "bts-bead"+(i===0?" newest":""));
+        el.style.width=el.style.height=(2*R)+"px"; el.style.left=(pos[i][0]-R)+"px"; el.style.top=(pos[i][1]-R)+"px"; el.style.zIndex=String(i===0?12:3);
+        chain.appendChild(el); }
     }
     function layoutArchive(){
-      const rest=PHOTOS.slice(SPIRAL_N);
+      const rest=PHOTOS.slice(CHAIN_N);
       if(!rest.length){ if(archWrap) archWrap.hidden=true; return; }
       archWrap.hidden=false; archGrid.textContent="";
       rest.forEach(p=>archGrid.appendChild(thumb(p,"bts-a-item")));
     }
-    function render(){ if(!PHOTOS.length){ spiral.querySelectorAll(".bts-item").forEach(n=>n.remove()); if(archWrap) archWrap.hidden=true; return; } SPIRAL_N=Math.min(20,PHOTOS.length); layoutSpiral(); layoutArchive(); }
+    function render(){ if(!PHOTOS.length){ chain.querySelectorAll(".bts-bead").forEach(n=>n.remove()); if(bonds) bonds.innerHTML=""; if(archWrap) archWrap.hidden=true; return; } CHAIN_N=Math.min(10,PHOTOS.length); layoutChain(); layoutArchive(); }
     window._btsRender=render;
     async function lines(url){ try{ const r=await fetch(url,{cache:"no-store"}); if(!r.ok) return null; return (await r.text()).split(/\r?\n/); }catch(e){ return null; } }
     (async function(){
@@ -1310,17 +1322,11 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       if(!en){ render(); return; }
       const e=en.map(s=>s.replace(/\s+$/,"")); while(e.length && !e[e.length-1]) e.pop();
       const list=[];
-    for(let i=0;i<e.length;i++){
-        list.push({
-            src:"Extra_pictures/"+(i+1)+".jpg",
-            cap_en:e[i]||"",
-            cap_it:(it&&it[i]!=null?it[i].replace(/\s+$/,""):"")||e[i]||""
-        });
-    }
-    PHOTOS=list.reverse();          // newest (highest number) first → spiral centre
-    render();
+      for(let i=0;i<e.length;i++){ list.push({ src:"Extra_pictures/"+(i+1)+".jpg", cap_en:e[i]||"", cap_it:(it&&it[i]!=null?it[i].replace(/\s+$/,""):"")||e[i]||"" }); }
+      PHOTOS=list.reverse();          // newest (highest number) first → head of the chain
+      render();
     })();
-    let rtid; addEventListener("resize",()=>{ clearTimeout(rtid); rtid=setTimeout(()=>{ if(PHOTOS.length) layoutSpiral(); },200); },{passive:true});
+    let rtid; addEventListener("resize",()=>{ clearTimeout(rtid); rtid=setTimeout(()=>{ if(PHOTOS.length) layoutChain(); },200); },{passive:true});
   })();
 
   /* ============================ GUESTBOOK ============================ */
@@ -1332,7 +1338,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
     const save=a=>{ try{localStorage.setItem(KEY,JSON.stringify(a));}catch(e){} };
     const fmt=ts=>{ try{return new Date(ts).toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});}catch(e){return"";} };
     function render(){ const arr=load(); list.textContent="";
-      if(!arr.length){ const e=document.createElement("p"); e.className="cm-empty"; e.textContent=(lang==="it"?"Ancora nessun messaggio — scrivi tu il primo.":"No notes yet — be the first."); list.appendChild(e); return; }
+      if(!arr.length){ const e=document.createElement("p"); e.className="cm-empty"; e.textContent=(lang==="it"?"Ancora nessun messaggio. Scrivi tu il primo.":"No notes yet. Be the first."); list.appendChild(e); return; }
       arr.slice().reverse().forEach(c=>{ const item=document.createElement("div"); item.className="cm";
         const h=document.createElement("div"); h.className="cm-head";
         const nk=document.createElement("span"); nk.className="cm-nick"; nk.textContent=c.nick;
