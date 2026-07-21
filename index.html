@@ -115,7 +115,7 @@ html.sep .hero:not(.active),html.sep .section:not(.active){opacity:.16;transform
 
 /* ============================ SIDE TOC ============================ */
 .toc{position:fixed;top:50%;right:18px;transform:translateY(-50%);z-index:6;display:none;flex-direction:column;gap:12px;align-items:flex-end}
-.toc-mtn{position:absolute;top:50%;right:-35px;width:95px;height:313px;transform:translateY(-50%);z-index:-1;pointer-events:none;overflow:visible}
+.toc-mtn{position:absolute;top:50%;right:-35px;width:95px;height:338px;transform:translateY(-50%);z-index:-1;pointer-events:none;overflow:visible}
 .toc-mtn .mtn-fill{fill:var(--ink);fill-opacity:.16;stroke:none}
 .toc-mtn .mtn-line{fill:none;stroke:var(--ink);stroke-opacity:.5;stroke-width:1.1;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
 html[data-theme="night"] .toc-mtn .mtn-fill{fill-opacity:.24}
@@ -139,12 +139,14 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 .hero h1{font-size:clamp(3rem,10vw,7rem);margin-bottom:.4rem}
 .hero h1 .sur{display:block;font-weight:inherit;font-style:normal;color:inherit}
 .hero .thesis{font-size:clamp(1.15rem,2.2vw,1.55rem);font-weight:300;line-height:1.45;max-width:34ch;margin:1.3rem 0 1.8rem;color:var(--ink)}
+.hero .thesis a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 45%,transparent);transition:border-color .2s ease,color .2s ease}
+.hero .thesis a:hover,.hero .thesis a:focus-visible{border-color:var(--accent)}
 .hero .now{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--margin)}
 .hero .now b{color:var(--accent);font-weight:500}
-.hero-photo{margin:0;flex:none;align-self:flex-start;width:clamp(190px,26vw,330px)}
+.hero-photo{margin:0;flex:none;align-self:flex-start;width:clamp(230px,32vw,400px)}
 .hero-photo .hp-img{aspect-ratio:4/3;border:1px solid var(--hair);background:var(--paper-2) url("Website_picture.jpg") center/cover no-repeat}
 .hero-photo figcaption{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--margin-soft);margin-top:.55rem;text-align:right}
-@media(min-width:780px){ .hero-head{flex-direction:row;align-items:center;gap:clamp(1.6rem,4vw,3.2rem)} .hero-intro{flex:1} .hero-photo{align-self:auto} }
+@media(min-width:780px){ .hero-head{flex-direction:row;align-items:flex-start;gap:clamp(1.6rem,4vw,3.2rem)} .hero-intro{flex:1} .hero-photo{align-self:flex-start;margin-top:.4rem} }
 @media(min-width:1180px){ .hero{align-items:flex-start} .hero-center,.hero .toys{margin-left:calc(var(--rail) + clamp(36px,5vw,130px))} .hero .toys{margin-right:auto} }
 .scrollcue{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--margin-soft);display:flex;align-items:center;gap:.6em}
 .scrollcue .ln{width:40px;height:1px;background:var(--margin-soft);transform-origin:left;animation:cue 2.4s ease-in-out infinite}
@@ -221,7 +223,8 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 
 /* ============================ BEHIND THE SCENES ============================ */
 .bts-wrap{display:flex;justify-content:center;margin-top:1.6rem}
-.bts-chain{position:relative;width:min(620px,92vw);aspect-ratio:3/2}
+.bts-chain{position:relative;width:min(980px,96vw);aspect-ratio:5/2}
+@media(max-width:640px){ .bts-chain{aspect-ratio:3/2} }
 .bts-bonds{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1;pointer-events:none}
 .bts-bonds line{stroke:var(--ink);stroke-opacity:.4;stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke}
 html[data-theme="night"] .bts-bonds line{stroke:var(--accent);stroke-opacity:.45}
@@ -452,11 +455,11 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 
 <!-- side table of contents -->
 <nav class="toc" id="toc" aria-label="On this page">
-  <svg class="toc-mtn" viewBox="0 0 95 313" aria-hidden="true" preserveAspectRatio="none">
+  <svg class="toc-mtn" viewBox="0 0 95 338" aria-hidden="true" preserveAspectRatio="none">
     <defs><filter id="mrough" x="-15%" y="-6%" width="135%" height="118%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.4"/></filter></defs>
     <g filter="url(#mrough)">
-      <path class="mtn-fill" d="M95 0 L43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L41 231.5 L31 256.5 L34 281.5 L50 306.5 L50 313 L95 313 Z"/>
-      <path class="mtn-line" d="M43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L41 231.5 L31 256.5 L34 281.5 L50 306.5 L50 313"/>
+      <path class="mtn-fill" d="M95 0 L43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338 L95 338 Z"/>
+      <path class="mtn-line" d="M43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338"/>
     </g>
   </svg>
   <a href="#top" data-target="top" style="--dx:-17px"><span class="tlbl" data-it="inizio">top</span><span class="tdot"></span></a>
@@ -482,7 +485,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
     <div class="hero-intro">
     <p class="eyebrow"><span class="idx">◦</span></p>
     <h1 class="display">Francesco<span class="sur">Slongo</span></h1>
-    <p class="thesis" data-it="Ciao! Sono Francesco, e sei giusto capitato sul mio sito web personale. :D Sono un fisico a cui piace risolvere problemi complessi combinando più metodi: matematica, programmazione e statistica. Qui puoi trovare informazioni su di me e sui progetti su cui sto lavorando. Se hai domande o vuoi collaborare, sentiti libero di contattarmi!">Hello! I'm Francesco, and you've just landed on my personal website. :D I'm a physicist who loves to solve complex problems by combining multiple methods, merging mathematics, programming, and statistics. Here you can find information about me and the projects I'm working on. If you have any questions or would like to collaborate, feel free to contact me!</p>
+    <p class="thesis" data-it="Ciao! Sono Francesco, e sei giusto capitato sul mio sito web personale. :D Sono un fisico a cui piace risolvere problemi complessi combinando più metodi: matematica, programmazione e statistica. Qui puoi trovare <a href='#about'>informazioni su di me</a> e <a href='#projects'>i progetti su cui sto lavorando</a>. Se hai domande o vuoi collaborare, <a href='#contact'>sentiti libero di contattarmi</a>!">Hello! I'm Francesco, and you've just landed on my personal website. :D I'm a physicist who loves to solve complex problems by combining multiple methods, merging mathematics, programming, and statistics. Here you can find <a href="#about">information about me</a> and <a href="#projects">the projects I'm working on</a>. If you have any questions or would like to collaborate, <a href="#contact">feel free to contact me</a>!</p>
     <p class="now" data-it="Attualmente, <b>Consulente</b> presso d-fine s.r.l. · Milano">Currently, <b>Consultant</b> at d-fine s.r.l. · Milan</p>
     </div><!-- /hero-intro -->
     <figure class="hero-photo" role="img" aria-label="Francesco Slongo">
@@ -748,7 +751,6 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       <p class="eyebrow"><span class="idx">09</span> <span data-it="Dietro le quinte">Behind the scenes</span></p>
       <h2 data-it="Io, dietro le quinte">Me, behind the scenes</h2>
     </div>
-    <p class="lede reveal d1" data-it="Un frammento visivo di ciò che faccio: le più recenti al centro, le più vecchie verso il bordo.">A visual fragment of what I actually do: newest in the centre, older ones drifting toward the edge.</p>
     <div class="bts-wrap reveal d2">
       <div class="bts-chain" id="btsChain">
         <svg class="bts-bonds" id="btsBonds" aria-hidden="true" preserveAspectRatio="none"></svg>
@@ -1273,6 +1275,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
     let PHOTOS=[], CHAIN_N=0, lastFocus=null;
     function openLB(p){ lastFocus=document.activeElement; lbImg.style.display="none"; lbImg.src=p.src; const cap=(lang==="it"?p.cap_it:p.cap_en)||""; lbImg.alt=cap; lbCap.textContent=cap; lb.hidden=false; document.body.style.overflow="hidden"; lbClose.focus(); }
     function closeLB(){ lb.hidden=true; document.body.style.overflow=""; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+    window._lightbox=(src,cap)=>{ if(src) openLB({src:src,cap_en:cap||"",cap_it:cap||""}); };
     lbClose.addEventListener("click",closeLB);
     lb.addEventListener("click",e=>{ if(e.target===lb) closeLB(); });
     addEventListener("keydown",e=>{ if(e.key==="Escape"&&!lb.hidden) closeLB(); });
@@ -1289,22 +1292,23 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       chain.querySelectorAll(".bts-bead").forEach(n=>n.remove());
       if(bonds) bonds.innerHTML="";
       const N=CHAIN_N; if(!N) return;
-      const W=chain.clientWidth||600, H=chain.clientHeight||Math.round((chain.clientWidth||600)/1.5);
-      const base=Math.min(W,H)*(N<=4?0.15:N<=7?0.12:0.098);
-      const rad=[]; for(let i=0;i<N;i++) rad.push(i===0?base*1.25:base);
-      const pos=[]; let x=W*0.3,y=H*0.5,ang=Math.random()*6.283;
-      for(let i=0;i<N;i++){ pos.push([x,y]); const L=(rad[i]+(rad[i+1]||base))*1.25; ang+=(Math.random()-0.5)*1.7; x+=Math.cos(ang)*L; y+=Math.sin(ang)*L; }
-      const pad=4;
-      for(let it=0;it<240;it++){
-        for(let i=0;i<N-1;i++){ const L=(rad[i]+rad[i+1])*1.22,dx=pos[i+1][0]-pos[i][0],dy=pos[i+1][1]-pos[i][1],d=Math.hypot(dx,dy)||1,k=(d-L)/d*0.5; pos[i][0]+=dx*k;pos[i][1]+=dy*k;pos[i+1][0]-=dx*k;pos[i+1][1]-=dy*k; }
-        for(let i=0;i<N;i++)for(let j=i+2;j<N;j++){ const mn=(rad[i]+rad[j])*1.05,dx=pos[j][0]-pos[i][0],dy=pos[j][1]-pos[i][1],d=Math.hypot(dx,dy)||1; if(d<mn){ const k=(mn-d)/d*0.5; pos[i][0]-=dx*k;pos[i][1]-=dy*k;pos[j][0]+=dx*k;pos[j][1]+=dy*k; } }
-        for(let i=0;i<N;i++){ pos[i][0]=Math.max(rad[i]+pad,Math.min(W-rad[i]-pad,pos[i][0])); pos[i][1]=Math.max(rad[i]+pad,Math.min(H-rad[i]-pad,pos[i][1])); }
+      const W=chain.clientWidth||900, H=chain.clientHeight||Math.round((chain.clientWidth||900)*0.4);
+      const pad=6;
+      let r=Math.min( W/(N+0.6)*0.44, H*0.42, 58 );
+      if(N>1){ const sp=(W-2*(r+pad))/(N-1); r=Math.min(r, sp*0.42); }
+      const mX=r+pad, mY=r+pad;
+      const pos=[]; let y=H*0.5, vy=(Math.random()-0.5)*H*0.2;
+      for(let i=0;i<N;i++){
+        const x = N>1 ? mX + i*(W-2*mX)/(N-1) : W*0.5;
+        pos.push([x,y]);
+        vy += (Math.random()-0.5)*(H*0.5); vy*=0.58; y += vy;
+        if(y<mY){ y=mY; vy=Math.abs(vy)*0.5; } if(y>H-mY){ y=H-mY; vy=-Math.abs(vy)*0.5; }
       }
       if(bonds){ bonds.setAttribute("viewBox","0 0 "+W+" "+H); let dd="";
         for(let i=0;i<N-1;i++) dd+='<line x1="'+pos[i][0].toFixed(1)+'" y1="'+pos[i][1].toFixed(1)+'" x2="'+pos[i+1][0].toFixed(1)+'" y2="'+pos[i+1][1].toFixed(1)+'"/>';
         bonds.innerHTML=dd; }
-      for(let i=0;i<N;i++){ const R=rad[i], el=thumb(PHOTOS[i], "bts-bead"+(i===0?" newest":""));
-        el.style.width=el.style.height=(2*R)+"px"; el.style.left=(pos[i][0]-R)+"px"; el.style.top=(pos[i][1]-R)+"px"; el.style.zIndex=String(i===0?12:3);
+      for(let i=0;i<N;i++){ const el=thumb(PHOTOS[i], "bts-bead"+(i===0?" newest":""));
+        el.style.width=el.style.height=(2*r)+"px"; el.style.left=(pos[i][0]-r)+"px"; el.style.top=(pos[i][1]-r)+"px"; el.style.zIndex=String(i===0?12:3);
         chain.appendChild(el); }
     }
     function layoutArchive(){
@@ -1364,6 +1368,21 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       let topEl=null,best=-1; secs.forEach(s=>{const r=ratios.get(s)||0; if(r>best){best=r;topEl=s;}});
       secs.forEach(s=>s.classList.toggle("active", s===topEl)); },{threshold:[0,.15,.3,.5,.7,.9,1]});
     secs.forEach(s=>io.observe(s));
+  })();
+
+  /* ============================ ARTICLE FIGURES → LIGHTBOX ============================ */
+  (function(){
+    document.querySelectorAll(".ref-fig").forEach(fig=>{
+      const img=fig.querySelector("img"); if(!img) return;
+      fig.style.cursor="zoom-in";
+      fig.addEventListener("click",e=>{ e.preventDefault(); e.stopPropagation();
+        const src=img.getAttribute("src");
+        if(src && img.style.display!=="none" && window._lightbox){
+          const t=fig.closest(".ref"); const title=t?t.querySelector(".rtitle"):null;
+          window._lightbox(src, title?title.textContent:"");
+        }
+      });
+    });
   })();
 
   /* ============================ BOOT ============================ */
