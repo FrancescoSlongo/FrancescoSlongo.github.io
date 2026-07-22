@@ -133,12 +133,13 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 /* ============================ HERO ============================ */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:104px 20px 88px;z-index:2}
 .hero-center{max-width:min(880px,92vw);width:100%;z-index:3}
-.hero-head{display:flex;flex-direction:column;gap:1.6rem}
+.hero-head{display:flex;flex-direction:column;gap:1.6rem;margin-top:1.3rem}
 .hero-intro{min-width:0}
+.hero-desc{min-width:0}
 .hero .eyebrow{margin-bottom:1.6rem}
 .hero h1{font-size:clamp(3rem,10vw,7rem);margin-bottom:.4rem}
 .hero h1 .sur{display:block;font-weight:inherit;font-style:normal;color:inherit}
-.hero .thesis{font-size:clamp(1.15rem,2.2vw,1.55rem);font-weight:300;line-height:1.45;max-width:34ch;margin:1.3rem 0 1.8rem;color:var(--ink)}
+.hero .thesis{font-size:clamp(1.15rem,2.2vw,1.55rem);font-weight:300;line-height:1.45;max-width:34ch;margin:0 0 1.8rem;color:var(--ink)}
 .hero .thesis a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 45%,transparent);transition:border-color .2s ease,color .2s ease}
 .hero .thesis a:hover,.hero .thesis a:focus-visible{border-color:var(--accent)}
 .hero .now{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--margin)}
@@ -146,7 +147,7 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 .hero-photo{margin:0;flex:none;align-self:flex-start;width:clamp(230px,32vw,400px)}
 .hero-photo .hp-img{aspect-ratio:4/3;border:1px solid var(--hair);background:var(--paper-2) url("Website_picture.jpg") center/cover no-repeat}
 .hero-photo figcaption{font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--margin-soft);margin-top:.55rem;text-align:right}
-@media(min-width:780px){ .hero-head{flex-direction:row;align-items:flex-start;gap:clamp(1.6rem,4vw,3.2rem)} .hero-intro{flex:1} .hero-photo{align-self:flex-start;margin-top:.4rem} }
+@media(min-width:780px){ .hero-head{flex-direction:row;align-items:flex-start;gap:clamp(1.6rem,4vw,3.2rem)} .hero-desc{flex:1} .hero-photo{align-self:flex-start} }
 @media(min-width:1180px){ .hero{align-items:flex-start} .hero-center,.hero .toys{margin-left:calc(var(--rail) + clamp(36px,5vw,130px))} .hero .toys{margin-right:auto} }
 .scrollcue{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--margin-soft);display:flex;align-items:center;gap:.6em}
 .scrollcue .ln{width:40px;height:1px;background:var(--margin-soft);transform-origin:left;animation:cue 2.4s ease-in-out infinite}
@@ -481,16 +482,18 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <!-- ============================ HERO ============================ -->
 <section class="hero" id="top">
   <div class="hero-center">
-    <div class="hero-head">
     <div class="hero-intro">
     <p class="eyebrow"><span class="idx">◦</span></p>
     <h1 class="display">Francesco<span class="sur">Slongo</span></h1>
+    </div>
+    <div class="hero-head">
+      <div class="hero-desc">
     <p class="thesis" data-it="Ciao! Sono Francesco, e sei giusto capitato sul mio sito web personale. :D Sono un fisico a cui piace risolvere problemi complessi combinando più metodi: matematica, programmazione e statistica. Qui puoi trovare <a href='#about'>informazioni su di me</a> e <a href='#projects'>i progetti su cui sto lavorando</a>. Se hai domande o vuoi collaborare, <a href='#contact'>sentiti libero di contattarmi</a>!">Hello! I'm Francesco, and you've just landed on my personal website. :D I'm a physicist who loves to solve complex problems by combining multiple methods, merging mathematics, programming, and statistics. Here you can find <a href="#about">information about me</a> and <a href="#projects">the projects I'm working on</a>. If you have any questions or would like to collaborate, <a href="#contact">feel free to contact me</a>!</p>
     <p class="now" data-it="Attualmente, <b>Consulente</b> presso d-fine s.r.l. · Milano">Currently, <b>Consultant</b> at d-fine s.r.l. · Milan</p>
-    </div><!-- /hero-intro -->
-    <figure class="hero-photo" role="img" aria-label="Francesco Slongo">
-      <div class="hp-img"></div>
-    </figure>
+      </div>
+      <figure class="hero-photo" role="img" aria-label="Francesco Slongo">
+        <div class="hp-img"></div>
+      </figure>
     </div><!-- /hero-head -->
     <div class="hero-news" aria-label="Latest news">
       <span class="hn-h" data-it="Novità">Latest</span>
@@ -1294,15 +1297,17 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       const N=CHAIN_N; if(!N) return;
       const W=chain.clientWidth||900, H=chain.clientHeight||Math.round((chain.clientWidth||900)*0.4);
       const pad=6;
-      let r=Math.min( W/(N+0.6)*0.44, H*0.42, 58 );
-      if(N>1){ const sp=(W-2*(r+pad))/(N-1); r=Math.min(r, sp*0.42); }
-      const mX=r+pad, mY=r+pad;
-      const pos=[]; let y=H*0.5, vy=(Math.random()-0.5)*H*0.2;
+      let r=Math.min( W/(N+0.6)*0.5, H*0.44, 66 );
+      if(N>1){ const sp=(W-2*(r+pad))/(N-1); r=Math.min(r, sp*0.46); }
+      const mX=r+pad, mY=r+pad, amp=H*0.5-mY;
+      const ph1=Math.random()*6.283, ph2=Math.random()*6.283;
+      const k=(2.1+Math.random()*1.6)*Math.PI*2/Math.max(N-1,1);   // 2-3.7 humps → contorted, fills the height
+      const pos=[];
       for(let i=0;i<N;i++){
         const x = N>1 ? mX + i*(W-2*mX)/(N-1) : W*0.5;
-        pos.push([x,y]);
-        vy += (Math.random()-0.5)*(H*0.5); vy*=0.58; y += vy;
-        if(y<mY){ y=mY; vy=Math.abs(vy)*0.5; } if(y>H-mY){ y=H-mY; vy=-Math.abs(vy)*0.5; }
+        let yy = H*0.5 + amp*(0.72*Math.sin(ph1+i*k) + 0.28*Math.sin(ph2+i*k*2.3)) + (Math.random()-0.5)*H*0.1;
+        yy=Math.max(mY,Math.min(H-mY,yy));
+        pos.push([x,yy]);
       }
       if(bonds){ bonds.setAttribute("viewBox","0 0 "+W+" "+H); let dd="";
         for(let i=0;i<N-1;i++) dd+='<line x1="'+pos[i][0].toFixed(1)+'" y1="'+pos[i][1].toFixed(1)+'" x2="'+pos[i+1][0].toFixed(1)+'" y2="'+pos[i+1][1].toFixed(1)+'"/>';
