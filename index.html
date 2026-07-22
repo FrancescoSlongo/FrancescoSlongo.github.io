@@ -225,6 +225,10 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 /* ============================ BEHIND THE SCENES ============================ */
 .bts-wrap{display:flex;justify-content:center;margin-top:1.6rem}
 .bts-chain{position:relative;width:min(980px,96vw);aspect-ratio:5/2}
+#scenes .wrap{position:relative}
+.bts-link{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}
+.bts-link line{stroke:var(--ink);stroke-opacity:.4;stroke-width:2;stroke-dasharray:5 5;stroke-linecap:round;vector-effect:non-scaling-stroke}
+html[data-theme="night"] .bts-link line{stroke:var(--accent);stroke-opacity:.5}
 @media(max-width:640px){ .bts-chain{aspect-ratio:3/2} }
 .bts-bonds{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1;pointer-events:none}
 .bts-bonds line{stroke:var(--ink);stroke-opacity:.4;stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke}
@@ -750,6 +754,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 <!-- ============================ BEHIND THE SCENES ============================ -->
 <section class="section" id="scenes">
   <div class="wrap">
+    <svg class="bts-link" id="btsLink" aria-hidden="true" preserveAspectRatio="none"></svg>
     <div class="shead reveal">
       <p class="eyebrow"><span class="idx">09</span> <span data-it="Dietro le quinte">Behind the scenes</span></p>
       <h2 data-it="Io, dietro le quinte">Me, behind the scenes</h2>
@@ -1291,6 +1296,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       el.append(ph,img); el.addEventListener("click",()=>openLB(p)); return el;
     }
     /* lay the newest 10 photos out as a relaxed self-avoiding polymer chain, bonds drawn behind */
+    let archEndBead=null;
     function layoutChain(){
       chain.querySelectorAll(".bts-bead").forEach(n=>n.remove());
       if(bonds) bonds.innerHTML="";
@@ -1312,9 +1318,25 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       if(bonds){ bonds.setAttribute("viewBox","0 0 "+W+" "+H); let dd="";
         for(let i=0;i<N-1;i++) dd+='<line x1="'+pos[i][0].toFixed(1)+'" y1="'+pos[i][1].toFixed(1)+'" x2="'+pos[i+1][0].toFixed(1)+'" y2="'+pos[i+1][1].toFixed(1)+'"/>';
         bonds.innerHTML=dd; }
-      for(let i=0;i<N;i++){ const el=thumb(PHOTOS[i], "bts-bead"+(i===0?" newest":""));
-        el.style.width=el.style.height=(2*r)+"px"; el.style.left=(pos[i][0]-r)+"px"; el.style.top=(pos[i][1]-r)+"px"; el.style.zIndex=String(i===0?12:3);
+      const chainArr=PHOTOS.slice(0,N).reverse();   // oldest of the top-N first (left), newest last (right)
+      archEndBead=null;
+      for(let i=0;i<N;i++){ const newest=(i===N-1); const el=thumb(chainArr[i], "bts-bead"+(newest?" newest":""));
+        el.style.width=el.style.height=(2*r)+"px"; el.style.left=(pos[i][0]-r)+"px"; el.style.top=(pos[i][1]-r)+"px"; el.style.zIndex=String(newest?12:3);
+        if(i===0) archEndBead=el;   // oldest end → links down to the archive
         chain.appendChild(el); }
+    }
+    function drawLink(){
+      const overlay=document.getElementById("btsLink"); if(!overlay) return;
+      overlay.innerHTML="";
+      if(!archWrap || archWrap.hidden || !archEndBead) return;
+      const firstArch=archGrid.querySelector(".bts-a-item"), wrapEl=overlay.parentElement;
+      if(!firstArch||!wrapEl) return;
+      const wr=wrapEl.getBoundingClientRect(), b=archEndBead.getBoundingClientRect(), a=firstArch.getBoundingClientRect();
+      if(!wr.width) return;
+      overlay.setAttribute("viewBox","0 0 "+wr.width.toFixed(1)+" "+wr.height.toFixed(1));
+      const x1=(b.left+b.width/2-wr.left).toFixed(1), y1=(b.top+b.height/2-wr.top).toFixed(1);
+      const x2=(a.left+a.width/2-wr.left).toFixed(1), y2=(a.top+a.height/2-wr.top).toFixed(1);
+      overlay.innerHTML='<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'"/>';
     }
     function layoutArchive(){
       const rest=PHOTOS.slice(CHAIN_N);
@@ -1322,7 +1344,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       archWrap.hidden=false; archGrid.textContent="";
       rest.forEach(p=>archGrid.appendChild(thumb(p,"bts-a-item")));
     }
-    function render(){ if(!PHOTOS.length){ chain.querySelectorAll(".bts-bead").forEach(n=>n.remove()); if(bonds) bonds.innerHTML=""; if(archWrap) archWrap.hidden=true; return; } CHAIN_N=Math.min(10,PHOTOS.length); layoutChain(); layoutArchive(); }
+    function render(){ if(!PHOTOS.length){ chain.querySelectorAll(".bts-bead").forEach(n=>n.remove()); if(bonds) bonds.innerHTML=""; const ov=document.getElementById("btsLink"); if(ov) ov.innerHTML=""; if(archWrap) archWrap.hidden=true; return; } CHAIN_N=Math.min(10,PHOTOS.length); layoutChain(); layoutArchive(); requestAnimationFrame(drawLink); }
     window._btsRender=render;
     async function lines(url){ try{ const r=await fetch(url,{cache:"no-store"}); if(!r.ok) return null; return (await r.text()).split(/\r?\n/); }catch(e){ return null; } }
     (async function(){
@@ -1335,7 +1357,7 @@ details.ref[open] .rchev{transform:rotate(45deg)}
       PHOTOS=list.reverse();          // newest (highest number) first → head of the chain
       render();
     })();
-    let rtid; addEventListener("resize",()=>{ clearTimeout(rtid); rtid=setTimeout(()=>{ if(PHOTOS.length) layoutChain(); },200); },{passive:true});
+    let rtid; addEventListener("resize",()=>{ clearTimeout(rtid); rtid=setTimeout(()=>{ if(PHOTOS.length){ layoutChain(); requestAnimationFrame(drawLink); } },200); },{passive:true});
   })();
 
   /* ============================ GUESTBOOK ============================ */
