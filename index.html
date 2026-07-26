@@ -1603,13 +1603,22 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
   /* ============================ SECTION FOCUS ============================ */
   (function sep(){
     const secs=[...document.querySelectorAll(".hero, .section")];
-    if(reduce||!("IntersectionObserver"in window)||secs.length<2) return;
-    secs[0].classList.add("active"); root.classList.add("sep");
-    const ratios=new Map();
-    const io=new IntersectionObserver((es)=>{ es.forEach(en=>ratios.set(en.target,en.intersectionRatio));
-      let topE=l=null,best=-1; secs.forEach(s=>{const r=ratios.get(s)||0; if(r>best){best=r;topEl=s;}});
-      secs.forEach(s=>s.classList.toggle("active", s===topEl)); },{threshold:[0,.15,.3,.5,.7,.9,1]});
-    secs.forEach(s=>io.observe(s));
+    if(reduce||secs.length<2) return;
+    root.classList.add("sep");
+    let ticking=false;
+    function pick(){
+      ticking=false;
+      const mid=innerHeight*0.5;
+      let best=secs[0], bestDist=Infinity;
+      for(const s of secs){ const r=s.getBoundingClientRect();
+        const d=(r.top>mid)?r.top-mid:(r.bottom<mid?mid-r.bottom:0);   // 0 = section straddles the viewport midline
+        if(d<bestDist){ bestDist=d; best=s; } }
+      secs.forEach(s=>s.classList.toggle("active", s===best));
+    }
+    const onScroll=()=>{ if(!ticking){ ticking=true; requestAnimationFrame(pick); } };
+    addEventListener("scroll",onScroll,{passive:true});
+    addEventListener("resize",onScroll,{passive:true});
+    pick();
   })();
 
   /* ============================ ARTICLE FIGURES → LIGHTBOX ============================ */
