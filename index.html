@@ -352,6 +352,9 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 .topic:hover h3{color:var(--accent)}
 .topic p{max-width:60ch;color:var(--ink-soft);margin-top:.3rem;font-size:1.02rem}
 @media(min-width:760px){ .topics{grid-template-columns:1fr 1fr;column-gap:3rem} }
+.topic-fig{position:relative;width:100%;max-width:300px;aspect-ratio:16/10;margin-top:.85rem;border:1px solid var(--hair);border-radius:2px;overflow:hidden;background:var(--paper-2);cursor:zoom-in}
+.topic-fig .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,transparent 0,transparent 8px,var(--grid) 8px,var(--grid) 9px);font-family:var(--mono);font-size:.56rem;letter-spacing:.04em;color:var(--margin);text-align:center;padding:0 .5rem}
+.topic-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 /* ============================ PROJECTS ============================ */
 .work{display:grid;grid-template-columns:1fr;gap:0}
@@ -405,12 +408,27 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
 .bg-note{font-size:.95rem;line-height:1.55;color:var(--ink-soft);max-width:60ch}
 .bg-bgg{display:inline-block;margin-top:.7rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 .bg-empty{font-family:var(--mono);font-size:.8rem;color:var(--margin);border:1px dashed var(--hair);border-radius:3px;padding:1.6rem;text-align:center;max-width:640px}
-.tm-list{display:flex;flex-direction:column;border-top:1px solid var(--hair);margin-top:.4rem;max-width:680px}
-.tm-list a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--hair);color:var(--ink-soft);transition:padding-left .25s,color .25s}
-.tm-list a:hover{padding-left:8px;color:var(--accent)}
-.tm-list a .tm-name{font-family:var(--serif);font-size:1.05rem}
-.tm-list a .tm-ext{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
-.tm-empty{font-family:var(--mono);font-size:.8rem;color:var(--margin);border:1px dashed var(--hair);border-radius:3px;padding:1.6rem;text-align:center;margin-top:.4rem;max-width:640px}
+.tm-folder{border-bottom:1px solid var(--hair)}
+.tm-folder:first-of-type{border-top:1px solid var(--hair)}
+.tm-fold-h{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.8rem;padding:.9rem 0;font-family:var(--serif);font-weight:600;font-size:1.1rem;color:var(--ink);transition:color .25s ease,padding-left .25s ease}
+.tm-fold-h::-webkit-details-marker{display:none}
+.tm-fold-h:hover{color:var(--accent);padding-left:6px}
+details[open]>.tm-fold-h{color:var(--accent)}
+.tm-chev{margin-left:auto;font-family:var(--mono);color:var(--accent);transition:transform .3s ease}
+details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
+.tm-sub{padding-left:1.2rem;padding-bottom:.4rem}
+.tm-nested{border-bottom:1px solid var(--hair)}
+.tm-nested:last-child{border-bottom:none}
+.tm-nested>.tm-fold-h{font-size:.98rem;font-weight:500}
+.tm-deep>.tm-fold-h{font-size:.9rem;font-weight:400;font-family:var(--mono);letter-spacing:.02em;padding:.6rem 0}
+.tm-deep{border-bottom:1px solid var(--hair)}
+.tm-deep:last-child{border-bottom:none}
+.tm-list{display:flex;flex-direction:column;max-width:680px;padding-bottom:.6rem}
+.tm-list a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.7rem 0 .7rem 1.2rem;border-top:1px solid var(--hair);color:var(--ink-soft);transition:padding-left .25s,color .25s}
+.tm-list a:hover{padding-left:1.6rem;color:var(--accent)}
+.tm-list a .tm-name{font-family:var(--serif);font-size:1rem}
+.tm-list a .tm-ext{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.tm-empty{font-family:var(--mono);font-size:.74rem;color:var(--margin);padding:.6rem 0 .8rem 1.2rem}
 
 /* ============================ CONTACT ============================ */
 .contact .lede{margin-bottom:2.4rem;max-width:30ch}
@@ -524,7 +542,7 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
     </div>
     <div class="hero-head">
       <div class="hero-desc">
-    <p class="thesis" data-it="Ciao! Sono Francesco, e sei giusto capitato sul mio sito web personale. :D Sono un fisico a cui piace risolvere problemi complessi combinando più metodi: matematica, programmazione e statistica. Qui puoi trovare <a href='#about'>informazioni su di me</a> e <a href='#projects'>i progetti su cui sto lavorando</a>. Se hai domande o vuoi collaborare, <a href='#contact'>sentiti libero di contattarmi</a>!">Hello! I'm Francesco, and you've just landed on my personal website. :D I'm a physicist who loves to solve complex problems by combining multiple methods, merging mathematics, programming, and statistics. Here you can find <a href="#about">information about me</a> and <a href="#projects">the projects I'm working on</a>. If you have any questions or would like to collaborate, <a href="#contact">feel free to contact me</a>!</p>
+    <p class="thesis" data-it="Ciao! Sono Francesco, e sei giusto capitato sul mio sito web personale. 😁 Sono un fisico a cui piace risolvere problemi complessi combinando più metodi: matematica, programmazione e statistica. Qui puoi trovare <a href='#about'>informazioni su di me</a> e <a href='#projects'>i progetti su cui sto lavorando</a>. Se hai domande o vuoi collaborare, <a href='#contact'>sentiti libero di contattarmi</a>!">Hello! I'm Francesco, and you've just landed on my personal website. 😁 I'm a physicist who loves to solve complex problems by combining multiple methods, merging mathematics, programming, and statistics. Here you can find <a href="#about">information about me</a> and <a href="#projects">the projects I'm working on</a>. If you have any questions or would like to collaborate, <a href="#contact">feel free to contact me</a>!</p>
     <p class="now" data-it="Attualmente, <b>Consulente</b> presso d-fine s.r.l. · Milano">Currently, <b>Consultant</b> at d-fine s.r.l. · Milan</p>
       </div>
       <figure class="hero-photo" role="img" aria-label="Francesco Slongo">
@@ -723,24 +741,24 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
     </div>
     <div class="topics reveal d1">
       <article class="topic">
-        <h3 data-it="Fisica statistica dei sistemi disordinati">Statistical physics of disordered systems</h3>
-        <p data-it="Come il caso si organizza: leggi di scala, comportamento di fase e la struttura nascosta nel rumore.">How randomness organizes itself: scaling laws, phase behaviour, and the structure hiding inside noise.</p>
+        <h3 data-it="Fisica dei polimeri">Polymer physics</h3>
+        <p data-it="Mi interesso alle proprietà dinamiche e di equilibrio dei fusi di catene lineari e di anelli. In particolare, studio l'aggrovigliamento proprio e mutuo dei componenti: la probabilità di annodamento di una singola catena e la probabilità di concatenazione di più catene.">I am interested in the dynamic and equilibrium properties of melts of linear chains and rings. In particular, I look at the self and mutual entanglement of the components: the knotting probability of a single chain and the linking probability of multiple chains.</p>
+        <div class="topic-fig"><span class="ph">Research/Polymer_physics.png</span><img alt="" src="Research/Polymer_physics.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div>
       </article>
       <article class="topic">
-        <h3 data-it="Algoritmi quantistici variazionali">Variational quantum algorithms</h3>
-        <p data-it="Calcolo quantistico near-term per ottimizzazione e problemi a molti corpi.">Near-term quantum computing for optimization and many-body problems.</p>
+        <h3 data-it="Metodi Monte Carlo e campionamento avanzato">Monte Carlo methods and enhanced sampling</h3>
+        <p data-it="Mi interesso allo sviluppo di nuove tecniche per migliorare il campionamento di problemi fisici, sia lavorando su nuove mosse Monte Carlo sia applicando idee di meccanica statistica alle configurazioni campionate, per estrarne quante più informazioni possibile.">I am interested in developing new techniques for improving the sampling of physical problems, both by working on new Monte Carlo moves and by applying statistical mechanics ideas to the sampled configurations, to extract as much information as we can.</p>
+        <div class="topic-fig"><span class="ph">Research/Enhanced_sampling.png</span><img alt="" src="Research/Enhanced_sampling.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div>
       </article>
       <article class="topic">
-        <h3 data-it="Fisica dei polimeri e auto-assemblaggio">Polymer physics &amp; self-assembly</h3>
-        <p data-it="Modelli Monte Carlo di fusi e catene, e come si organizzano senza un progetto.">Monte Carlo models of melts and chains, and how they organize without a blueprint.</p>
+        <h3 data-it="Alternative al Monte Carlo e algoritmi di ottimizzazione">Alternatives to Monte Carlo and optimization algorithms</h3>
+        <p data-it="Ho lavorato su alternative agli algoritmi di campionamento, esplorando in quali casi l'ottimizzazione possa sostituire il Monte Carlo. Tra le varie possibilità ho esaminato tecniche classiche, da algoritmi sviluppati in casa come il simulated annealing fino a solver commerciali come Gurobi e CPLEX. Ho inoltre lavorato con i quantum annealer, cercando casi d'uso in cui possano offrire un vantaggio rispetto alle tecniche classiche.">I have worked on alternatives to sampling algorithms, exploring in which cases optimization can be used in place of Monte Carlo. Among the several possibilities, I have looked at classical techniques, from in-house algorithms such as simulated annealing to commercially available solvers like Gurobi and CPLEX. I have also worked on quantum annealers, looking for use cases where they can offer a speed-up over classical techniques.</p>
+        <div class="topic-fig"><span class="ph">Research/Optimization_algorithms.png</span><img alt="" src="Research/Optimization_algorithms.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div>
       </article>
       <article class="topic">
-        <h3 data-it="Metodi Monte Carlo">Monte Carlo methods</h3>
-        <p data-it="Campionare l'improbabile in modo efficiente: il cavallo di battaglia dietro gran parte dei miei risultati.">Sampling the improbable efficiently: the workhorse behind most of my results.</p>
-      </article>
-      <article class="topic">
-        <h3 data-it="Finanza quantitativa e processi stocastici">Quantitative finance &amp; stochastic processes</h3>
-        <p data-it="Dove va la fisica adesso: pricing, rischio e la matematica dei cammini aleatori.">Where the physics goes next: pricing, risk, and the mathematics of random paths.</p>
+        <h3 data-it="Processi stocastici e finanza quantitativa">Stochastic processes and quantitative finance</h3>
+        <p data-it="Più di recente mi sono avvicinato alla finanza quantitativa, esplorando l'argomento con gli strumenti che ho sviluppato durante la mia carriera in fisica.">More recently I have become interested in quantitative finance, delving into the topic with the tools I developed during my career in physics.</p>
+        <div class="topic-fig"><span class="ph">Research/Quantitative_finance.png</span><img alt="" src="Research/Quantitative_finance.png" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></div>
       </article>
     </div>
   </div>
@@ -755,8 +773,103 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
     </div>
     <p class="lede reveal d1" data-it="Materiale che ho creato durante l'insegnamento al liceo scientifico.">Material that I developed while teaching at the high school.</p>
     <div class="reveal d2" id="teachWrap">
-      <h3 class="pm-arch-h" data-it="Classi e materiale">Classes &amp; material</h3>
-      <div class="tm-list" id="teachList"></div>
+      <details class="tm-folder">
+        <summary class="tm-fold-h"><span data-it="Primo anno">First Year</span><span class="tm-chev">+</span></summary>
+        <div class="tm-sub">
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Unità di misura">Units of measurement</span><span class="tm-chev">+</span></summary>
+            <div class="tm-list" data-folder="Teaching/First_Year/Units_of_measurement"></div>
+          </details>
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Vettori">Vectors</span><span class="tm-chev">+</span></summary>
+            <div class="tm-list" data-folder="Teaching/First_Year/Vectors"></div>
+          </details>
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Equilibrio statico corpo puntiforme">Static equilibrium: point particle</span><span class="tm-chev">+</span></summary>
+            <div class="tm-list" data-folder="Teaching/First_Year/Static_equilibrium_point_particle"></div>
+          </details>
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Equilibrio statico corpo esteso">Static equilibrium: extended body</span><span class="tm-chev">+</span></summary>
+            <div class="tm-list" data-folder="Teaching/First_Year/Static_equilibrium_extended_body"></div>
+          </details>
+        </div>
+      </details>
+      <details class="tm-folder">
+        <summary class="tm-fold-h"><span data-it="Terzo anno">Third Year</span><span class="tm-chev">+</span></summary>
+        <div class="tm-sub">
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Ripasso">Review</span><span class="tm-chev">+</span></summary>
+            <div class="tm-list" data-folder="Teaching/Third_Year/Review"></div>
+          </details>
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Quantità di moto">Momentum</span><span class="tm-chev">+</span></summary>
+            <div class="tm-list" data-folder="Teaching/Third_Year/Momentum"></div>
+          </details>
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Momento angolare">Angular momentum</span><span class="tm-chev">+</span></summary>
+            <div class="tm-list" data-folder="Teaching/Third_Year/Angular_momentum"></div>
+          </details>
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Gravitazione">Gravitation</span><span class="tm-chev">+</span></summary>
+            <div class="tm-list" data-folder="Teaching/Third_Year/Gravitation"></div>
+          </details>
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Fluidi">Fluids</span><span class="tm-chev">+</span></summary>
+            <div class="tm-list" data-folder="Teaching/Third_Year/Fluids"></div>
+          </details>
+        </div>
+      </details>
+      <details class="tm-folder">
+        <summary class="tm-fold-h"><span data-it="Quarto anno">Fourth Year</span><span class="tm-chev">+</span></summary>
+        <div class="tm-sub">
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Matematica">Mathematics</span><span class="tm-chev">+</span></summary>
+            <div class="tm-sub">
+              <details class="tm-folder tm-nested tm-deep">
+                <summary class="tm-fold-h"><span data-it="Esponenziali e logaritmi">Exponentials and logarithms</span><span class="tm-chev">+</span></summary>
+                <div class="tm-list" data-folder="Teaching/Fourth_Year/Mathematics/Exponentials_and_logarithms"></div>
+              </details>
+              <details class="tm-folder tm-nested tm-deep">
+                <summary class="tm-fold-h"><span data-it="Numeri complessi">Complex numbers</span><span class="tm-chev">+</span></summary>
+                <div class="tm-list" data-folder="Teaching/Fourth_Year/Mathematics/Complex_numbers"></div>
+              </details>
+              <details class="tm-folder tm-nested tm-deep">
+                <summary class="tm-fold-h"><span data-it="Trasformazioni geometriche">Geometric transformations</span><span class="tm-chev">+</span></summary>
+                <div class="tm-list" data-folder="Teaching/Fourth_Year/Mathematics/Geometric_transformations"></div>
+              </details>
+              <details class="tm-folder tm-nested tm-deep">
+                <summary class="tm-fold-h"><span data-it="Probabilità e calcolo combinatorio">Probability and combinatorics</span><span class="tm-chev">+</span></summary>
+                <div class="tm-list" data-folder="Teaching/Fourth_Year/Mathematics/Probability_and_combinatorics"></div>
+              </details>
+              <details class="tm-folder tm-nested tm-deep">
+                <summary class="tm-fold-h"><span data-it="Geometria euclidea e analitica">Euclidean and analytic geometry</span><span class="tm-chev">+</span></summary>
+                <div class="tm-list" data-folder="Teaching/Fourth_Year/Mathematics/Euclidean_and_analytic_geometry"></div>
+              </details>
+            </div>
+          </details>
+          <details class="tm-folder tm-nested">
+            <summary class="tm-fold-h"><span data-it="Fisica">Physics</span><span class="tm-chev">+</span></summary>
+            <div class="tm-sub">
+              <details class="tm-folder tm-nested tm-deep">
+                <summary class="tm-fold-h"><span data-it="Termodinamica">Thermodynamics</span><span class="tm-chev">+</span></summary>
+                <div class="tm-list" data-folder="Teaching/Fourth_Year/Physics/Thermodynamics"></div>
+              </details>
+              <details class="tm-folder tm-nested tm-deep">
+                <summary class="tm-fold-h"><span data-it="Onde">Waves</span><span class="tm-chev">+</span></summary>
+                <div class="tm-list" data-folder="Teaching/Fourth_Year/Physics/Waves"></div>
+              </details>
+              <details class="tm-folder tm-nested tm-deep">
+                <summary class="tm-fold-h"><span data-it="Luce">Light</span><span class="tm-chev">+</span></summary>
+                <div class="tm-list" data-folder="Teaching/Fourth_Year/Physics/Light"></div>
+              </details>
+              <details class="tm-folder tm-nested tm-deep">
+                <summary class="tm-fold-h"><span data-it="Elettrostatica">Electrostatics</span><span class="tm-chev">+</span></summary>
+                <div class="tm-list" data-folder="Teaching/Fourth_Year/Physics/Electrostatics"></div>
+              </details>
+            </div>
+          </details>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -765,10 +878,10 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
 <section class="section" id="projects">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">07</span> <span data-it="Cose che ho costruito">Things I've built</span></p>
+      <p class="eyebrow"><span class="idx">07</span> <span data-it="I miei progettini">My little projects</span></p>
       <h2 data-it="Progetti">Projects</h2>
     </div>
-    <p class="wip reveal d1" data-it="Lavori in corso, presto qui.">Work in progress, coming soon.</p>
+    <p class="wip reveal d1" data-it="Lavori in corso.">Work in progress.</p>
   </div>
 </section>
 
@@ -900,8 +1013,8 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
 <!-- footer -->
 <footer class="foot">
   <div class="wrap">
-    <span>© <span id="yr"></span> <span data-it="Francesco. Fatto a mano.">Francesco. Built by hand.</span></span>
-    <span data-it="Composto in Spectral e IBM Plex Mono · la linea nel margine è un cammino casuale, il che è appropriato.">Set in Spectral &amp; IBM Plex Mono · the line down the margin is a random walk, which feels fitting.</span>
+    <span>© <span id="yr"></span></span>
+    <span data-it="Composto in Spectral e IBM Plex Mono.">Set in Spectral &amp; IBM Plex Mono.</span>
   </div>
 </footer>
 
@@ -1284,28 +1397,33 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
   })();
 
   /* ============================ TEACHING MATERIAL ============================ */
-  /* Loads a document list from Teaching/Class/list.txt: one per line: "filename" or "filename :: Title". */
+  /* Each folder listed below reads its own list.txt, e.g. "Teaching/First Year/list.txt".
+     One document per line: "filename.pdf" or "filename.pdf :: Nice title". */
   (function(){
-    const list=document.getElementById("teachList"); if(!list) return;
+    const lists=[...document.querySelectorAll(".tm-list[data-folder]")]; if(!lists.length) return;
     const ext=n=>{ const m=/\.([a-z0-9]+)$/i.exec(n); return m?m[1].toUpperCase():""; };
     const label=n=>n.replace(/\.[a-z0-9]+$/i,"").replace(/[_-]+/g," ").trim();
-    let ITEMS=null;
-    function render(){
-      list.textContent="";
-      if(!ITEMS||!ITEMS.length){ const e=document.createElement("p"); e.className="tm-empty"; e.textContent=(lang==="it"?"Materiale in arrivo.":"Material coming soon."); list.appendChild(e); return; }
-      ITEMS.forEach(it=>{ const a=document.createElement("a"); a.href="Teaching/Class/"+it.file; a.target="_blank"; a.rel="noopener";
+    const store=new Map();
+    function renderOne(el){
+      const items=store.get(el);
+      el.textContent="";
+      if(!items||!items.length){ const e=document.createElement("p"); e.className="tm-empty"; e.textContent=(lang==="it"?"Materiale in arrivo.":"Material coming soon."); el.appendChild(e); return; }
+      const folder=el.getAttribute("data-folder");
+      items.forEach(it=>{ const a=document.createElement("a"); a.href=folder+"/"+it.file; a.target="_blank"; a.rel="noopener";
         const n=document.createElement("span"); n.className="tm-name"; n.textContent=it.title;
         const x=document.createElement("span"); x.className="tm-ext"; x.textContent=ext(it.file);
-        a.append(n,x); list.appendChild(a); });
+        a.append(n,x); el.appendChild(a); });
     }
+    function render(){ lists.forEach(renderOne); }
     window._teachRender=render;
-    (async function(){
-      try{ const r=await fetch("Teaching/Class/list.txt",{cache:"no-store"}); if(!r.ok){ render(); return; }
-        const lines=(await r.text()).split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
-        ITEMS=lines.map(line=>{ const p=line.split("::"); const file=p[0].trim(); const title=(p[1]||label(file)).trim(); return {file,title}; });
-        render();
-      }catch(e){ render(); }
-    })();
+    lists.forEach(async el=>{
+      const folder=el.getAttribute("data-folder");
+      try{ const r=await fetch(folder+"/list.txt",{cache:"no-store"});
+        if(r.ok){ const lines=(await r.text()).split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+          store.set(el, lines.map(line=>{ const p=line.split("::"); const file=p[0].trim(); const title=(p[1]||label(file)).trim(); return {file,title}; })); }
+      }catch(e){}
+      renderOne(el);
+    });
   })();
 
   /* ============================ BEHIND THE SCENES ============================ */
@@ -1397,7 +1515,7 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
   })();
 
   /* ============================ BOARD GAMES ============================ */
-  /* EDIT ME - add your games here. Images go in Hobbies/Board_Games/ (or use any path/URL).
+  /* EDIT ME - add your games here. Images go in Board_games/ (or use any path/URL).
      { name, score, bgg, img, note_en, note_it } */
   const BOARDGAMES=[
     { name:"Spirit Island", score:"10", bgg:"https://boardgamegeek.com/boardgame/162886/spirit-island", img:"Hobbies/Board_Games/Spirit_Island.webp", note_en:"With Jagged Earth and Branch & Claw.", note_it:"Con Jagged Earth e Branch & Claw." },
@@ -1411,7 +1529,7 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
     { name:"Exploding Kittens", score:"7-", bgg:"https://boardgamegeek.com/boardgame/172225/exploding-kittens", img:"Hobbies/Board_Games/Exploding_Kittens.webp" },
     { name:"Minecraft: Portal Dash", score:"7-", bgg:"https://boardgamegeek.com/boardgame/368956/minecraft-portal-dash", img:"Hobbies/Board_Games/Minecraft_Portal_Dash.webp" },
     { name:"Dixit", score:"6.5", bgg:"https://boardgamegeek.com/boardgame/39856/dixit", img:"Hobbies/Board_Games/Dixit.webp", note_en:"As you can probably guess from the rest of this list, I like games where you reason in a logical, analytical way (even better if they are crunchy), and Dixit pays the price of not being in that category. But its big advantage is that people who do not like crunchy games usually enjoy it, so I think it is a good game to have in a library: many people already know how to play, and it works with a lot of players, which makes it perfect when you meet not just your nerdy homies but other people too. I also have a fond memory of it from my Erasmus, when a friend described a card as \"the collapse of the wave function\" for a sad Pinocchio :')", note_it:"Come si puo intuire dal resto di questa lista, mi piacciono i giochi in cui si ragiona in modo logico e analitico (meglio ancora se sono corposi), e Dixit paga il prezzo di non essere in quella categoria. Ma il suo grande vantaggio e che di solito piace a chi non ama i giochi complessi, quindi lo trovo un buon gioco da avere in libreria: molti sanno gia come si gioca e regge tanti giocatori, il che lo rende perfetto quando ti trovi non solo con gli amici nerd ma anche con altre persone. Ne ho anche un bel ricordo dell'Erasmus, quando un amico descrisse una carta come \"il collasso della funzione d'onda\" per un Pinocchio triste :')" },
-    { name:"Munchkin", score:"6+", bgg:"https://boardgamegeek.com/boardgame/1927/munchkin", img:"Hobbies/Board_Games/unchkin.webp", note_en:"Munchkin is probably the first board game I played after Risk and Monopoly, and I played it wrong! Someone in my playgroup read somewhere that you could cheat if you did not get caught, which meant we never really played it correctly. Years later I started playing it with my brother. The game as structured is not bad, but it has two main problems. First, the cards are wildly unbalanced (some give you +4, others make you use your hands or head for a +1) and there is nothing to moderate that. Second, it has a strange curve: you should annoy other players while they are low level, because once they get strong they often steamroll the monsters. Instead people hoard their cards and wait until someone is about to win, then throw everything at them. Another player then tries to win and the cycle repeats until everyone has run out of cards to annoy each other with, and the game ends. A bit anticlimactic.", note_it:"Munchkin e probabilmente il primo gioco da tavolo che ho giocato dopo Risiko e Monopoli, e l'ho giocato male! Qualcuno del mio gruppo aveva letto da qualche parte che si poteva barare se non venivi scoperto, e cosi non l'abbiamo mai giocato davvero nel modo giusto. Anni dopo ho ripreso a giocarci con mio fratello. Il gioco per come e strutturato non e male, ma ha due problemi principali. Primo, le carte sono follemente sbilanciate (alcune danno +4, altre ti fanno usare mani o testa per un +1) e non c'e nulla che lo moderi. Secondo, ha una curva strana: dovresti infastidire gli altri quando sono di livello basso, perche una volta diventati forti spesso schiacciano i mostri. Invece la gente tiene le carte e aspetta che qualcuno stia per vincere, poi gli scarica addosso tutto. A quel punto un altro giocatore prova a vincere e il ciclo si ripete finche tutti hanno finito le carte per disturbarsi a vicenda, e la partita finisce. Un po' anticlimatico." },
+    { name:"Munchkin", score:"6+", bgg:"https://boardgamegeek.com/boardgame/1927/munchkin", img:"Hobbies/Board_Games/Munchkin.webp", note_en:"Munchkin is probably the first board game I played after Risk and Monopoly, and I played it wrong! Someone in my playgroup read somewhere that you could cheat if you did not get caught, which meant we never really played it correctly. Years later I started playing it with my brother. The game as structured is not bad, but it has two main problems. First, the cards are wildly unbalanced (some give you +4, others make you use your hands or head for a +1) and there is nothing to moderate that. Second, it has a strange curve: you should annoy other players while they are low level, because once they get strong they often steamroll the monsters. Instead people hoard their cards and wait until someone is about to win, then throw everything at them. Another player then tries to win and the cycle repeats until everyone has run out of cards to annoy each other with, and the game ends. A bit anticlimactic.", note_it:"Munchkin e probabilmente il primo gioco da tavolo che ho giocato dopo Risiko e Monopoli, e l'ho giocato male! Qualcuno del mio gruppo aveva letto da qualche parte che si poteva barare se non venivi scoperto, e cosi non l'abbiamo mai giocato davvero nel modo giusto. Anni dopo ho ripreso a giocarci con mio fratello. Il gioco per come e strutturato non e male, ma ha due problemi principali. Primo, le carte sono follemente sbilanciate (alcune danno +4, altre ti fanno usare mani o testa per un +1) e non c'e nulla che lo moderi. Secondo, ha una curva strana: dovresti infastidire gli altri quando sono di livello basso, perche una volta diventati forti spesso schiacciano i mostri. Invece la gente tiene le carte e aspetta che qualcuno stia per vincere, poi gli scarica addosso tutto. A quel punto un altro giocatore prova a vincere e il ciclo si ripete finche tutti hanno finito le carte per disturbarsi a vicenda, e la partita finisce. Un po' anticlimatico." },
     { name:"Autobahn", score:"6+", bgg:"https://boardgamegeek.com/boardgame/348554/autobahn", img:"Hobbies/Board_Games/Autobahn.webp" },
     { name:"Citadels", score:"6", bgg:"https://boardgamegeek.com/boardgame/478/citadels", img:"Hobbies/Board_Games/Citadels.webp", note_en:"The first serious board game that was explained to me, by a friend. At the start I was really hooked, but when I finally got my hands on it later I understood that it has several design flaws. The districts are wildly unbalanced: unique districts should be balanced by the fact that coloured ones can earn you more coins with certain characters, but that also makes you more predictable. The characters can really swing the game too: an assassin who guesses a given player correctly too many times removes them from the game with no catch-up mechanic. So overall the game feels very luck based. Last problem: it conceptually works well with many players, but then it becomes a slog.", note_it:"Il primo gioco da tavolo serio che mi e stato spiegato, da un amico. All'inizio mi aveva preso molto, ma quando finalmente ci ho messo le mani sopra ho capito che ha diversi difetti di design. I quartieri sono molto sbilanciati: quelli unici dovrebbero essere bilanciati dal fatto che quelli colorati rendono piu monete con certi personaggi, ma questo ti rende anche piu prevedibile. Anche i personaggi possono ribaltare la partita: un assassino che indovina troppe volte lo stesso giocatore lo elimina dal gioco senza alcun meccanismo di recupero. Nel complesso il gioco mi sembra molto basato sulla fortuna. Ultimo problema: concettualmente funziona bene in tanti giocatori, ma allora diventa una maratona." },
     { name:"The Castles of Burgundy", score:"not rated", bgg:"https://boardgamegeek.com/boardgame/84876/the-castles-of-burgundy", img:"Hobbies/Board_Games/Castles_of_Burgundy.webp", note_en:"Sooner or later I will play this classic!", note_it:"Prima o poi giochero a questo classico!" }
@@ -1506,6 +1624,14 @@ details.bg-item[open] .bg-chev{transform:rotate(45deg)}
           window._lightbox(src, title?title.textContent:"");
         }
       });
+    });
+  })();
+
+  (function(){
+    document.querySelectorAll(".topic-fig").forEach(fig=>{
+      const img=fig.querySelector("img"); if(!img) return;
+      fig.addEventListener("click",()=>{ const t=fig.closest(".topic"); const h3=t?t.querySelector("h3"):null;
+        if(img.style.display!=="none"&&window._lightbox) window._lightbox(img.getAttribute("src"), h3?h3.textContent:""); });
     });
   })();
 
