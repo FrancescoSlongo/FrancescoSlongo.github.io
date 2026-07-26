@@ -1607,7 +1607,7 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
     secs[0].classList.add("active"); root.classList.add("sep");
     const ratios=new Map();
     const io=new IntersectionObserver((es)=>{ es.forEach(en=>ratios.set(en.target,en.intersectionRatio));
-      let topEl=null,best=-1; secs.forEach(s=>{const r=ratios.get(s)||0; if(r>best){best=r;topEl=s;}});
+      let topE=l=null,best=-1; secs.forEach(s=>{const r=ratios.get(s)||0; if(r>best){best=r;topEl=s;}});
       secs.forEach(s=>s.classList.toggle("active", s===topEl)); },{threshold:[0,.15,.3,.5,.7,.9,1]});
     secs.forEach(s=>io.observe(s));
   })();
