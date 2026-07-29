@@ -1,5 +1,5 @@
-# robots.txt for https://francescoslongo.com
+# robots.txt for https://www.francescoslongo.com
 User-agent: *
 Allow: /
 
-Sitemap: https://francescoslongo.com/sitemap.xml
+Sitemap: https://www.francescoslongo.com/sitemap.xml
