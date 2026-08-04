@@ -230,7 +230,7 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 .bts-link{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}
 .bts-link line{stroke:var(--ink);stroke-opacity:.4;stroke-width:2;stroke-dasharray:5 5;stroke-linecap:round;vector-effect:non-scaling-stroke}
 html[data-theme="night"] .bts-link line{stroke:var(--accent);stroke-opacity:.5}
-@media(max-width:640px){ .bts-chain{aspect-ratio:3/2} }
+@media(max-width:640px){ .bts-chain{aspect-ratio:3/2} .bts-arch-grid{grid-template-columns:repeat(auto-fill,minmax(50px,1fr))} }
 .bts-bonds{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1;pointer-events:none}
 .bts-bonds line{stroke:var(--ink);stroke-opacity:.4;stroke-width:2;stroke-linecap:round;vector-effect:non-scaling-stroke}
 html[data-theme="night"] .bts-bonds line{stroke:var(--accent);stroke-opacity:.45}
@@ -242,7 +242,7 @@ html[data-theme="night"] .bts-bonds line{stroke:var(--accent);stroke-opacity:.45
 .bts-bead img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 .bts-arch{margin-top:2.6rem}
-.bts-arch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;max-width:720px}
+.bts-arch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;max-width:660px}
 .bts-arch-grid .bts-a-item{position:relative;aspect-ratio:1/1;border:1px solid var(--hair);border-radius:2px;overflow:hidden;cursor:pointer;background:var(--paper-2);transition:border-color .25s,transform .25s}
 .bts-arch-grid .bts-a-item:hover{border-color:var(--accent);transform:scale(1.04)}
 .bts-arch-grid .ph{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent 0,transparent 7px,var(--grid) 7px,var(--grid) 8px);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.5rem;text-transform:uppercase;color:var(--margin)}
@@ -382,9 +382,23 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 #bgWrap{margin-top:1.6rem}
 .hob-block{margin-top:1.6rem}
 .hob-body{padding:.3rem 0 .5rem}
+.proj-body{max-width:62ch}
+.proj-intro{font-size:.98rem;line-height:1.6;color:var(--ink-soft);margin-bottom:1.1rem}
+.proj-item{padding:.9rem 0;border-top:1px solid var(--hair)}
+.proj-item h4{font-family:var(--serif);font-weight:600;font-size:1rem;margin-bottom:.35rem;color:var(--ink)}
+.proj-item p{font-size:.95rem;line-height:1.6;color:var(--ink-soft)}
 .hob-soon{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--margin);padding:1rem 0 .4rem}
 .hob-leaf{padding:.1rem 0 .5rem 1.2rem}
 .hob-leaf .hob-soon{padding:.5rem 0}
+.read-list{list-style:none;padding:0;margin:.2rem 0 .6rem}
+.read-list li{font-family:var(--serif);font-size:.98rem;color:var(--ink);padding:.55rem 0;border-top:1px solid var(--hair)}
+.read-list li:first-child{border-top:none}
+.read-author{font-family:var(--mono);font-size:.78rem;color:var(--margin);margin-left:.4rem}
+.read-list-ranked{counter-reset:rk;list-style:none;padding:0}
+.read-list-ranked li{counter-increment:rk;display:flex;align-items:baseline;gap:.7rem;font-family:var(--serif);font-size:.98rem;color:var(--ink);padding:.55rem 0;border-top:1px solid var(--hair)}
+.read-list-ranked li:first-child{border-top:none}
+.read-list-ranked li::before{content:counter(rk);font-family:var(--mono);font-size:.7rem;color:var(--accent);flex:none;width:1.6em;text-align:right}
+.read-wiki{margin-left:auto;font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);flex:none;padding-left:.8rem}
 .bg-section-h{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:.9rem;font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,3vw,1.85rem);line-height:1.2;letter-spacing:-.01em;color:var(--ink);padding:.5rem 0;border-bottom:1px solid var(--hair);transition:color .25s ease,padding-left .25s ease}
 .bg-section-h::-webkit-details-marker{display:none}
 .bg-section-h:hover{color:var(--accent);padding-left:6px}
@@ -888,7 +902,17 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
     </div>
     <details class="reveal d1 bg-section hob-block">
       <summary class="bg-section-h"><span data-it="Progetti di lavoro">Work-related projects</span><span class="bg-section-chev">+</span></summary>
-      <div class="hob-body"><p class="hob-soon" data-it="Presto qui.">Coming soon.</p></div>
+      <div class="hob-body proj-body">
+        <p class="proj-intro" data-it="Non posso entrare troppo nei dettagli, ma ecco una panoramica di ciò su cui ho lavorato.">I cannot go into too much detail, but here is an overview of what I have worked on.</p>
+        <div class="proj-item">
+          <h4 data-it="Primo progetto">First project</h4>
+          <p data-it="Ho lavorato brevemente sul codice di un bot per lo scraping di dati. In particolare, mi sono occupato del livello di messaggistica tra l'orchestratore e il server, e ho implementato unit test per verificare che i messaggi venissero consegnati e ricevuti correttamente.">I worked briefly on the code for a data-scraping bot. In particular, I worked on the messaging layer between the orchestrator and the server, and implemented unit tests to verify that messages were correctly delivered and received.</p>
+        </div>
+        <div class="proj-item">
+          <h4 data-it="Secondo progetto">Second project</h4>
+          <p data-it="Ho lavorato con Murex, un software di gestione del trading.">I worked with Murex, a trading management software platform.</p>
+        </div>
+      </div>
     </details>
 
     <details class="reveal d1 bg-section hob-block">
@@ -932,7 +956,53 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
             </details>
             <details class="tm-folder tm-nested">
               <summary class="tm-fold-h"><span data-it="Letti">Read</span><span class="tm-chev">+</span></summary>
-              <div class="hob-leaf"><p class="hob-soon" data-it="Presto qui.">Coming soon.</p></div>
+              <div class="hob-leaf">
+                <ol class="read-list read-list-ranked">
+                  <li>One Piece <a class="read-wiki" href="https://en.wikipedia.org/wiki/One_Piece" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Naruto <a class="read-wiki" href="https://en.wikipedia.org/wiki/Naruto" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Bleach <a class="read-wiki" href="https://en.wikipedia.org/wiki/Bleach_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>One-Punch Man <a class="read-wiki" href="https://en.wikipedia.org/wiki/One-Punch_Man" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Attack on Titan <a class="read-wiki" href="https://en.wikipedia.org/wiki/Attack_on_Titan" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Fullmetal Alchemist <a class="read-wiki" href="https://en.wikipedia.org/wiki/Fullmetal_Alchemist" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Tokyo Ghoul <a class="read-wiki" href="https://en.wikipedia.org/wiki/Tokyo_Ghoul" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>My Hero Academia <a class="read-wiki" href="https://en.wikipedia.org/wiki/My_Hero_Academia" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Mob Psycho 100 <a class="read-wiki" href="https://en.wikipedia.org/wiki/Mob_Psycho_100" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Hunter × Hunter <a class="read-wiki" href="https://en.wikipedia.org/wiki/Hunter_%C3%97_Hunter" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Berserk <a class="read-wiki" href="https://en.wikipedia.org/wiki/Berserk_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Blue Lock <a class="read-wiki" href="https://en.wikipedia.org/wiki/Blue_Lock" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Kuroko's Basketball <a class="read-wiki" href="https://en.wikipedia.org/wiki/Kuroko%27s_Basketball" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Slam Dunk <a class="read-wiki" href="https://en.wikipedia.org/wiki/Slam_Dunk_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Eyeshield 21 <a class="read-wiki" href="https://en.wikipedia.org/wiki/Eyeshield_21" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Ping Pong <a class="read-wiki" href="https://en.wikipedia.org/wiki/Ping_Pong_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Hajime no Ippo <a class="read-wiki" href="https://en.wikipedia.org/wiki/Hajime_no_Ippo" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Solo Leveling <a class="read-wiki" href="https://en.wikipedia.org/wiki/Solo_Leveling" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Frieren: Beyond Journey's End <a class="read-wiki" href="https://en.wikipedia.org/wiki/Frieren:_Beyond_Journey%27s_End" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Jackals <a class="read-wiki" href="https://it.wikipedia.org/wiki/Jackals_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Soul Eater <a class="read-wiki" href="https://en.wikipedia.org/wiki/Soul_Eater_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Fire Force <a class="read-wiki" href="https://en.wikipedia.org/wiki/Fire_Force" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Jujutsu Kaisen <a class="read-wiki" href="https://en.wikipedia.org/wiki/Jujutsu_Kaisen" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Bug Ego <a class="read-wiki" href="https://en.wikipedia.org/wiki/Bug_Ego" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Versus <a class="read-wiki" href="https://en.wikipedia.org/wiki/Versus_(2022_manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Choujin X <a class="read-wiki" href="https://en.wikipedia.org/wiki/Choujin_X" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Kagurabachi <a class="read-wiki" href="https://en.wikipedia.org/wiki/Kagurabachi" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Centuria <a class="read-wiki" href="https://en.wikipedia.org/wiki/Centuria_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Dandadan <a class="read-wiki" href="https://en.wikipedia.org/wiki/Dandadan" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Sakamoto Days <a class="read-wiki" href="https://en.wikipedia.org/wiki/Sakamoto_Days" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>JoJo's Bizarre Adventure <a class="read-wiki" href="https://en.wikipedia.org/wiki/JoJo%27s_Bizarre_Adventure" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Hellsing <a class="read-wiki" href="https://en.wikipedia.org/wiki/Hellsing" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Fist of the North Star <a class="read-wiki" href="https://en.wikipedia.org/wiki/Fist_of_the_North_Star" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Tokyo Revengers <a class="read-wiki" href="https://en.wikipedia.org/wiki/Tokyo_Revengers" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Fairy Tail <a class="read-wiki" href="https://en.wikipedia.org/wiki/Fairy_Tail" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>The Seven Deadly Sins <a class="read-wiki" href="https://en.wikipedia.org/wiki/The_Seven_Deadly_Sins_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>The Promised Neverland <a class="read-wiki" href="https://en.wikipedia.org/wiki/The_Promised_Neverland" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Chainsaw Man <a class="read-wiki" href="https://en.wikipedia.org/wiki/Chainsaw_Man" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Death Note <a class="read-wiki" href="https://en.wikipedia.org/wiki/Death_Note" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Golden Kamuy <a class="read-wiki" href="https://en.wikipedia.org/wiki/Golden_Kamuy" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Parasyte <a class="read-wiki" href="https://en.wikipedia.org/wiki/Parasyte" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Record of Ragnarok <a class="read-wiki" href="https://en.wikipedia.org/wiki/Record_of_Ragnarok" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>D.Gray-man <a class="read-wiki" href="https://en.wikipedia.org/wiki/D.Gray-man" target="_blank" rel="noopener">Wikipedia</a></li>
+                </ol>
+              </div>
             </details>
           </div>
         </details>
@@ -941,7 +1011,12 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
           <div class="tm-sub">
             <details class="tm-folder tm-nested">
               <summary class="tm-fold-h"><span data-it="In lettura">Currently reading</span><span class="tm-chev">+</span></summary>
-              <div class="hob-leaf"><p class="hob-soon" data-it="Presto qui.">Coming soon.</p></div>
+              <div class="hob-leaf">
+                <ul class="read-list">
+                  <li>Under Heaven <span class="read-author" data-it="di Guy Gavriel Kay">by Guy Gavriel Kay</span></li>
+                  <li>The Great Gatsby <span class="read-author" data-it="di F. Scott Fitzgerald">by F. Scott Fitzgerald</span></li>
+                </ul>
+              </div>
             </details>
             <details class="tm-folder tm-nested">
               <summary class="tm-fold-h"><span data-it="Letti">Read</span><span class="tm-chev">+</span></summary>
@@ -1558,7 +1633,8 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
       archWrap.hidden=false; archGrid.textContent="";
       rest.forEach(p=>archGrid.appendChild(thumb(p,"bts-a-item")));
     }
-    function render(){ if(!PHOTOS.length){ chain.querySelectorAll(".bts-bead").forEach(n=>n.remove()); if(bonds) bonds.innerHTML=""; const ov=document.getElementById("btsLink"); if(ov) ov.innerHTML=""; if(archWrap) archWrap.hidden=true; return; } CHAIN_N=Math.min(10,PHOTOS.length); layoutChain(); layoutArchive(); requestAnimationFrame(drawLink); }
+    function chainCount(){ const w=innerWidth||900, m=(w<600?5:w<900?7:10); return Math.min(m, PHOTOS.length); }
+    function render(){ if(!PHOTOS.length){ chain.querySelectorAll(".bts-bead").forEach(n=>n.remove()); if(bonds) bonds.innerHTML=""; const ov=document.getElementById("btsLink"); if(ov) ov.innerHTML=""; if(archWrap) archWrap.hidden=true; return; } CHAIN_N=chainCount(); layoutChain(); layoutArchive(); requestAnimationFrame(drawLink); }
     window._btsRender=render;
     async function lines(url){ try{ const r=await fetch(url,{cache:"no-store"}); if(!r.ok) return null; return (await r.text()).split(/\r?\n/); }catch(e){ return null; } }
     (async function(){
@@ -1571,7 +1647,7 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
       PHOTOS=list.reverse();          // newest (highest number) first → head of the chain
       render();
     })();
-    let rtid; addEventListener("resize",()=>{ clearTimeout(rtid); rtid=setTimeout(()=>{ if(PHOTOS.length){ layoutChain(); requestAnimationFrame(drawLink); } },200); },{passive:true});
+    let rtid; addEventListener("resize",()=>{ clearTimeout(rtid); rtid=setTimeout(()=>{ if(PHOTOS.length) render(); },200); },{passive:true});
   })();
 
   /* ============================ BOARD GAMES ============================ */
