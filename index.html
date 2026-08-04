@@ -387,6 +387,28 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 .proj-item{padding:.9rem 0;border-top:1px solid var(--hair)}
 .proj-item h4{font-family:var(--serif);font-weight:600;font-size:1rem;margin-bottom:.35rem;color:var(--ink)}
 .proj-item p{font-size:.95rem;line-height:1.6;color:var(--ink-soft)}
+.wh-body{max-width:62ch}
+.wh-faction{font-family:var(--mono);font-size:.85rem;letter-spacing:.03em;color:var(--ink-soft);margin-bottom:1.2rem}
+.wh-faction strong{color:var(--ink);font-weight:600}
+.wh-group{margin-top:1.3rem}
+.wh-group:first-of-type{margin-top:0}
+.wh-group h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem}
+.wh-list{list-style:none;padding:0;border-top:1px solid var(--hair)}
+.wh-list li{display:flex;align-items:baseline;gap:.6rem;font-family:var(--serif);font-size:.98rem;color:var(--ink);padding:.55rem 0;border-bottom:1px solid var(--hair)}
+.wh-count{font-family:var(--mono);font-size:.78rem;color:var(--margin);flex:none;min-width:2.2em}
+.dnd-card{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-top:1px solid var(--hair);max-width:62ch}
+.dnd-card:first-of-type{border-top:none}
+.dnd-portrait{position:relative;flex:none;width:64px;height:64px;border:1px solid var(--hair);border-radius:2px;overflow:hidden;background:var(--paper-2)}
+.dnd-portrait .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(45deg,transparent 0,transparent 6px,var(--grid) 6px,var(--grid) 7px);font-family:var(--mono);font-size:.42rem;text-transform:uppercase;color:var(--margin)}
+.dnd-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dnd-info{min-width:0}
+.dnd-info h4{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink)}
+.dnd-class{font-family:var(--mono);font-size:.68rem;letter-spacing:.03em;color:var(--accent);margin-top:.15rem}
+.dnd-meta{font-family:var(--mono);font-size:.74rem;color:var(--margin);margin-top:.25rem}
+.dnd-comment{padding:.6rem 0 0;text-align:left}
+.dnd-dl-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.8rem}
+.dnd-dl{font-family:var(--mono);font-size:.68rem;letter-spacing:.03em;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:.35em .9em;text-decoration:none;transition:background-color .2s ease,color .2s ease}
+.dnd-dl:hover{background:var(--accent);color:var(--paper)}
 .hob-soon{font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;color:var(--margin);padding:1rem 0 .4rem}
 .hob-leaf{padding:.1rem 0 .5rem 1.2rem}
 .hob-leaf .hob-soon{padding:.5rem 0}
@@ -917,7 +939,12 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 
     <details class="reveal d1 bg-section hob-block">
       <summary class="bg-section-h"><span data-it="Progetti nel tempo libero">Free-time projects</span><span class="bg-section-chev">+</span></summary>
-      <div class="hob-body"><p class="hob-soon" data-it="Presto qui.">Coming soon.</p></div>
+      <div class="hob-body proj-body">
+        <div class="proj-item">
+          <h4 data-it="Questo sito web">This website</h4>
+          <p data-it="Ho scritto questo sito da zero, in un unico file HTML, principalmente come scusa per imparare JavaScript sul serio: tutti i piccoli giocattoli interattivi che vedi in giro (la catena polimerica, gli spin di Ising, il paesaggio energetico, le passeggiate casuali dei prezzi) sono simulazioni scritte a mano, non librerie incollate insieme. È stato anche il mio primo progetto end-to-end fuori dalla ricerca: registrare un dominio, capire la differenza tra dominio apice e www, mettere Cloudflare davanti a GitHub Pages per il DNS, il proxy e i certificati HTTPS, e infine renderlo effettivamente rintracciabile online con una sitemap, un file robots.txt e la verifica su Google Search Console. Niente di tutto questo era scontato per me all'inizio, quindi il sito è tanto un diario dell'apprendimento quanto un portfolio.">I wrote this site from scratch, as a single HTML file, mostly as an excuse to properly learn JavaScript: all the little interactive toys scattered around it (the polymer chain, the Ising spins, the energy landscape, the random-walk price paths) are hand-written simulations rather than a library glued together. It was also my first end-to-end deployment project outside of research: registering a domain, learning the difference between an apex and a www domain, putting Cloudflare in front of GitHub Pages for DNS, proxying, and HTTPS certificates, and finally making it actually findable online with a sitemap, a robots.txt file, and Google Search Console verification. None of that was obvious to me going in, so the site doubles as a learning log as much as a portfolio.</p>
+        </div>
+      </div>
     </details>
   </div>
 </section>
@@ -929,11 +956,6 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
       <p class="eyebrow"><span class="idx">08</span> <span data-it="Fuori orario">Off the clock</span></p>
       <h2 data-it="Hobby">Hobbies</h2>
     </div>
-    <details class="reveal d1 bg-section hob-block">
-      <summary class="bg-section-h"><span data-it="Escursioni, arrampicate e alpinismo">Hikes, climbs and alpinism</span><span class="bg-section-chev">+</span></summary>
-      <div class="hob-body"><p class="hob-soon" data-it="Presto qui.">Coming soon.</p></div>
-    </details>
-
     <details class="reveal d1 bg-section hob-block" id="bgWrap">
       <summary class="bg-section-h"><span data-it="I giochi da tavolo che possiedo">The board games I own</span><span class="bg-section-chev">+</span></summary>
       <div class="bg-list" id="bgGrid"></div>
@@ -941,7 +963,46 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 
     <details class="reveal d1 bg-section hob-block">
       <summary class="bg-section-h"><span data-it="La mia lista Warhammer 40k">My Warhammer 40k list</span><span class="bg-section-chev">+</span></summary>
-      <div class="hob-body"><p class="hob-soon" data-it="Presto qui.">Coming soon.</p></div>
+      <div class="hob-body wh-body">
+        <p class="wh-faction"><span data-it="Fazione:">Faction:</span> <strong data-it="Black Templars">Black Templars</strong></p>
+        <div class="wh-group">
+          <h4 data-it="Personaggi">Characters</h4>
+          <ul class="wh-list">
+            <li><span class="wh-count">1×</span> <span data-it="High Marshal Helbrecht">High Marshal Helbrecht</span></li>
+            <li><span class="wh-count">1×</span> <span data-it="Chaplain Grimaldus">Chaplain Grimaldus</span></li>
+            <li><span class="wh-count">3×</span> <span data-it="Cenobyte Servitors">Cenobyte Servitors</span></li>
+            <li><span class="wh-count">1×</span> <span data-it="Emperor's Champion">Emperor's Champion</span></li>
+            <li><span class="wh-count">1×</span> <span data-it="Marshal">Marshal</span></li>
+            <li><span class="wh-count">1×</span> <span data-it="Lieutenant with Combi-weapon">Lieutenant with Combi-weapon</span></li>
+            <li><span class="wh-count">1×</span> <span data-it="Castellan">Castellan</span></li>
+            <li><span class="wh-count">1×</span> <span data-it="Captain with Jump Pack">Captain with Jump Pack</span></li>
+            <li><span class="wh-count">1×</span> <span data-it="Execrator">Execrator</span></li>
+          </ul>
+        </div>
+        <div class="wh-group">
+          <h4 data-it="Squadre">Squads</h4>
+          <ul class="wh-list">
+            <li><span class="wh-count">10×</span> <span data-it="Crusader Squad">Crusader Squad</span></li>
+            <li><span class="wh-count">5×</span> <span data-it="Intercessor Squad">Intercessor Squad</span></li>
+            <li><span class="wh-count">5×</span> <span data-it="Assault Intercessors with Jump Packs">Assault Intercessors with Jump Packs</span></li>
+            <li><span class="wh-count">5×</span> <span data-it="Assault Intercessors with Jump Packs">Assault Intercessors with Jump Packs</span></li>
+            <li><span class="wh-count">3×</span> <span data-it="Bladeguard Veteran Squad">Bladeguard Veteran Squad</span></li>
+            <li><span class="wh-count">5×</span> <span data-it="Infernus Squad">Infernus Squad</span></li>
+            <li><span class="wh-count">3×</span> <span data-it="Outrider Squad">Outrider Squad</span></li>
+            <li><span class="wh-count">5×</span> <span data-it="Sword Brethren Squad">Sword Brethren Squad</span></li>
+            <li><span class="wh-count">4×</span> <span data-it="Execrator">Execrator</span></li>
+            <li><span class="wh-count">4×</span> <span data-it="Librarian in Terminator Armor (So che non posso usarlo, ma è un regalo :D)">Librarian in Terminator Armor (I know I cannot use it, but it was a gift :D)</span></li>
+          </ul>
+        </div>
+        <div class="wh-group">
+          <h4 data-it="Veicoli">Vehicles</h4>
+          <ul class="wh-list">
+            <li><span class="wh-count">1×</span> <span data-it="Land Raider Crusader">Land Raider Crusader</span></li>
+            <li><span class="wh-count">1×</span> <span data-it="Gladiator Lancer">Gladiator Lancer</span></li>
+            <li><span class="wh-count">1×</span> <span data-it="Impulsor">Impulsor</span></li>
+          </ul>
+        </div>
+      </div>
     </details>
 
     <details class="reveal d1 bg-section hob-block">
@@ -952,35 +1013,15 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
           <div class="tm-sub">
             <details class="tm-folder tm-nested">
               <summary class="tm-fold-h"><span data-it="In lettura">Currently reading</span><span class="tm-chev">+</span></summary>
-              <div class="hob-leaf"><p class="hob-soon" data-it="Presto qui.">Coming soon.</p></div>
-            </details>
-            <details class="tm-folder tm-nested">
-              <summary class="tm-fold-h"><span data-it="Letti">Read</span><span class="tm-chev">+</span></summary>
               <div class="hob-leaf">
-                <ol class="read-list read-list-ranked">
+                <ul class="read-list">
                   <li>One Piece <a class="read-wiki" href="https://en.wikipedia.org/wiki/One_Piece" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Naruto <a class="read-wiki" href="https://en.wikipedia.org/wiki/Naruto" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Bleach <a class="read-wiki" href="https://en.wikipedia.org/wiki/Bleach_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>One-Punch Man <a class="read-wiki" href="https://en.wikipedia.org/wiki/One-Punch_Man" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Attack on Titan <a class="read-wiki" href="https://en.wikipedia.org/wiki/Attack_on_Titan" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Fullmetal Alchemist <a class="read-wiki" href="https://en.wikipedia.org/wiki/Fullmetal_Alchemist" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Tokyo Ghoul <a class="read-wiki" href="https://en.wikipedia.org/wiki/Tokyo_Ghoul" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>My Hero Academia <a class="read-wiki" href="https://en.wikipedia.org/wiki/My_Hero_Academia" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Mob Psycho 100 <a class="read-wiki" href="https://en.wikipedia.org/wiki/Mob_Psycho_100" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Hunter × Hunter <a class="read-wiki" href="https://en.wikipedia.org/wiki/Hunter_%C3%97_Hunter" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Berserk <a class="read-wiki" href="https://en.wikipedia.org/wiki/Berserk_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Blue Lock <a class="read-wiki" href="https://en.wikipedia.org/wiki/Blue_Lock" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Kuroko's Basketball <a class="read-wiki" href="https://en.wikipedia.org/wiki/Kuroko%27s_Basketball" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Slam Dunk <a class="read-wiki" href="https://en.wikipedia.org/wiki/Slam_Dunk_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Eyeshield 21 <a class="read-wiki" href="https://en.wikipedia.org/wiki/Eyeshield_21" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Ping Pong <a class="read-wiki" href="https://en.wikipedia.org/wiki/Ping_Pong_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Hajime no Ippo <a class="read-wiki" href="https://en.wikipedia.org/wiki/Hajime_no_Ippo" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Solo Leveling <a class="read-wiki" href="https://en.wikipedia.org/wiki/Solo_Leveling" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Frieren: Beyond Journey's End <a class="read-wiki" href="https://en.wikipedia.org/wiki/Frieren:_Beyond_Journey%27s_End" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Jackals <a class="read-wiki" href="https://it.wikipedia.org/wiki/Jackals_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Soul Eater <a class="read-wiki" href="https://en.wikipedia.org/wiki/Soul_Eater_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Fire Force <a class="read-wiki" href="https://en.wikipedia.org/wiki/Fire_Force" target="_blank" rel="noopener">Wikipedia</a></li>
-                  <li>Jujutsu Kaisen <a class="read-wiki" href="https://en.wikipedia.org/wiki/Jujutsu_Kaisen" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Bug Ego <a class="read-wiki" href="https://en.wikipedia.org/wiki/Bug_Ego" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Versus <a class="read-wiki" href="https://en.wikipedia.org/wiki/Versus_(2022_manga)" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Choujin X <a class="read-wiki" href="https://en.wikipedia.org/wiki/Choujin_X" target="_blank" rel="noopener">Wikipedia</a></li>
@@ -989,6 +1030,30 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
                   <li>Dandadan <a class="read-wiki" href="https://en.wikipedia.org/wiki/Dandadan" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Sakamoto Days <a class="read-wiki" href="https://en.wikipedia.org/wiki/Sakamoto_Days" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>JoJo's Bizarre Adventure <a class="read-wiki" href="https://en.wikipedia.org/wiki/JoJo%27s_Bizarre_Adventure" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Solo Leveling: Ragnarok <a class="read-wiki" href="https://solo-leveling.fandom.com/wiki/Solo_Leveling:_Ragnarok_(webtoon)" target="_blank" rel="noopener">Wiki</a></li>
+                </ul>
+              </div>
+            </details>
+            <details class="tm-folder tm-nested">
+              <summary class="tm-fold-h"><span data-it="Letti">Read</span><span class="tm-chev">+</span></summary>
+              <div class="hob-leaf">
+                <ol class="read-list read-list-ranked">
+                  <li>Naruto <a class="read-wiki" href="https://en.wikipedia.org/wiki/Naruto" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Bleach <a class="read-wiki" href="https://en.wikipedia.org/wiki/Bleach_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Attack on Titan <a class="read-wiki" href="https://en.wikipedia.org/wiki/Attack_on_Titan" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Fullmetal Alchemist <a class="read-wiki" href="https://en.wikipedia.org/wiki/Fullmetal_Alchemist" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Tokyo Ghoul <a class="read-wiki" href="https://en.wikipedia.org/wiki/Tokyo_Ghoul" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>My Hero Academia <a class="read-wiki" href="https://en.wikipedia.org/wiki/My_Hero_Academia" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Mob Psycho 100 <a class="read-wiki" href="https://en.wikipedia.org/wiki/Mob_Psycho_100" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Kuroko's Basketball <a class="read-wiki" href="https://en.wikipedia.org/wiki/Kuroko%27s_Basketball" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Slam Dunk <a class="read-wiki" href="https://en.wikipedia.org/wiki/Slam_Dunk_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Eyeshield 21 <a class="read-wiki" href="https://en.wikipedia.org/wiki/Eyeshield_21" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Ping Pong <a class="read-wiki" href="https://en.wikipedia.org/wiki/Ping_Pong_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Solo Leveling <a class="read-wiki" href="https://en.wikipedia.org/wiki/Solo_Leveling" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Jackals <a class="read-wiki" href="https://it.wikipedia.org/wiki/Jackals_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Soul Eater <a class="read-wiki" href="https://en.wikipedia.org/wiki/Soul_Eater_(manga)" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Fire Force <a class="read-wiki" href="https://en.wikipedia.org/wiki/Fire_Force" target="_blank" rel="noopener">Wikipedia</a></li>
+                  <li>Jujutsu Kaisen <a class="read-wiki" href="https://en.wikipedia.org/wiki/Jujutsu_Kaisen" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Hellsing <a class="read-wiki" href="https://en.wikipedia.org/wiki/Hellsing" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Fist of the North Star <a class="read-wiki" href="https://en.wikipedia.org/wiki/Fist_of_the_North_Star" target="_blank" rel="noopener">Wikipedia</a></li>
                   <li>Tokyo Revengers <a class="read-wiki" href="https://en.wikipedia.org/wiki/Tokyo_Revengers" target="_blank" rel="noopener">Wikipedia</a></li>
@@ -1020,7 +1085,11 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
             </details>
             <details class="tm-folder tm-nested">
               <summary class="tm-fold-h"><span data-it="Letti">Read</span><span class="tm-chev">+</span></summary>
-              <div class="hob-leaf"><p class="hob-soon" data-it="Presto qui.">Coming soon.</p></div>
+              <div class="hob-leaf">
+                <ul class="read-list">
+                  <li>The Lions of Al-Rassan <span class="read-author" data-it="di Guy Gavriel Kay">by Guy Gavriel Kay</span></li>
+                </ul>
+              </div>
             </details>
           </div>
         </details>
@@ -1029,6 +1098,60 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 
     <details class="reveal d1 bg-section hob-block">
       <summary class="bg-section-h"><span data-it="I miei personaggi di DnD">My DnD characters</span><span class="bg-section-chev">+</span></summary>
+      <div class="hob-body">
+        <div class="dnd-card">
+          <div class="dnd-portrait">
+            <span class="ph">img</span>
+            <img alt="" src="DnD/Volker_Vandeen.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'">
+          </div>
+          <div class="dnd-info">
+            <h4>Volker Vandeen</h4>
+            <p class="dnd-class" data-it="Guerriero Eco Umano">Human Echo Knight</p>
+            <p class="dnd-meta"><span data-it="2021, in gioco">2021, currently playing</span> &middot; <span data-it="D&amp;D 5e">D&amp;D 5e</span></p>
+            <p class="dnd-comment hob-soon" data-it="Presto qui.">Coming soon.</p>
+            <div class="dnd-dl-row">
+              <a class="dnd-dl" href="DnD/Volker_Vandeen_Background_EN.docx" download><span data-it="Scarica il background (EN)">Download background (EN)</span></a>
+              <a class="dnd-dl" href="DnD/Volker_Vandeen_Background_IT.docx" download><span data-it="Scarica il background (IT)">Download background (IT)</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="dnd-card">
+          <div class="dnd-portrait">
+            <span class="ph">img</span>
+            <img alt="" src="DnD/Gimble_Trickfoot.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'">
+          </div>
+          <div class="dnd-info">
+            <h4>Gimble Trickfoot</h4>
+            <p class="dnd-class" data-it="Chierico dell’Inganno Gnomo">Gnomish Trickery Cleric</p>
+            <p class="dnd-meta"><span data-it="2025, congedato">2025, dismissed</span> &middot; <span data-it="D&amp;D 5.5e">D&amp;D 5.5e</span></p>
+            <p class="dnd-comment hob-soon" data-it="Presto qui.">Coming soon.</p>
+            <div class="dnd-dl-row">
+              <a class="dnd-dl" href="DnD/Gimble_Trickfoot_Background_EN.docx" download><span data-it="Scarica il background (EN)">Download background (EN)</span></a>
+              <a class="dnd-dl" href="DnD/Gimble_Trickfoot_Background_IT.docx" download><span data-it="Scarica il background (IT)">Download background (IT)</span></a>
+            </div>
+          </div>
+        </div>
+        <div class="dnd-card">
+          <div class="dnd-portrait">
+            <span class="ph">img</span>
+            <img alt="" src="DnD/Konrad_Starwake.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'">
+          </div>
+          <div class="dnd-info">
+            <h4>Konrad Starwake</h4>
+            <p class="dnd-class" data-it="Mago Umano">Human Wizard</p>
+            <p class="dnd-meta"><span data-it="2026, in gioco">2026, currently playing</span> &middot; <span data-it="D&amp;D 3.5e">D&amp;D 3.5e</span></p>
+            <p class="dnd-comment hob-soon" data-it="Presto qui.">Coming soon.</p>
+            <div class="dnd-dl-row">
+              <a class="dnd-dl" href="DnD/Konrad_Starwake_Background_EN.docx" download><span data-it="Scarica il background (EN)">Download background (EN)</span></a>
+              <a class="dnd-dl" href="DnD/Konrad_Starwake_Background_IT.docx" download><span data-it="Scarica il background (IT)">Download background (IT)</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="reveal d1 bg-section hob-block">
+      <summary class="bg-section-h"><span data-it="Escursioni, arrampicate e alpinismo">Hikes, climbs and alpinism</span><span class="bg-section-chev">+</span></summary>
       <div class="hob-body"><p class="hob-soon" data-it="Presto qui.">Coming soon.</p></div>
     </details>
   </div>
