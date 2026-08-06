@@ -404,6 +404,11 @@ details.ref[open] .rchev{transform:rotate(45deg)}
 /* Defensive override: keep WH40k thumbnails square even if stale/competing rules load. */
 #hobbies .wh-list .wh-thumb{width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important;aspect-ratio:1/1!important}
 #hobbies .wh-list .wh-thumb img{width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important}
+@media (max-width:640px){
+  #hobbies .wh-list li{gap:.75rem;padding:.62rem 0}
+  #hobbies .wh-count{min-width:2.6em}
+  #hobbies .wh-list .wh-thumb{width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;border-radius:4px}
+}
 .dnd-card{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-top:1px solid var(--hair);max-width:62ch}
 .dnd-card:first-of-type{border-top:none}
 .dnd-portrait{position:relative;flex:none;width:64px;height:64px;border:1px solid var(--hair);border-radius:2px;overflow:hidden;background:var(--paper-2)}
@@ -998,6 +1003,7 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
             <li><span class="wh-count">3×</span><span class="wh-thumb"><span class="ph">img</span><img alt="" src="Wh40k/bladeguard_veteran_squad.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></span><span data-it="Bladeguard Veteran Squad">Bladeguard Veteran Squad</span></li>
             <li><span class="wh-count">5×</span><span class="wh-thumb"><span class="ph">img</span><img alt="" src="Wh40k/infernus_squad.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></span><span data-it="Infernus Squad">Infernus Squad</span></li>
             <li><span class="wh-count">3×</span><span class="wh-thumb"><span class="ph">img</span><img alt="" src="Wh40k/outrider_squad.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></span><span data-it="Outrider Squad">Outrider Squad</span></li>
+            <li><span class="wh-count">4×</span><span class="wh-thumb"><span class="ph">img</span><img alt="" src="Wh40k/sword_brethren_squad.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></span><span data-it="Sword Brethren Squad">Sword Brethren Squad</span></li>
             <li><span class="wh-count">5×</span><span class="wh-thumb"><span class="ph">img</span><img alt="" src="Wh40k/sword_brethren_squad.jpg" style="display:none" onload="this.style.display='block'" onerror="this.style.display='none'"></span><span data-it="Sword Brethren Squad">Sword Brethren Squad</span></li>
           </ul>
         </div>
