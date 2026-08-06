@@ -224,8 +224,8 @@ html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 .pm-arch-detail{padding:0 0 1.6rem 0}
 
 /* ============================ BEHIND THE SCENES ============================ */
-.bts-wrap{display:flex;justify-content:center;margin-top:1.6rem}
-.bts-chain{position:relative;width:100%;max-width:980px;aspect-ratio:2/1}
+.bts-wrap{margin-top:1.6rem}
+.bts-chain{position:relative;width:100%;max-width:980px;margin-inline:auto;aspect-ratio:2/1}
 #scenes .wrap{position:relative}
 .bts-link{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}
 .bts-link line{stroke:var(--ink);stroke-opacity:.4;stroke-width:2;stroke-dasharray:5 5;stroke-linecap:round;vector-effect:non-scaling-stroke}
@@ -1720,7 +1720,11 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
     const bonds=document.getElementById("btsBonds");
     const archWrap=document.getElementById("btsArchWrap"), archGrid=document.getElementById("btsArchive");
     const lb=document.getElementById("lightbox"), lbImg=document.getElementById("lbImg"), lbCap=document.getElementById("lbCap"), lbClose=document.getElementById("lbClose");
-    let PHOTOS=[], CHAIN_N=0, lastFocus=null;
+    let PHOTOS=[], CHAIN_N=0, lastFocus=null, chainSeed=1, lastChainWidth=0;
+    function seeded01(n){
+      const x=Math.sin((n+1)*12.9898 + chainSeed*78.233) * 43758.5453;
+      return x - Math.floor(x);
+    }
     function openLB(p){ lastFocus=document.activeElement; lbImg.style.display="none"; lbImg.src=p.src; const cap=(lang==="it"?p.cap_it:p.cap_en)||""; lbImg.alt=cap; lbCap.textContent=cap; lb.hidden=false; document.body.style.overflow="hidden"; lbClose.focus(); }
     function closeLB(){ lb.hidden=true; document.body.style.overflow=""; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
     window._lightbox=(src,cap)=>{ if(src) openLB({src:src,cap_en:cap||"",cap_it:cap||""}); };
@@ -1746,12 +1750,12 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
       let r=Math.min( W/(N+0.6)*0.58, H*0.46, 90 );
       if(N>1){ const sp=(W-2*(r+pad))/(N-1); r=Math.min(r, sp*0.485); }   // <0.5*sp keeps consecutive beads from overlapping
       const mX=r+pad, mY=r+pad, amp=H*0.5-mY;
-      const ph1=Math.random()*6.283, ph2=Math.random()*6.283;
-      const k=(2.1+Math.random()*1.6)*Math.PI*2/Math.max(N-1,1);   // 2-3.7 humps → contorted, fills the height
+      const ph1=seeded01(11)*6.283, ph2=seeded01(23)*6.283;
+      const k=(2.1+seeded01(37)*1.6)*Math.PI*2/Math.max(N-1,1);   // 2-3.7 humps → contorted, fills the height
       const pos=[];
       for(let i=0;i<N;i++){
         const x = N>1 ? mX + i*(W-2*mX)/(N-1) : W*0.5;
-        let yy = H*0.5 + amp*(0.72*Math.sin(ph1+i*k) + 0.28*Math.sin(ph2+i*k*2.3)) + (Math.random()-0.5)*H*0.1;
+        let yy = H*0.5 + amp*(0.72*Math.sin(ph1+i*k) + 0.28*Math.sin(ph2+i*k*2.3)) + (seeded01(100+i)-0.5)*H*0.1;
         yy=Math.max(mY,Math.min(H-mY,yy));
         pos.push([x,yy]);
       }
@@ -1785,7 +1789,17 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
       rest.forEach(p=>archGrid.appendChild(thumb(p,"bts-a-item")));
     }
     function chainCount(){ const w=innerWidth||900, m=(w<600?5:w<900?7:10); return Math.min(m, PHOTOS.length); }
-    function render(){ if(!PHOTOS.length){ chain.querySelectorAll(".bts-bead").forEach(n=>n.remove()); if(bonds) bonds.innerHTML=""; const ov=document.getElementById("btsLink"); if(ov) ov.innerHTML=""; if(archWrap) archWrap.hidden=true; return; } CHAIN_N=chainCount(); layoutChain(); layoutArchive(); requestAnimationFrame(drawLink); }
+    function render(){
+      if(!PHOTOS.length){ chain.querySelectorAll(".bts-bead").forEach(n=>n.remove()); if(bonds) bonds.innerHTML=""; const ov=document.getElementById("btsLink"); if(ov) ov.innerHTML=""; if(archWrap) archWrap.hidden=true; return; }
+      CHAIN_N=chainCount();
+      layoutChain();
+      layoutArchive();
+      requestAnimationFrame(()=>{
+        layoutChain();
+        lastChainWidth=chain.clientWidth||0;
+        drawLink();
+      });
+    }
     window._btsRender=render;
     async function lines(url){ try{ const r=await fetch(url,{cache:"no-store"}); if(!r.ok) return null; return (await r.text()).split(/\r?\n/); }catch(e){ return null; } }
     (async function(){
@@ -1796,9 +1810,20 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
       const list=[];
       for(let i=0;i<e.length;i++){ list.push({ src:"Extra_pictures/"+(i+1)+".jpg", cap_en:e[i]||"", cap_it:(it&&it[i]!=null?it[i].replace(/\s+$/,""):"")||e[i]||"" }); }
       PHOTOS=list.reverse();          // newest (highest number) first → head of the chain
+      chainSeed=(PHOTOS.length*97) + CHAIN_N*13;
       render();
     })();
-    let rtid; addEventListener("resize",()=>{ clearTimeout(rtid); rtid=setTimeout(()=>{ if(PHOTOS.length) render(); },200); },{passive:true});
+    let rtid;
+    const syncChain=()=>{
+      clearTimeout(rtid);
+      rtid=setTimeout(()=>{
+        if(!PHOTOS.length) return;
+        const w=chain.clientWidth||0;
+        if(Math.abs(w-lastChainWidth)<2) return;
+        render();
+      },50);
+    };
+    new ResizeObserver(syncChain).observe(chain);
   })();
 
   /* ============================ BOARD GAMES ============================ */
@@ -1886,27 +1911,6 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
       save(arr); textEl.value=""; render(); }
     postBtn&&postBtn.addEventListener("click",post);
     window._cmRender=render; render();
-  })();
-
-  /* ============================ SECTION FOCUS ============================ */
-  (function sep(){
-    const secs=[...document.querySelectorAll(".hero, .section")];
-    if(reduce||secs.length<2) return;
-    root.classList.add("sep");
-    let ticking=false;
-    function pick(){
-      ticking=false;
-      const mid=innerHeight*0.5;
-      let best=secs[0], bestDist=Infinity;
-      for(const s of secs){ const r=s.getBoundingClientRect();
-        const d=(r.top>mid)?r.top-mid:(r.bottom<mid?mid-r.bottom:0);   // 0 = section straddles the viewport midline
-        if(d<bestDist){ bestDist=d; best=s; } }
-      secs.forEach(s=>s.classList.toggle("active", s===best));
-    }
-    const onScroll=()=>{ if(!ticking){ ticking=true; requestAnimationFrame(pick); } };
-    addEventListener("scroll",onScroll,{passive:true});
-    addEventListener("resize",onScroll,{passive:true});
-    pick();
   })();
 
   /* ============================ ARTICLE FIGURES → LIGHTBOX ============================ */
