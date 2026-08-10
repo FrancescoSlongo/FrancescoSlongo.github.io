@@ -124,10 +124,18 @@ html.sep .hero:not(.active),html.sep .section:not(.active){opacity:.16;transform
 /* ============================ SIDE TOC ============================ */
 .toc{position:fixed;top:50%;right:18px;transform:translateY(-50%);z-index:6;display:none;flex-direction:column;gap:12px;align-items:flex-end}
 .toc-mtn{position:absolute;top:50%;right:-35px;width:95px;height:338px;transform:translateY(-50%);z-index:-1;pointer-events:none;overflow:visible}
-.toc-mtn .mtn-fill{fill:var(--ink);fill-opacity:.16;stroke:none}
-.toc-mtn .mtn-line{fill:none;stroke:var(--ink);stroke-opacity:.5;stroke-width:1.1;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
-html[data-theme="night"] .toc-mtn .mtn-fill{fill-opacity:.24}
-html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
+.toc-mtn .mtn-base{fill:#dfe7db;stroke:none}
+.toc-mtn .mtn-forest{fill:#c9d9c7;stroke:none}
+.toc-mtn .mtn-rock{fill:#d8d6d2;stroke:none}
+.toc-mtn .mtn-snow{fill:#f5f7f2;stroke:none}
+.toc-mtn .mtn-line{fill:none;stroke:#7e8b85;stroke-opacity:.72;stroke-width:1.15;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.toc-mtn .mtn-detail{fill:none;stroke:#95a29b;stroke-opacity:.65;stroke-width:.9;stroke-linecap:round;vector-effect:non-scaling-stroke}
+html[data-theme="night"] .toc-mtn .mtn-base{fill:#2f3742}
+html[data-theme="night"] .toc-mtn .mtn-forest{fill:#31463f}
+html[data-theme="night"] .toc-mtn .mtn-rock{fill:#4a4d55}
+html[data-theme="night"] .toc-mtn .mtn-snow{fill:#d6dde8}
+html[data-theme="night"] .toc-mtn .mtn-line{stroke:#b6c4be;stroke-opacity:.78}
+html[data-theme="night"] .toc-mtn .mtn-detail{stroke:#9dadb1;stroke-opacity:.58}
 .toc a{position:relative;display:flex;justify-content:flex-end;align-items:center;width:14px;height:13px;color:var(--margin);transform:translateX(var(--dx,0));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
 .toc a .tdot{position:absolute;right:0;bottom:50%;width:1.6px;height:12px;background:var(--accent);border:none;border-radius:0;transform:rotate(-90deg);transform-origin:bottom right;transition:background .3s,transform .3s}
 .toc a .tdot::before{content:"";position:absolute;top:0;right:0;width:9px;height:7px;background:var(--accent);clip-path:polygon(100% 0,100% 100%,0 50%);transform-origin:top right;transition:background .3s,transform .3s}
@@ -595,9 +603,19 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 <!-- side table of contents -->
 <nav class="toc" id="toc" aria-label="On this page">
   <svg class="toc-mtn" viewBox="0 0 95 338" aria-hidden="true" preserveAspectRatio="none">
-    <defs><filter id="mrough" x="-15%" y="-6%" width="135%" height="118%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.4"/></filter></defs>
+    <defs>
+      <filter id="mrough" x="-15%" y="-6%" width="135%" height="118%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.4"/></filter>
+      <clipPath id="mtnClip"><path d="M95 0 L43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338 L95 338 Z"/></clipPath>
+    </defs>
     <g filter="url(#mrough)">
-      <path class="mtn-fill" d="M95 0 L43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338 L95 338 Z"/>
+      <path class="mtn-base" d="M95 0 L43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338 L95 338 Z"/>
+      <g clip-path="url(#mtnClip)">
+        <rect class="mtn-snow" x="0" y="0" width="37" height="338"/>
+        <rect class="mtn-rock" x="35" y="0" width="27" height="338"/>
+        <rect class="mtn-forest" x="59" y="0" width="36" height="338"/>
+      </g>
+      <path class="mtn-detail" d="M52 14 L48 52 L41 86 L45 124 L38 158 L30 196 L39 236 L34 274 L42 315"/>
+      <path class="mtn-detail" d="M66 8 L61 42 L56 79 L60 117 L53 151 L46 189 L54 227 L49 266 L57 305"/>
       <path class="mtn-line" d="M43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338"/>
     </g>
   </svg>
@@ -607,12 +625,12 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
   <a href="index.html#cv" style="--dx:-37px"><span class="tlbl">cv</span><span class="tdot"></span></a>
   <a href="index.html#articles" style="--dx:-38px"><span class="tlbl" data-it="articoli">articles</span><span class="tdot"></span></a>
   <a href="index.html#research" style="--dx:-25px"><span class="tlbl" data-it="ricerca">research</span><span class="tdot"></span></a>
-  <a href="index.html#projects" style="--dx:-44px"><span class="tlbl" data-it="progetti">projects</span><span class="tdot"></span></a>
-  <a href="index.html#contact" style="--dx:-29px"><span class="tlbl" data-it="contatti">contact</span><span class="tdot"></span></a>
-  <a href="#hobbies" style="--dx:-20px"><span class="tlbl" data-it="vita personale">personal life</span><span class="tdot"></span></a>
-  <a href="#hobbies" data-target="hobbies" style="--dx:-36px"><span class="tlbl" data-it="hobby">hobbies</span><span class="tdot"></span></a>
+  <a href="index.html#projects" style="--dx:-36px"><span class="tlbl" data-it="progetti">projects</span><span class="tdot"></span></a>
+  <a href="index.html#contact" style="--dx:-44px"><span class="tlbl" data-it="contatti">contact</span><span class="tdot"></span></a>
+  <a href="#scenes" style="--dx:-36px"><span class="tlbl" data-it="vita personale">personal life</span><span class="tdot"></span></a>
   <a href="#scenes" data-target="scenes" style="--dx:-27px"><span class="tlbl" data-it="dietro le quinte">behind the scenes</span><span class="tdot"></span></a>
-  <a href="#comments" data-target="comments" style="--dx:-19px"><span class="tlbl" data-it="bacheca">guestbook</span><span class="tdot"></span></a>
+  <a href="#hobbies" data-target="hobbies" style="--dx:-19px"><span class="tlbl" data-it="hobby">hobbies</span><span class="tdot"></span></a>
+  <a href="#comments" data-target="comments" style="--dx:-29px"><span class="tlbl" data-it="bacheca">guestbook</span><span class="tdot"></span></a>
   <a href="#problems" data-target="problems" style="--dx:-26px"><span class="tlbl" data-it="problema">problem</span><span class="tdot"></span></a>
   <a href="#bugs" data-target="bugs" style="--dx:-10px"><span class="tlbl" data-it="bug">report a bug</span><span class="tdot"></span></a>
 </nav>
