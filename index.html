@@ -111,6 +111,12 @@ html.sep .hero:not(.active),html.sep .section:not(.active){opacity:.16;transform
 .tctl:hover,.tctl:focus-visible{border-color:var(--accent);color:var(--accent)}
 .tctl .ico{font-size:.95rem;line-height:1}
 .page-swap.active{border-color:var(--accent);color:var(--accent)}
+.section-picker{position:relative}
+.section-picker summary{list-style:none}
+.section-picker summary::-webkit-details-marker{display:none}
+.section-menu{position:absolute;top:calc(100% + 6px);right:0;min-width:220px;border:1px solid var(--hair);background:var(--paper);display:flex;flex-direction:column;padding:4px 0}
+.section-menu a{padding:8px 11px;font-family:var(--mono);font-size:.67rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);transition:background .2s,color .2s}
+.section-menu a:hover,.section-menu a:focus-visible{background:var(--paper-2);color:var(--accent)}
 @media (max-width:940px){ .topbar nav{display:none} }
 @media (max-width:420px){ .tctl .lbl{display:none} }
 
@@ -121,12 +127,6 @@ body.page-professional #scenes,
 body.page-professional #comments,
 body.page-professional #problems,
 body.page-professional #bugs{display:none}
-body.page-professional .toc a[href="#personal"],
-body.page-professional .toc a[href="#hobbies"],
-body.page-professional .toc a[href="#scenes"],
-body.page-professional .toc a[href="#comments"],
-body.page-professional .toc a[href="#problems"],
-body.page-professional .toc a[href="#bugs"],
 body.page-professional .hero-index a[href="#personal"],
 body.page-professional .hero-index a[href="#hobbies"],
 body.page-professional .hero-index a[href="#scenes"],
@@ -582,17 +582,22 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 <header class="topbar">
   <span class="name">Francesco&nbsp;Slongo</span>
   <div class="bar-right">
-    <nav aria-label="Sections">
+    <nav aria-label="Pages">
       <a href="index.html" class="active" data-it="professionale">professional</a>
       <a href="personal.html" data-it="personale">personal</a>
-      <a href="#about" data-it="chi sono">about</a>
-      <a href="#news" data-it="novità">news</a>
-      <a href="#cv">cv</a>
-      <a href="#articles" data-it="articoli">articles</a>
-      <a href="#research" data-it="ricerca">research</a>
-      <a href="#projects" data-it="progetti">projects</a>
-      <a href="#contact" data-it="contatti">contact</a>
     </nav>
+    <details class="section-picker">
+      <summary class="tctl"><span class="ico">≡</span><span data-it="sezioni">sections</span></summary>
+      <div class="section-menu">
+        <a href="#about" data-it="chi sono">about</a>
+        <a href="#news" data-it="novità">news</a>
+        <a href="#cv">cv</a>
+        <a href="#articles" data-it="articoli">articles</a>
+        <a href="#research" data-it="ricerca">research</a>
+        <a href="#projects" data-it="progetti">projects</a>
+        <a href="#contact" data-it="contatti">contact</a>
+      </div>
+    </details>
     <a class="tctl page-swap active" href="index.html" data-it="professionale">professional</a>
     <a class="tctl page-swap" href="personal.html" data-it="personale">personal</a>
     <button class="tctl js-theme" aria-label="Switch colour theme"><span class="ico theme-ico">☾</span><span class="lbl theme-txt">night</span></button>
@@ -617,12 +622,12 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
   <a href="#research" data-target="research" style="--dx:-25px"><span class="tlbl" data-it="ricerca">research</span><span class="tdot"></span></a>
   <a href="#projects" data-target="projects" style="--dx:-44px"><span class="tlbl" data-it="progetti">projects</span><span class="tdot"></span></a>
   <a href="#contact" data-target="contact" style="--dx:-29px"><span class="tlbl" data-it="contatti">contact</span><span class="tdot"></span></a>
-  <a href="#personal" data-target="personal" style="--dx:-20px"><span class="tlbl" data-it="vita personale">personal life</span><span class="tdot"></span></a>
-  <a href="#hobbies" data-target="hobbies" style="--dx:-36px"><span class="tlbl" data-it="hobby">hobbies</span><span class="tdot"></span></a>
-  <a href="#scenes" data-target="scenes" style="--dx:-27px"><span class="tlbl" data-it="dietro le quinte">behind the scenes</span><span class="tdot"></span></a>
-  <a href="#comments" data-target="comments" style="--dx:-19px"><span class="tlbl" data-it="bacheca">guestbook</span><span class="tdot"></span></a>
-  <a href="#problems" data-target="problems" style="--dx:-26px"><span class="tlbl" data-it="problema">problem</span><span class="tdot"></span></a>
-  <a href="#bugs" data-target="bugs" style="--dx:-10px"><span class="tlbl" data-it="bug">report a bug</span><span class="tdot"></span></a>
+  <a href="personal.html#hobbies" style="--dx:-20px"><span class="tlbl" data-it="vita personale">personal life</span><span class="tdot"></span></a>
+  <a href="personal.html#hobbies" style="--dx:-36px"><span class="tlbl" data-it="hobby">hobbies</span><span class="tdot"></span></a>
+  <a href="personal.html#scenes" style="--dx:-27px"><span class="tlbl" data-it="dietro le quinte">behind the scenes</span><span class="tdot"></span></a>
+  <a href="personal.html#comments" style="--dx:-19px"><span class="tlbl" data-it="bacheca">guestbook</span><span class="tdot"></span></a>
+  <a href="personal.html#problems" style="--dx:-26px"><span class="tlbl" data-it="problema">problem</span><span class="tdot"></span></a>
+  <a href="personal.html#bugs" style="--dx:-10px"><span class="tlbl" data-it="bug">report a bug</span><span class="tdot"></span></a>
 </nav>
 
 <!-- ============================ HERO ============================ -->
@@ -1584,7 +1589,7 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
   /* ============================ SIDE TOC ============================ */
   (function(){
     const tocLinks=[...document.querySelectorAll(".toc a")];
-    const navLinks=[...document.querySelectorAll(".topbar nav a")];
+    const navLinks=[...document.querySelectorAll(".topbar nav a[href^='#']")];
     const idxLinks=[...document.querySelectorAll(".hero-index a")];
     const all=[...tocLinks,...navLinks,...idxLinks]; if(!all.length) return;
     const map=new Map();
@@ -1594,6 +1599,15 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
     idxLinks.forEach(a=>add((a.getAttribute("href")||"").replace("#",""),a));
     const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){ all.forEach(a=>a.classList.remove("active")); (map.get(en.target.id)||[]).forEach(a=>a.classList.add("active")); }});},{rootMargin:"-45% 0px -50% 0px",threshold:0});
     document.querySelectorAll("section[id]").forEach(s=>io.observe(s)); })();
+
+  /* ============================ SECTION MENU CLOSE ============================ */
+  (function(){
+    const pickers=[...document.querySelectorAll(".section-picker")];
+    if(!pickers.length) return;
+    document.addEventListener("click",e=>{ pickers.forEach(p=>{ if(!p.contains(e.target)) p.open=false; }); });
+    document.addEventListener("keydown",e=>{ if(e.key==="Escape") pickers.forEach(p=>p.open=false); });
+    pickers.forEach(p=>{ p.querySelectorAll(".section-menu a").forEach(a=>a.addEventListener("click",()=>{ p.open=false; })); });
+  })();
 
   /* ============================ NEWS ============================ */
   /* EDIT ME: newest first. date is "YYYY-MM"; provide en + it text. */

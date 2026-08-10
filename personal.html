@@ -111,6 +111,12 @@ html.sep .hero:not(.active),html.sep .section:not(.active){opacity:.16;transform
 .tctl:hover,.tctl:focus-visible{border-color:var(--accent);color:var(--accent)}
 .tctl .ico{font-size:.95rem;line-height:1}
 .page-swap.active{border-color:var(--accent);color:var(--accent)}
+.section-picker{position:relative}
+.section-picker summary{list-style:none}
+.section-picker summary::-webkit-details-marker{display:none}
+.section-menu{position:absolute;top:calc(100% + 6px);right:0;min-width:220px;border:1px solid var(--hair);background:var(--paper);display:flex;flex-direction:column;padding:4px 0}
+.section-menu a{padding:8px 11px;font-family:var(--mono);font-size:.67rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);transition:background .2s,color .2s}
+.section-menu a:hover,.section-menu a:focus-visible{background:var(--paper-2);color:var(--accent)}
 @media (max-width:940px){ .topbar nav{display:none} }
 @media (max-width:420px){ .tctl .lbl{display:none} }
 
@@ -548,6 +554,8 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 </head>
 <body class="page-personal">
 
+<div id="top" aria-hidden="true"></div>
+
 <svg class="bg-fil" id="filaments" aria-hidden="true" preserveAspectRatio="none"></svg>
 
 <!-- plotter rail -->
@@ -563,14 +571,20 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 <header class="topbar">
   <span class="name">Francesco&nbsp;Slongo</span>
   <div class="bar-right">
-    <nav aria-label="Sections">
+    <nav aria-label="Pages">
       <a href="index.html" data-it="professionale">professional</a>
       <a href="personal.html" class="active" data-it="personale">personal</a>
-      <a href="#personal" data-it="vita personale">personal life</a>
-      <a href="#hobbies" data-it="hobby">hobbies</a>
-      <a href="#scenes" data-it="dietro le quinte">behind the scenes</a>
-      <a href="#comments" data-it="bacheca">guestbook</a>
     </nav>
+    <details class="section-picker">
+      <summary class="tctl"><span class="ico">≡</span><span data-it="sezioni">sections</span></summary>
+      <div class="section-menu">
+        <a href="#scenes" data-it="dietro le quinte">behind the scenes</a>
+        <a href="#hobbies" data-it="hobby">hobbies</a>
+        <a href="#comments" data-it="bacheca">guestbook</a>
+        <a href="#problems" data-it="problema">problem</a>
+        <a href="#bugs" data-it="bug">report a bug</a>
+      </div>
+    </details>
     <a class="tctl page-swap" href="index.html" data-it="professionale">professional</a>
     <a class="tctl page-swap active" href="personal.html" data-it="personale">personal</a>
     <button class="tctl js-theme" aria-label="Switch colour theme"><span class="ico theme-ico">☾</span><span class="lbl theme-txt">night</span></button>
@@ -587,25 +601,21 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
       <path class="mtn-line" d="M43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338"/>
     </g>
   </svg>
-  <a href="#personal" data-target="personal" style="--dx:-17px"><span class="tlbl" data-it="inizio">top</span><span class="tdot"></span></a>
-  <a href="#personal" data-target="personal" style="--dx:-20px"><span class="tlbl" data-it="vita personale">personal life</span><span class="tdot"></span></a>
+  <a href="#top" data-target="top" style="--dx:-17px"><span class="tlbl" data-it="inizio">top</span><span class="tdot"></span></a>
+  <a href="index.html#about" style="--dx:-22px"><span class="tlbl" data-it="chi sono">about</span><span class="tdot"></span></a>
+  <a href="index.html#news" style="--dx:-27px"><span class="tlbl" data-it="novità">news</span><span class="tdot"></span></a>
+  <a href="index.html#cv" style="--dx:-37px"><span class="tlbl">cv</span><span class="tdot"></span></a>
+  <a href="index.html#articles" style="--dx:-38px"><span class="tlbl" data-it="articoli">articles</span><span class="tdot"></span></a>
+  <a href="index.html#research" style="--dx:-25px"><span class="tlbl" data-it="ricerca">research</span><span class="tdot"></span></a>
+  <a href="index.html#projects" style="--dx:-44px"><span class="tlbl" data-it="progetti">projects</span><span class="tdot"></span></a>
+  <a href="index.html#contact" style="--dx:-29px"><span class="tlbl" data-it="contatti">contact</span><span class="tdot"></span></a>
+  <a href="#hobbies" style="--dx:-20px"><span class="tlbl" data-it="vita personale">personal life</span><span class="tdot"></span></a>
   <a href="#hobbies" data-target="hobbies" style="--dx:-36px"><span class="tlbl" data-it="hobby">hobbies</span><span class="tdot"></span></a>
   <a href="#scenes" data-target="scenes" style="--dx:-27px"><span class="tlbl" data-it="dietro le quinte">behind the scenes</span><span class="tdot"></span></a>
   <a href="#comments" data-target="comments" style="--dx:-19px"><span class="tlbl" data-it="bacheca">guestbook</span><span class="tdot"></span></a>
   <a href="#problems" data-target="problems" style="--dx:-26px"><span class="tlbl" data-it="problema">problem</span><span class="tdot"></span></a>
   <a href="#bugs" data-target="bugs" style="--dx:-10px"><span class="tlbl" data-it="bug">report a bug</span><span class="tdot"></span></a>
 </nav>
-
-<!-- ============================ PERSONAL SPLIT ============================ -->
-<section class="section" id="personal">
-  <div class="wrap">
-    <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">01</span> <span data-it="Vita personale">Personal life</span></p>
-      <h2 data-it="Vita personale">Personal life</h2>
-    </div>
-    <p class="lede reveal d1" data-it="Da qui in poi trovi la parte personale: passioni, hobby e dietro le quinte.">From here on, this is the personal side: passions, hobbies, and behind the scenes.</p>
-  </div>
-</section>
 
 <!-- ============================ HOBBIES ============================ -->
 <section class="section" id="hobbies">
@@ -820,7 +830,7 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
   <div class="wrap">
     <svg class="bts-link" id="btsLink" aria-hidden="true" preserveAspectRatio="none"></svg>
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">03</span> <span data-it="Dietro le quinte">Behind the scenes</span></p>
+      <p class="eyebrow"><span class="idx">01</span> <span data-it="Dietro le quinte">Behind the scenes</span></p>
       <h2 data-it="Io, dietro le quinte">Me, behind the scenes</h2>
     </div>
     <div class="bts-wrap reveal d2">
@@ -851,7 +861,7 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 <section class="section" id="comments">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">04</span> <span data-it="Bacheca">Guestbook</span></p>
+      <p class="eyebrow"><span class="idx">03</span> <span data-it="Bacheca">Guestbook</span></p>
       <h2 data-it="Lascia un messaggio">Leave a note</h2>
     </div>
     <div class="reveal d1">
@@ -872,7 +882,7 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 <section class="section" id="problems">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">05</span> <span data-it="Problema del mese">Problem of the month</span></p>
+      <p class="eyebrow"><span class="idx">04</span> <span data-it="Problema del mese">Problem of the month</span></p>
       <h2 data-it="Problema del mese">Problem of the month</h2>
     </div>
     <div class="reveal d1" id="pmCurrent"></div>
@@ -887,7 +897,7 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 <section class="section" id="bugs">
   <div class="wrap">
     <div class="shead reveal">
-      <p class="eyebrow"><span class="idx">06</span> <span data-it="Trovato un bug?">Found a bug?</span></p>
+      <p class="eyebrow"><span class="idx">05</span> <span data-it="Trovato un bug?">Found a bug?</span></p>
       <h2 data-it="Segnala un bug">Report a bug</h2>
     </div>
     <p class="lede reveal d1" data-it="Qualcosa non funziona o è storto? Dimmelo: mi aiuti a sistemarlo.">Something broken or out of place? Tell me; it helps me fix it.</p>
@@ -1159,10 +1169,20 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
     const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.12,rootMargin:"0px 0px -8% 0px"});
     els.forEach(e=>io.observe(e)); })();
 
+  /* ============================ PERSONAL ORDER ============================ */
+  (function(){
+    if(!document.body.classList.contains("page-personal")) return;
+    const hobbies=document.getElementById("hobbies");
+    const scenes=document.getElementById("scenes");
+    if(hobbies&&scenes&&hobbies.parentNode===scenes.parentNode){
+      hobbies.parentNode.insertBefore(scenes,hobbies);
+    }
+  })();
+
   /* ============================ SIDE TOC ============================ */
   (function(){
     const tocLinks=[...document.querySelectorAll(".toc a")];
-    const navLinks=[...document.querySelectorAll(".topbar nav a")];
+    const navLinks=[...document.querySelectorAll(".topbar nav a[href^='#']")];
     const idxLinks=[...document.querySelectorAll(".hero-index a")];
     const all=[...tocLinks,...navLinks,...idxLinks]; if(!all.length) return;
     const map=new Map();
@@ -1172,6 +1192,15 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
     idxLinks.forEach(a=>add((a.getAttribute("href")||"").replace("#",""),a));
     const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){ all.forEach(a=>a.classList.remove("active")); (map.get(en.target.id)||[]).forEach(a=>a.classList.add("active")); }});},{rootMargin:"-45% 0px -50% 0px",threshold:0});
     document.querySelectorAll("section[id]").forEach(s=>io.observe(s)); })();
+
+  /* ============================ SECTION MENU CLOSE ============================ */
+  (function(){
+    const pickers=[...document.querySelectorAll(".section-picker")];
+    if(!pickers.length) return;
+    document.addEventListener("click",e=>{ pickers.forEach(p=>{ if(!p.contains(e.target)) p.open=false; }); });
+    document.addEventListener("keydown",e=>{ if(e.key==="Escape") pickers.forEach(p=>p.open=false); });
+    pickers.forEach(p=>{ p.querySelectorAll(".section-menu a").forEach(a=>a.addEventListener("click",()=>{ p.open=false; })); });
+  })();
 
   /* ============================ NEWS ============================ */
   /* EDIT ME: newest first. date is "YYYY-MM"; provide en + it text. */
