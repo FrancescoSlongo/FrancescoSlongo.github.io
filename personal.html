@@ -124,18 +124,10 @@ html.sep .hero:not(.active),html.sep .section:not(.active){opacity:.16;transform
 /* ============================ SIDE TOC ============================ */
 .toc{position:fixed;top:50%;right:18px;transform:translateY(-50%);z-index:6;display:none;flex-direction:column;gap:12px;align-items:flex-end}
 .toc-mtn{position:absolute;top:50%;right:-35px;width:95px;height:338px;transform:translateY(-50%);z-index:-1;pointer-events:none;overflow:visible}
-.toc-mtn .mtn-base{fill:#dfe7db;stroke:none}
-.toc-mtn .mtn-forest{fill:#c9d9c7;stroke:none}
-.toc-mtn .mtn-rock{fill:#d8d6d2;stroke:none}
-.toc-mtn .mtn-snow{fill:#f5f7f2;stroke:none}
-.toc-mtn .mtn-line{fill:none;stroke:#7e8b85;stroke-opacity:.72;stroke-width:1.15;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.toc-mtn .mtn-detail{fill:none;stroke:#95a29b;stroke-opacity:.65;stroke-width:.9;stroke-linecap:round;vector-effect:non-scaling-stroke}
-html[data-theme="night"] .toc-mtn .mtn-base{fill:#2f3742}
-html[data-theme="night"] .toc-mtn .mtn-forest{fill:#31463f}
-html[data-theme="night"] .toc-mtn .mtn-rock{fill:#4a4d55}
-html[data-theme="night"] .toc-mtn .mtn-snow{fill:#d6dde8}
-html[data-theme="night"] .toc-mtn .mtn-line{stroke:#b6c4be;stroke-opacity:.78}
-html[data-theme="night"] .toc-mtn .mtn-detail{stroke:#9dadb1;stroke-opacity:.58}
+.toc-mtn .mtn-fill{fill:var(--ink);fill-opacity:.16;stroke:none}
+.toc-mtn .mtn-line{fill:none;stroke:var(--ink);stroke-opacity:.5;stroke-width:1.1;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+html[data-theme="night"] .toc-mtn .mtn-fill{fill-opacity:.24}
+html[data-theme="night"] .toc-mtn .mtn-line{stroke-opacity:.62}
 .toc a{position:relative;display:flex;justify-content:flex-end;align-items:center;width:14px;height:13px;color:var(--margin);transform:translateX(var(--dx,0));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
 .toc a .tdot{position:absolute;right:0;bottom:50%;width:1.6px;height:12px;background:var(--accent);border:none;border-radius:0;transform:rotate(-90deg);transform-origin:bottom right;transition:background .3s,transform .3s}
 .toc a .tdot::before{content:"";position:absolute;top:0;right:0;width:9px;height:7px;background:var(--accent);clip-path:polygon(100% 0,100% 100%,0 50%);transform-origin:top right;transition:background .3s,transform .3s}
@@ -603,19 +595,9 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
 <!-- side table of contents -->
 <nav class="toc" id="toc" aria-label="On this page">
   <svg class="toc-mtn" viewBox="0 0 95 338" aria-hidden="true" preserveAspectRatio="none">
-    <defs>
-      <filter id="mrough" x="-15%" y="-6%" width="135%" height="118%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.4"/></filter>
-      <clipPath id="mtnClip"><path d="M95 0 L43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338 L95 338 Z"/></clipPath>
-    </defs>
+    <defs><filter id="mrough" x="-15%" y="-6%" width="135%" height="118%"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.4"/></filter></defs>
     <g filter="url(#mrough)">
-      <path class="mtn-base" d="M95 0 L43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338 L95 338 Z"/>
-      <g clip-path="url(#mtnClip)">
-        <rect class="mtn-snow" x="0" y="0" width="37" height="338"/>
-        <rect class="mtn-rock" x="35" y="0" width="27" height="338"/>
-        <rect class="mtn-forest" x="59" y="0" width="36" height="338"/>
-      </g>
-      <path class="mtn-detail" d="M52 14 L48 52 L41 86 L45 124 L38 158 L30 196 L39 236 L34 274 L42 315"/>
-      <path class="mtn-detail" d="M66 8 L61 42 L56 79 L60 117 L53 151 L46 189 L54 227 L49 266 L57 305"/>
+      <path class="mtn-fill" d="M95 0 L43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338 L95 338 Z"/>
       <path class="mtn-line" d="M43 0 L43 6.5 L38 31.5 L33 56.5 L23 81.5 L22 106.5 L35 131.5 L24 156.5 L16 181.5 L24 206.5 L33 231.5 L41 256.5 L31 281.5 L34 306.5 L50 331.5 L50 338"/>
     </g>
   </svg>
@@ -1251,6 +1233,12 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
   /* EDIT ME: newest first. [0] is the current problem; the rest are the archive.
      Statements & solutions accept HTML (use <sup>,<sub>,<em>… or paste KaTeX later). */
   const PROBLEMS=[
+    { id:"2026-09", level:"★★☆",
+      title_en:"The Mostly Harmless band", title_it:"La banda Mostly Harmless",
+      stmt_en:"<p>The band &ldquo;Mostly Harmless&rdquo; is made up of nine musicians marching in single file. Initially, each musician is one metre from the next. At every beat of the bass drum, the first in line steps one metre forward. Then, in order from the second to the eighth, each musician moves to the midpoint between the current positions of the one ahead and the one behind. Finally, the ninth and last moves to one metre behind the eighth. After enough drum beats, will the line ever be longer than 42&nbsp;m?</p>",
+      stmt_it:"<p>La banda &ldquo;Mostly Harmless&rdquo; è composta di nove musicisti che procedono in fila indiana. Inizialmente, la distanza fra ciascun musicista e il successivo è di un metro. Ad ogni colpo della grancassa, il primo della fila avanza di un metro. Poi, procedendo in ordine, dal secondo fino all&rsquo;ottavo, ciascun musicista si dispone nel punto medio fra la posizione occupata da quello che lo precede e quella occupata da quello che lo segue. Infine, il nono, e ultimo, si porta un metro dietro all&rsquo;ottavo. Dopo un numero sufficiente di colpi di grancassa, la fila supererà i 42&nbsp;m di lunghezza?</p>",
+      sol_en:"<p><strong>No: the line never exceeds 36&nbsp;m.</strong> Let d<sub>k</sub> = x<sub>k</sub> &minus; x<sub>k+1</sub> be the gaps (k = 1,&hellip;,8). After every beat d<sub>8</sub> = 1, so only 7 degrees of freedom d<sub>1</sub>,&hellip;,d<sub>7</sub> remain, all equal to 1 at the start. Since each musician moves after the one ahead and before the one behind, one beat acts as</p><p style=\"text-align:center\">d<sub>1</sub>&prime; = &frac12;(1 + d<sub>1</sub> + d<sub>2</sub>), &nbsp;&nbsp; d<sub>k</sub>&prime; = &frac12;(d<sub>k&minus;1</sub>&prime; + d<sub>k+1</sub>) &nbsp;(k = 2,&hellip;,7).</p><p>At the fixed point d<sub>1</sub> &minus; d<sub>2</sub> = 1 and every gap is the mean of its neighbours, so d<sub>1</sub>,&hellip;,d<sub>8</sub> form an arithmetic progression with step &minus;1 ending at d<sub>8</sub> = 1: d<sub>k</sub>* = 9 &minus; k, hence L* = 8 + 7 + &hellip; + 1 = <strong>36&nbsp;m</strong>.</p><p>All coefficients of the map are non-negative, so it preserves order: if d &le; d* componentwise, then d&prime; &le; d* too. We start from (1,&hellip;,1) &le; d*, so the length grows towards 36&nbsp;m but never passes it, let alone 42&nbsp;m.</p>",
+      sol_it:"<p><strong>No: la fila non supera mai i 36&nbsp;m.</strong> Siano d<sub>k</sub> = x<sub>k</sub> &minus; x<sub>k+1</sub> le distanze (k = 1,&hellip;,8). Dopo ogni colpo d<sub>8</sub> = 1, quindi restano 7 gradi di libertà d<sub>1</sub>,&hellip;,d<sub>7</sub>, tutti inizialmente pari a 1. Poiché ogni musicista si sposta dopo quello che lo precede e prima di quello che lo segue, un colpo agisce come</p><p style=\"text-align:center\">d<sub>1</sub>&prime; = &frac12;(1 + d<sub>1</sub> + d<sub>2</sub>), &nbsp;&nbsp; d<sub>k</sub>&prime; = &frac12;(d<sub>k&minus;1</sub>&prime; + d<sub>k+1</sub>) &nbsp;(k = 2,&hellip;,7).</p><p>Nel punto fisso d<sub>1</sub> &minus; d<sub>2</sub> = 1 e ogni distanza è la media delle vicine, quindi d<sub>1</sub>,&hellip;,d<sub>8</sub> sono in progressione aritmetica di ragione &minus;1 che termina con d<sub>8</sub> = 1: d<sub>k</sub>* = 9 &minus; k, e L* = 8 + 7 + &hellip; + 1 = <strong>36&nbsp;m</strong>.</p><p>I coefficienti della mappa sono tutti non negativi, quindi essa preserva l&rsquo;ordine: se d &le; d* componente per componente, anche d&prime; &le; d*. Si parte da (1,&hellip;,1) &le; d*, quindi la lunghezza cresce verso 36&nbsp;m senza mai superarli, e tanto meno i 42&nbsp;m.</p>" },
     { id:"2026-07", level:"★★☆",
       title_en:"The broken stick", title_it:"Il bastoncino spezzato",
       stmt_en:"<p>A stick is broken at two points chosen independently and uniformly along its length. What is the probability that the three resulting pieces can be arranged into a triangle?</p>",
