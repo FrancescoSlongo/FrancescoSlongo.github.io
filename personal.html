@@ -1351,7 +1351,7 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
   })();
 
   /* ============================ BEHIND THE SCENES ============================ */
-  /* Photos load from Extra_pictures/: 1.jpg (oldest) .. N.jpg (newest).
+  /* Photos load from Extra_pictures/: 1.jpg (oldest) .. N.jpg (newest); .jpeg also works.
      Captions come from Extra_pictures/captions_en.txt and captions_it.txt (one caption per line, same order). */
   (function(){
     const chain=document.getElementById("btsChain"); if(!chain) return;
@@ -1374,7 +1374,10 @@ details[open]>.tm-fold-h .tm-chev{transform:rotate(45deg)}
       el.setAttribute("aria-label",(lang==="it"?p.cap_it:p.cap_en)||"photo");
       const ph=document.createElement("div"); ph.className="ph"; const s=document.createElement("span"); s.textContent="photo"; ph.appendChild(s);
       const img=document.createElement("img"); img.alt=""; img.src=p.src; img.style.display="none";
-      img.onload=()=>{img.style.display="block";}; img.onerror=()=>{img.style.display="none";};
+      // try .jpg, then .jpeg (and upper-case variants); remember whichever loads so the lightbox uses it
+      const exts=[".jpg",".jpeg",".JPG",".JPEG"], base=p.src.replace(/\.(jpe?g)$/i,""); let k=0;
+      img.onload=()=>{img.style.display="block"; p.src=img.src;};
+      img.onerror=()=>{ k++; if(k<exts.length){ img.src=base+exts[k]; } else { img.style.display="none"; } };
       el.append(ph,img); el.addEventListener("click",()=>openLB(p)); return el;
     }
     /* lay the newest 10 photos out as a relaxed self-avoiding polymer chain, bonds drawn behind */
